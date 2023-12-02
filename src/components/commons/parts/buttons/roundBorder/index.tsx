@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import { mq } from "../../../../../commons/libraries/breakPoints";
+import { IButtonProps } from "../types";
 
 const Button = styled.button<{
   background: string;
   border: string;
 }>`
-  padding: 16px 24px;
-  height: 50px;
+  padding: 16px 20px;
+  height: 40px;
   border: none;
   border: ${props => props.border};
   border-radius: 25px;
@@ -22,7 +23,7 @@ const Image = styled.img`
   height: 2.4rem;
   margin-right: 8px;
 
-  ${mq.mobile} {
+  ${mq.small} {
     width: 1.8rem;
     height: auto;
   }
@@ -34,7 +35,7 @@ const Text = styled.span<{
   color: ${props => props.color};
 `;
 
-export default function RoundBorderButton(props) {
+export default function RoundBorderButton(props: IButtonProps) {
   return (
     <Button
       type={props.type}

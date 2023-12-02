@@ -5,35 +5,41 @@ import { mq } from "../../../../commons/libraries/breakPoints";
 export const Wrapper = styled.header<{
   ishover: number;
   iswhite: number;
+  isFullNavOn: number;
 }>`
   width: 100%;
   background: ${props =>
-    props.ishover || props.iswhite
+    props.ishover || props.iswhite || props.isFullNavOn
       ? "#fff"
       : "linear-gradient(180deg,rgba(51, 51, 51, 0.3) 0%,rgba(51, 51, 51, 0) 100% );"};
-  position: ${props => (props.iswhite ? "relative" : "fixed")};
+  position: ${props => (props.iswhite ? "sticky" : "fixed")};
   top: 0;
   z-index: 9999;
   border-bottom: ${props =>
-    props.ishover || props.iswhite ? "1px solid #d9d9d9" : ""};
+    props.ishover || props.iswhite || props.isFullNavOn
+      ? "1px solid #d9d9d9"
+      : ""};
   overflow: ${props => (props.ishover ? "visible" : "hidden")};
+  transition: background-color 0.2s ease;
+  padding-right: ${props => (props.isFullNavOn ? "15px" : "0")};
 `;
 export const Container = styled.div`
   width: 1620px;
+  padding: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
 
-  ${mq.pc} {
+  ${mq.XXlarge} {
     width: 100%;
-    padding: 0 80px;
+    padding: 0 40px;
   }
 `;
 export const Logo = styled.img`
   display: block;
-  height: 20px;
-  width: auto;
+  height: 18px;
+  margin: 31px 0;
 `;
 export const NavBox = styled.ul`
   display: flex;
@@ -49,6 +55,10 @@ export const NavList = styled.li`
     & > a::after {
       width: 100%;
     }
+  }
+
+  ${mq.Xlarge} {
+    margin-left: 30px;
   }
 `;
 export const NavItem = styled.a<{
@@ -86,12 +96,16 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const LoupeIcon = styled(FontAwesomeIcon)<{
+export const LoupeIcon = styled.i<{
   ishover: number;
   iswhite: number;
+  isFullNavOn: number;
 }>`
+  display: block;
   font-size: 2.4rem;
-  color: ${props => (props.ishover || props.iswhite ? "#222" : "#fff")};
+  line-height: 2.4rem;
+  color: ${props =>
+    props.ishover || props.iswhite || props.isFullNavOn ? "#222" : "#fff"};
 `;
 export const Bg = styled.div<{
   isBgOn: boolean;
@@ -118,16 +132,126 @@ export const SubNavBox = styled.ul<{
 `;
 export const SubNavList = styled.li`
   margin-top: 20px;
+
   &:first-of-type {
     margin-top: 0;
   }
 `;
 export const SubNavItem = styled.a`
   display: block;
-  color: #666;
+  font-size: 1.8rem;
+  color: #333;
   cursor: pointer;
   &:hover {
-    color: #222;
+    color: #111;
     font-weight: 600;
+  }
+`;
+export const NavButton = styled.div`
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background-color: #111;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+export const Line = styled.div<{
+  isOpen?: boolean;
+}>`
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  transition: transform 0.2s ease-in-out;
+  &.line1 {
+    width: 8px;
+    transform-origin: 0% 0%;
+    transform: ${props => (props.isOpen ? "rotate(45deg)" : "rotate(0)")};
+  }
+  &.line2 {
+    transform: ${props => (props.isOpen ? "scaleY(0)" : "scaleY(1)")};
+  }
+  &.line3 {
+    width: 12px;
+    transform-origin: 0% 100%;
+    transform: ${props => (props.isOpen ? "rotate(-45deg)" : "rotate(0)")};
+  }
+`;
+export const FullNav = styled.div<{
+  isFullNavOn: number;
+}>`
+  opacity: ${props => (props.isFullNavOn ? "1" : "0")};
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: ${props => (props.isFullNavOn ? "9998" : "-9999")};
+  padding: 0 40px;
+  background-color: rgba(6, 6, 6, 0.5);
+  backdrop-filter: blur(30px);
+  transition: all 0.3s ease-in-out;
+`;
+export const FullNavBox = styled.ul`
+  width: 100%;
+`;
+export const FullNavList = styled.li`
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 0;
+  cursor: pointer;
+
+  &:hover {
+    & > a::after {
+      width: 100%;
+    }
+  }
+`;
+export const FullNavItem = styled.a`
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 6px;
+    background: rgba(175, 56, 50, 0.7);
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    z-index: -99;
+    transition: all ease-in-out 0.3s;
+  }
+`;
+export const FullSubNavBox = styled.ul`
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    height: 144px;
+  }
+`;
+export const FullSubNavList = styled.li`
+  &:first-of-type {
+    margin-top: 30px;
+  }
+`;
+export const FullSubNavItem = styled.a`
+  display: block;
+  color: #fff;
+  opacity: 0.2;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  padding: 10px 20px;
+  transition: all 0.4s ease-in-out;
+  transition-delay: 0.12s;
+
+  &:hover {
+    opacity: 1;
   }
 `;

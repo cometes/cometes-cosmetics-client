@@ -10,7 +10,20 @@ export const navItem = [
   },
   {
     title: "PRODUCTS",
-    sub: ["립", "아이", "페이스"]
+    sub: [
+      {
+        title: "립",
+        url: ""
+      },
+      {
+        title: "아이",
+        url: ""
+      },
+      {
+        title: "페이스",
+        url: ""
+      }
+    ]
   },
   {
     title: "ABOUT",
@@ -18,7 +31,11 @@ export const navItem = [
   },
   {
     title: "MY M·A·C",
-    sub: ["장바구니", "포인트", "주문내역"]
+    sub: [
+      { title: "장바구니", url: "/mypage/cart/" },
+      { title: "포인트", url: "/mypage/point/" },
+      { title: "주문내역", url: "/mypage/order/list" }
+    ]
   }
 ];
 

@@ -14,7 +14,7 @@ export const Logo = styled.img`
   display: block;
   width: 20rem;
 
-  ${mq.mobile} {
+  ${mq.small} {
     width: 18rem;
   }
 `;

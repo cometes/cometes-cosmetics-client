@@ -1,12 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
-  margin-top: 80px;
-`;
-export const Container = styled.div`
-  width: 800px;
-  margin: 0 auto;
-`;
 export const TabWrap = styled.div`
   display: flex;
   justify-content: center;
@@ -16,8 +9,8 @@ export const TabWrap = styled.div`
   }
 `;
 export const PointWrap = styled.div`
-  padding: 40px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 6px;
   background-color: #f7f7f7;
   display: flex;
   justify-content: space-between;
@@ -28,8 +21,8 @@ export const PointText = styled.p`
 `;
 export const PointAmount = styled.p`
   margin-top: 16px;
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 500;
 `;
 export const PointMark = styled.span`
   font-size: 2.4rem;
@@ -41,20 +34,20 @@ export const ListWrap = styled.ul`
 `;
 export const ListBox = styled.li`
   border: 1px solid #d7d7d7;
-  border-radius: 8px 8px 0 0;
+  border-radius: 6px 6px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 24px;
 
   &:first-of-type {
-    border-radius: 8px 8px 0 0;
+    border-radius: 6px 6px 0 0;
   }
   &:last-of-type {
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 6px 6px;
   }
   &:only-child {
-    border-radius: 8px;
+    border-radius: 6px;
   }
   &:not(:first-of-type) {
     margin-top: -1px;
@@ -71,11 +64,11 @@ export const Date = styled.p`
 export const Payment = styled.p`
 `;
 export const Amount = styled.p`
-  font-size: 3rem;
-  margin-top: 24px;
+  font-size: 2.4rem;
+  margin-top: 20px;
 `;
 export const Currency = styled.span`
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin-left: 6px;
 `;
 export const ListRight = styled.div``;

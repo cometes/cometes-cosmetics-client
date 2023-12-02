@@ -4,6 +4,14 @@ import { mq } from "../libraries/breakPoints";
 export const globalStyle = css`
   @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
   @import url("https://webfontworld.github.io/amore/AritaBuri.css");
+  @import url("https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+  }
 
   html {
     font-size: 62.5%;
@@ -12,13 +20,6 @@ export const globalStyle = css`
     font-family: "Pretendard";
     font-size: 1.6rem;
     letter-spacing: -0.03em;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
   }
 
   a {

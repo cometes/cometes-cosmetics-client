@@ -1,17 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
-  margin-top: 80px;
-`;
-export const Container = styled.div`
-  width: 800px;
-  margin: 0 auto;
-`;
 export const SectionWrap = styled.section`
   display: flex;
   margin-top: 80px;
   &:first-of-type {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 `;
 export const SectionTitle = styled.p`
@@ -153,8 +146,18 @@ export const AgreeText = styled.p`
 export const SubmitButtonWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 50px 0;
 `;
 export const SubmitButtonBox = styled.div`
   width: 240px;
+`;
+export const NoteBox = styled.ul``;
+export const NoteList = styled.li`
+  color: #a1a1a1;
+  font-size: 1.2rem;
+  list-style: disc;
+  margin-bottom: 10px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;

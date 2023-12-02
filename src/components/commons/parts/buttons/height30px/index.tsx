@@ -7,11 +7,12 @@ const Button = styled.button<{
   border: string;
 }>`
   width: 100%;
-  height: 50px;
+  height: 30px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   background-color: ${props => props.background};
+  border: ${props => props.border};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,19 +32,19 @@ const Text = styled.span<{
   color: string;
 }>`
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #999;
   color: ${props => props.color};
 
   ${mq.small} {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 `;
 
-export default function ButtonHeight50px(props: IButtonProps) {
+export default function ButtonHeight30px(props: IButtonProps) {
   return (
     <Button
-      type={props.type}
+      type={props.type ?? "button"}
       onClick={props.onClick}
       background={props.background}
       border={props.border}

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { mq } from "../../../../../commons/libraries/breakPoints";
+import { IButtonProps } from "../types";
 
 const Button = styled.button<{
   background: string;
@@ -22,7 +23,7 @@ const Image = styled.img`
   height: 2.4rem;
   margin-right: 8px;
 
-  ${mq.mobile} {
+  ${mq.small} {
     width: 1.8rem;
     height: auto;
   }
@@ -31,16 +32,16 @@ const Text = styled.span<{
   color: string;
 }>`
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #999;
   color: ${props => props.color};
 
-  ${mq.mobile} {
-    font-size: 1.2rem;
+  ${mq.small} {
+    font-size: 1.4rem;
   }
 `;
 
-export default function ButtonHeight40px(props) {
+export default function ButtonHeight40px(props: IButtonProps) {
   return (
     <Button
       type={props.type ?? "button"}
