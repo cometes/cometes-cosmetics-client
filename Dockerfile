@@ -1,4 +1,4 @@
-FROM node:17
+FROM node:18
 
 COPY ./package.json /maccosmetics/
 COPY ./yarn.lock /maccosmetics/
