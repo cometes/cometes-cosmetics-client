@@ -80,3 +80,36 @@ export const AsideText = styled.p`
   }
 `;
 export const AsidePrice = styled.div``;
+export const ProductBox = styled.div`
+  padding: 20px;
+`;
+export const FlexBox = styled.div`
+  display: flex;
+  margin-top: 30px;
+  &:first-of-type {
+    margin-top: 0;
+  }
+`;
+export const ProductDesc = styled.span`
+  display: block;
+  width: 100px;
+  color: #8f8f8f;
+`;
+export const CompleteWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const CompleteMessage = styled.h2`
+  font-size: 3.2rem;
+  font-weight: 500;
+`;
+export const CompleteNumberBox = styled.div`
+  padding: 12px 20px;
+  border-radius: 30px;
+  background-color: #555;
+  margin-top: 20px;
+`
+export const CompleteNumber = styled.p`
+  color: #fff;
+`

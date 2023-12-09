@@ -1,7 +1,7 @@
 import ButtonHeight50px from "../../../parts/buttons/height50px";
 import { useRouter } from "next/router";
 
-export default function GoogleLoginComponent() {
+export default function GoogleLoginComponent(props) {
   const router = useRouter();
   const redirect_uri = "http://localhost:3000/signup/callback/google";
 
@@ -12,7 +12,9 @@ export default function GoogleLoginComponent() {
   };
   return (
     <ButtonHeight50px
-      content="구글 간편 회원가입하기"
+      content={
+        props.isLogin ? "구글 간편 로그인하기" : "구글 간편 회원가입하기"
+      }
       type="button"
       src="/logo/google.png"
       background="#F7F8FD"

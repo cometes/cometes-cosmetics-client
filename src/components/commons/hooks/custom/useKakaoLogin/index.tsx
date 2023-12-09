@@ -1,7 +1,7 @@
 import ButtonHeight50px from "../../../parts/buttons/height50px";
 import { useRouter } from "next/router";
 
-export default function KakaoLoginComponent() {
+export default function KakaoLoginComponent(props) {
   const router = useRouter();
 
   const redirect_uri = "http://localhost:3000/signup/callback/kakao";
@@ -13,7 +13,11 @@ export default function KakaoLoginComponent() {
 
   return (
     <ButtonHeight50px
-      content="카카오톡 간편 회원가입하기"
+      content={
+        props.isLogin
+          ? "카카오톡 간편 로그인하기"
+          : "카카오톡 간편 회원가입하기"
+      }
       type="button"
       src="/logo/kakao.png"
       background="#fce84d"

@@ -1,8 +1,7 @@
 import ButtonHeight50px from "../../../parts/buttons/height50px";
 import { useRouter } from "next/router";
 
-
-export default function NaverLoginComponent() {
+export default function NaverLoginComponent(props) {
   const router = useRouter();
 
   const clientID = "Q4b7VTXKKO_0D2MvJ5pf";
@@ -16,7 +15,9 @@ export default function NaverLoginComponent() {
 
   return (
     <ButtonHeight50px
-      content="네이버 간편 회원가입하기"
+      content={
+        props.isLogin ? "네이버 간편 로그인하기" : "네이버 간편 회원가입하기"
+      }
       type="button"
       src="/logo/naver.png"
       background="#1EC101"

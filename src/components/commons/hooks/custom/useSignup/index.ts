@@ -50,8 +50,6 @@ export const useSignup = () => {
 
   // =============== 추가정보 제출 버튼 클릭 ===============
   const onClickSubmitSignUp = async data => {
-    console.log(data);
-
     try {
       const result = await axios.post("https://seungwon.shop/user/createUser", {
         email: data.email,
@@ -62,7 +60,7 @@ export const useSignup = () => {
         address: data.address,
         detailAddress: data.detailAddress
       });
-      console.log(result?.data);
+
       storage.setItem("id", result?.data?.data);
       storage.removeItem("phone");
       storage.removeItem("email");

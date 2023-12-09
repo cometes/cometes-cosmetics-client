@@ -4,40 +4,13 @@ import * as S from "./style";
 import * as T from "../../../../commons/parts/table/style";
 import ButtonHeight30px from "../../../../commons/parts/buttons/height30px";
 import WrapperWidth800px from "../../../../commons/parts/wrapper/w800";
+import Process from "../../../../commons/parts/process";
 
 export default function OrderList() {
   return (
     <WrapperWidth800px>
       <Title title="마이 쇼핑" />
-      <T.SectionWrap>
-        <T.Subtitle>주문/배송 조회</T.Subtitle>
-        <S.ProcessWrap>
-          <div>
-            <S.ProcessTitle>결제완료</S.ProcessTitle>
-            <S.ProcessText className="active">2</S.ProcessText>
-          </div>
-          <S.ProcessIcon icon={faChevronRight} />
-          <div>
-            <S.ProcessTitle>배송준비</S.ProcessTitle>
-            <S.ProcessText>0</S.ProcessText>
-          </div>
-          <S.ProcessIcon icon={faChevronRight} />
-          <div>
-            <S.ProcessTitle>배송중</S.ProcessTitle>
-            <S.ProcessText>0</S.ProcessText>
-          </div>
-          <S.ProcessIcon icon={faChevronRight} />
-          <div>
-            <S.ProcessTitle>배송완료</S.ProcessTitle>
-            <S.ProcessText>0</S.ProcessText>
-          </div>
-          <S.ProcessIcon icon={faChevronRight} />
-          <div>
-            <S.ProcessTitle>구매확정</S.ProcessTitle>
-            <S.ProcessText>0</S.ProcessText>
-          </div>
-        </S.ProcessWrap>
-      </T.SectionWrap>
+      <Process />
       <T.SectionWrap>
         <T.ProductWrap>
           <T.TableWrap>

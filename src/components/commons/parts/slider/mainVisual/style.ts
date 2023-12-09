@@ -51,7 +51,7 @@ export const SlideItem = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 25% 50%;
 `;
 export const TextBox = styled.div`
   width: 500px;

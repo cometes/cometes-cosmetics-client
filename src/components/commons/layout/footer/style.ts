@@ -1,31 +1,37 @@
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { mq } from "../../../../commons/libraries/breakPoints";
+import { max } from "../../../../commons/libraries/breakPoints";
 
-export const Wrapper = styled.footer`
-  margin-top: 180px;
+export const Wrapper = styled.footer<{
+  isCollection: boolean;
+}>`
+  margin-top: ${props => (props.isCollection ? "0" : "180px")};
   width: 100%;
   padding: 40px 0;
   background-color: #111;
   color: #fff;
+
+  ${max(1215)} {
+    margin-top: 180px;
+  }
 `;
 export const Container = styled.div`
   width: 1620px;
   margin: 0 auto;
   padding: 0 80px;
 
-  ${mq.XXlarge} {
+  ${max(1635)} {
     width: 100%;
     padding: 0 40px;
   }
-  ${mq.medium} {
+  ${max(815)} {
   }
 `;
 export const FooterTop = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 40px;
-  ${mq.medium} {
+  ${max(815)} {
     flex-direction: column-reverse;
   }
 `;
@@ -33,7 +39,7 @@ export const FlexBox = styled.div`
   display: flex;
 `;
 export const FooterContentBox = styled.div`
-  ${mq.medium} {
+  ${max(815)} {
     margin-top: 40px;
   }
 `;
@@ -44,10 +50,10 @@ export const FooterTitle = styled.p`
   &.cs {
     text-decoration: underline;
   }
-  ${mq.w1000} {
+  ${max(1015)} {
     font-size: 2rem;
   }
-  ${mq.medium} {
+  ${max(815)} {
     font-size: 1.6rem;
   }
 `;
@@ -69,7 +75,7 @@ export const FooterBottom = styled.div`
   justify-content: space-between;
   padding-top: 40px;
 
-  ${mq.medium} {
+  ${max(815)} {
     flex-direction: column-reverse;
   }
 `;
@@ -88,7 +94,7 @@ export const FooterIcon = styled(FontAwesomeIcon)`
     margin-left: 0;
   }
 
-  ${mq.w1000} {
+  ${max(1015)} {
     font-size: 2.4rem;
   }
 `;

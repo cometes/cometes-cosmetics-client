@@ -1,27 +1,26 @@
 import styled from "@emotion/styled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { mq } from "../../../../commons/libraries/breakPoints";
+import { max, min } from "../../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.header<{
   ishover: number;
   iswhite: number;
   isFullNavOn: number;
+  isSearchOn: number;
 }>`
   width: 100%;
   background: ${props =>
-    props.ishover || props.iswhite || props.isFullNavOn
+    props.ishover || props.iswhite || props.isFullNavOn || props.isSearchOn
       ? "#fff"
       : "linear-gradient(180deg,rgba(51, 51, 51, 0.3) 0%,rgba(51, 51, 51, 0) 100% );"};
   position: ${props => (props.iswhite ? "sticky" : "fixed")};
   top: 0;
   z-index: 9999;
   border-bottom: ${props =>
-    props.ishover || props.iswhite || props.isFullNavOn
+    props.ishover || props.iswhite || props.isFullNavOn || props.isSearchOn
       ? "1px solid #d9d9d9"
       : ""};
   overflow: ${props => (props.ishover ? "visible" : "hidden")};
   transition: background-color 0.2s ease;
-  padding-right: ${props => (props.isFullNavOn ? "15px" : "0")};
 `;
 export const Container = styled.div`
   width: 1620px;
@@ -31,7 +30,7 @@ export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
 
-  ${mq.XXlarge} {
+  ${max(1635)} {
     width: 100%;
     padding: 0 40px;
   }
@@ -40,6 +39,14 @@ export const Logo = styled.img`
   display: block;
   height: 18px;
   margin: 31px 0;
+`;
+export const NavWrap = styled.nav`
+  ${max(1000)} {
+    display: none;
+  }
+  ${min(1000)} {
+    display: block;
+  }
 `;
 export const NavBox = styled.ul`
   display: flex;
@@ -56,18 +63,36 @@ export const NavList = styled.li`
       width: 100%;
     }
   }
+  &.max1000 {
+    ${max(1000)} {
+      display: none;
+    }
+    ${min(1000)} {
+      display: block;
+    }
+  }
+  &.min1000 {
+    ${max(1000)} {
+      display: block;
+    }
+    ${min(1000)} {
+      display: none;
+    }
+  }
 
-  ${mq.Xlarge} {
+  ${max(1440)} {
     margin-left: 30px;
   }
 `;
 export const NavItem = styled.a<{
   ishover: number;
   iswhite: number;
+  isSearchOn: number;
 }>`
   display: block;
   line-height: 1.6rem;
-  color: ${props => (props.ishover || props.iswhite ? "#222" : "#fff")};
+  color: ${props =>
+    props.ishover || props.iswhite || props.isSearchOn ? "#222" : "#fff"};
   text-align: center;
   cursor: pointer;
   margin: 32px 0;
@@ -100,12 +125,15 @@ export const LoupeIcon = styled.i<{
   ishover: number;
   iswhite: number;
   isFullNavOn: number;
+  isSearchOn: number;
 }>`
   display: block;
   font-size: 2.4rem;
   line-height: 2.4rem;
   color: ${props =>
-    props.ishover || props.iswhite || props.isFullNavOn ? "#222" : "#fff"};
+    props.ishover || props.iswhite || props.isFullNavOn || props.isSearchOn
+      ? "#222"
+      : "#fff"};
 `;
 export const Bg = styled.div<{
   isBgOn: boolean;
