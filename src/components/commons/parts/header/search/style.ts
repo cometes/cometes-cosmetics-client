@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { max } from "../../../../commons/libraries/breakPoints";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.div<{
   isSearchOn: number;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9998;
+  z-index: 998;
   width: 100%;
   background: rgba(247, 247, 247, 0.85);
   backdrop-filter: blur(12px);

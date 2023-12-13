@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
 import { max, min } from "../../../../../commons/libraries/breakPoints";
 
-export const VideoSection = styled.section`
+export const VideoSection = styled.section<{
+  margin: string;
+}>`
   overflow: hidden;
   padding: 100px 0;
   background-color: #f7f7f7;
+  margin: ${props => props.margin};
 
   ${max(1420)} {
     padding: 40px 0;

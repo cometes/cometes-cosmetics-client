@@ -1,6 +1,4 @@
 import * as S from "./style";
-import * as C from "../style";
-import { useCallback, useRef } from "react";
 import CollectionVideo from "../../slider/collection/video";
 import ArrowWrap from "./arrow";
 import { useSlickArrow } from "../../../hooks/custom/useSlickArrow";
@@ -9,7 +7,7 @@ export default function CollectionVideoWrap(props) {
   const { previous, next, sliderRef } = useSlickArrow();
 
   return (
-    <S.VideoSection>
+    <S.VideoSection margin={props.margin}>
       <S.Container>
         <S.VideoWrap>
           <S.VideoLeft>

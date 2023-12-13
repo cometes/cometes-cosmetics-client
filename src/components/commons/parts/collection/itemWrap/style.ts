@@ -25,7 +25,7 @@ export const GridWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 80px 12px;
-  margin: 80px 0;
+  margin-top: 40px;
 
   ${max(506)} {
     grid-template-columns: 1fr 1fr;

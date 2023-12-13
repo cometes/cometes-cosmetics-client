@@ -3,7 +3,7 @@ import * as T from "../table/style";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useMoveToPage } from "../../hooks/custom/useMoveToPage";
 
-export default function Process(props: { active: boolean }) {
+export default function Process(props: { active?: boolean }) {
   const { onClickMoveToPage } = useMoveToPage();
   return (
     <T.SectionWrap className="mTop50">

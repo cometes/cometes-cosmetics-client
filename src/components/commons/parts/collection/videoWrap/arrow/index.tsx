@@ -8,7 +8,7 @@ export const ArrowBox = styled.div<{
   margin-bottom: 10px;
   justify-content: ${props => (props.item ? "flex-end" : "")};
 
-  & button:last-child {
+  & button:last-of-type {
     margin-left: 20px;
   }
 

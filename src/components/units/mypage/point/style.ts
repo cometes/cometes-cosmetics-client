@@ -46,7 +46,7 @@ export const ListBox = styled.li`
   &:last-of-type {
     border-radius: 0 0 6px 6px;
   }
-  &:only-child {
+  &:only-of-type {
     border-radius: 6px;
   }
   &:not(:first-of-type) {

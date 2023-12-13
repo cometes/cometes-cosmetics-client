@@ -1,42 +1,52 @@
 // header
-export const navItem = [
+
+export const NavNewItem = [
   {
-    title: "WHAT'S NEW",
-    sub: []
+    img: "/collection/holiday/holiday-vertical1.webp",
+    title: "2023 맥 홀리데이 컬렉션",
+    content:
+      "새하얀 눈과 얼음으로 뒤덮여 보석처럼 반짝이는 은빛의 한정판 컬렉션",
+    url: "/collections/mac-2023-holiday/"
   },
   {
-    title: "BEST",
-    sub: []
+    img: "/collection/lisa/lisa-vertical4.webp",
+    title: "MAC X L 컬렉션",
+    content: "리사가 좋아하는 맥 아이템으로 가득한 새로운 리미티드 컬렉션",
+    url: "/collections/mac-lisa/"
   },
   {
-    title: "PRODUCTS",
-    sub: [
-      {
-        title: "립",
-        url: ""
-      },
-      {
-        title: "아이",
-        url: ""
-      },
-      {
-        title: "페이스",
-        url: ""
-      }
+    img: "/collection/lunar/lunar-vertical.webp",
+    title: "맥 루나 뉴이어 컬렉션",
+    content:
+      "흑호랑이의 해를 맞이하여, 행운과 강인한 기운을 선사할 2022 맥 루나 뉴이어 컬렉션",
+    url: "/collections/lunar-luck/"
+  }
+];
+
+export const NavProductsItem = [
+  {
+    title: "립",
+    content: ["전체보기", "립스틱", "리퀴드 립", "립밤"]
+  },
+  {
+    title: "아이",
+    content: [
+      "전체보기",
+      "싱글섀도우",
+      "아이팔레트",
+      "아이라이너",
+      "아이브로우"
     ]
   },
   {
-    title: "ABOUT",
-    url: "/about/",
-    sub: []
-  },
-  {
-    title: "MY M·A·C",
-    url: "/mypage/",
-    sub: [
-      { title: "장바구니", url: "/mypage/cart/" },
-      { title: "포인트", url: "/mypage/point/" },
-      { title: "주문내역", url: "/mypage/order/list" }
+    title: "페이스",
+    content: [
+      "전체보기",
+      "파운데이션·쿠션",
+      "프라이머",
+      "파우더",
+      "블러셔",
+      "하이라이터"
     ]
   }
 ];
@@ -91,13 +101,12 @@ export const mainVisualItem = [
 // collection - lisa
 export const collectionLisa = {
   aside: [
-    "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-vertical.webp",
-    "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look1.webp",
-    "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look2.webp",
-    "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look3.webp"
+    "/collection/lisa/lisa-vertical.webp",
+    "/collection/lisa/lisa-vertical2.webp",
+    "/collection/lisa/lisa-vertical3.webp",
+    "/collection/lisa/lisa-vertical4.webp"
   ],
-  horizontal:
-    "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-horizontal.webp",
+  horizontal: "/collection/lisa/lisa-horizontal.webp",
   color: "#151540",
   main: {
     mainTitle: "리사로부터 시작된 컬렉션",
@@ -123,13 +132,12 @@ export const collectionLisa = {
     ]
   },
   flex: {
-    mainImg:
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-main.webp",
+    mainImg: "/collection/lisa/lisa-main.webp",
     flexImg: [
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-eye2.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-eye.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-lip.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-lip2.webp"
+      "/collection/lisa/lisa-eye2.webp",
+      "/collection/lisa/lisa-eye.webp",
+      "/collection/lisa/lisa-lip.webp",
+      "/collection/lisa/lisa-lip2.webp"
     ],
     itemWrap: [
       {
@@ -145,8 +153,7 @@ export const collectionLisa = {
     ]
   },
   banner: {
-    bannerImg:
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-item.webp",
+    bannerImg: "/collection/lisa/lisa-item.webp",
     bannerTitle: "리사가 가장 사랑하는 것에 대한 이야기",
     bannerContent:
       "리사가 가장 좋아하는 꽃인 에델바이스의 문양이 각인된 하이라이터에서부터 그녀의 무대 위, 데일리 메이크업에서 빠질 수 없는 아이라이너까지… 그녀가 가장 사랑하는 것에 대한 이야기를 어떻게 담아냈는지 맥과 리사가 함께한 최초의 메이크업 컬렉션, 맥 바이 엘 컬렉션에서 만나보세요.",
@@ -162,16 +169,16 @@ export const collectionLisa = {
     lookbookTitleB: "LOOK",
     lookbookDeco: "#9d78c3",
     lookBookL: {
-      img: "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look2.webp",
+      img: "/collection/lisa/lisa-look2.webp",
       sloganT: "LISA’S",
       sloganB: "SIGNATURE"
     },
     lookBookRT: {
-      img: "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look3.webp",
+      img: "/collection/lisa/lisa-look3.webp",
       slogan: "ombre lip"
     },
     lookBookRB: {
-      img: "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-look1.webp",
+      img: "/collection/lisa/lisa-look1.webp",
       slogan: "cats-eye look"
     }
   },
@@ -205,9 +212,9 @@ export const collectionLisa = {
     videoContent:
       "리사의 뷰티 그리고 그 너머의 세계에 대한 더 많은 이야기를 영상을 통해 확인해보세요.",
     videoItem: [
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-video1.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-video2.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/lisa/lisa-video3.webp"
+      "/collection/lisa/lisa-video2.webp",
+      "/collection/lisa/lisa-video1.webp",
+      "/collection/lisa/lisa-video3.webp"
     ]
   }
 };
@@ -215,13 +222,12 @@ export const collectionLisa = {
 // lunar
 export const collectionLunar = {
   aside: [
-    "https://storage.googleapis.com/cometes-storage/collection/lunar/lunar-vertical.webp",
-    "https://storage.googleapis.com/cometes-storage/gallery/LIP/lunar/liquid/lunar1.jpg",
-    "https://storage.googleapis.com/cometes-storage/gallery/EYE/lunar/lunar1.jpg",
-    "https://storage.googleapis.com/cometes-storage/gallery/LIP/lunar/lipstick/lunar1.jpg"
+    "/collection/lunar/lunar-vertical.webp",
+    "/collection/lunar/lunar-vertical2.jpg",
+    "/collection/lunar/lunar-vertical3.jpg",
+    "/collection/lunar/lunar-vertical4.jpg"
   ],
-  horizontal:
-    "https://storage.googleapis.com/cometes-storage/collection/lunar/lunar-horizontal.webp",
+  horizontal: "/collection/lunar/lunar-horizontal.webp",
   color: "#222",
   main: {
     mainTitle: "행운과 강인한 기운을 선사할 컬렉션 ‘루나 럭’",
@@ -250,12 +256,11 @@ export const collectionLunar = {
 // holiday
 export const collectionHoliday = {
   aside: [
-    "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-vertical1.webp",
-    "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-vertical2.webp",
-    "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-vertical3.webp"
+    "/collection/holiday/holiday-vertical1.webp",
+    "/collection/holiday/holiday-vertical2.webp",
+    "/collection/holiday/holiday-vertical3.webp"
   ],
-  horizontal:
-    "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-horizontal.webp",
+  horizontal: "/collection/holiday/holiday-horizontal.webp",
   color: "#222",
   main: {
     mainSubTitle: "신비로운 눈보라가 흩날리는 윈터 원더랜드",
@@ -295,8 +300,9 @@ export const collectionHoliday = {
     videoContent:
       "알프스 산맥 정상의 반짝이는 눈에서 영감 받아 탄생한 은빛 패키지의 맥 홀리데이 컬렉션을 영상을 통해 확인해보세요.",
     videoItem: [
-      "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-video.webp",
-      "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-video2.webp"
+      "/collection/holiday/holiday-video1.webp",
+      "/collection/holiday/holiday-video2.webp",
+      "/collection/holiday/holiday-video3.webp"
     ]
   }
 };
@@ -304,24 +310,160 @@ export const collectionHoliday = {
 // help
 export const helpArr = [
   {
-    img: "https://storage.googleapis.com/cometes-storage/collection/help/help1.webp",
+    img: "/collection/help/help1.webp",
     title: "공식몰 단독",
     content: "첫 구매 고객 15% 할인",
     textBtn: "회원가입 하기",
     url: "/signup"
   },
   {
-    img: "https://storage.googleapis.com/cometes-storage/collection/help/help2.webp",
+    img: "/collection/help/help2.webp",
     title: "버츄얼 트라이 온",
     content: "피부톤에 딱 맞는 새로운 립을 찾아보세요!",
     textBtn: "메이크업 체험하기",
     url: ""
   },
   {
-    img: "https://storage.googleapis.com/cometes-storage/collection/help/help3.webp",
+    img: "/collection/help/help3.webp",
     title: "무료 배송",
     content: "구매 금액 상관 없이 전 품목 무료 배송",
     textBtn: "베스트 아이템 보러가기",
     url: ""
   }
 ];
+
+export const arr = [
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%20%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%B8%94%EB%9F%AC%20%EB%A6%BD%EC%8A%A4%ED%8B%B1.png",
+    title: "파우더 키스 벨벳 블러 슬림 스틱 / 맥 2023 홀리데이"
+  },
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%ED%94%BC%EC%A7%80%ED%95%84%EC%8A%A4%20%EB%A6%BD%EB%B0%A4.png",
+    title: "피지 필스 립 밤 / 맥 2023 홀리데이"
+  },
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%20%EC%8A%A4%ED%80%84%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
+    title: "스퀄 골스 아이 섀도우 팔레트 X 6 / 맥 2023 홀리데이"
+  },
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%20%EC%8A%A4%ED%8C%8C%ED%81%B4%EB%9F%AC%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
+    title: "스파클러 아이 섀도우 / 맥 2023 홀리데이"
+  },
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EC%97%91%EC%84%B8%EC%8A%A4.png",
+    title: "컬러 엑세스 젤 펜슬 아이라이너 / 맥 2023 홀리데이"
+  },
+  {
+    img: "https://storage.googleapis.com/cometes-storage/thumbnail/FACE/%ED%99%80%EB%A6%AC%EB%8D%B0%EC%9D%B4%20%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%94%94%EB%A9%98%EC%85%98.png",
+    title: "엑스트라 디멘션 스킨피니쉬 / 맥 2023 홀리데이"
+  }
+];
+
+// lip
+export const lipArr = {
+  img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%BD%EC%8A%A4%ED%8B%B1.png",
+  tag: ["가볍보송", "매트착붙", "블러연출"],
+  title: "파우더 키스 립스틱",
+  color: [
+    {
+      name: "멀 잇 오버",
+      desc: "더티 피치",
+      code: "#c76864",
+      category: "핑크",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EB%A9%80%20%EC%9E%87%20%EC%98%A4%EB%B2%84.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EB%A9%80%20%EC%9E%87%20%EC%98%A4%EB%B2%84.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EB%A9%80%20%EC%9E%87%20%EC%98%A4%EB%B2%84.jpg"
+    },
+    {
+      name: "디보티드 투 칠리",
+      desc: "웜 브릭 레드",
+      code: "#af3832",
+      category: "레드",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EB%94%94%EB%B3%B4%ED%8B%B0%EB%93%9C%20%ED%88%AC%20%EC%B9%A0%EB%A6%AC.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EB%94%94%EB%B3%B4%ED%8B%B0%EB%93%9C%20%ED%88%AC%20%EC%B9%A0%EB%A6%AC.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EB%94%94%EB%B3%B4%ED%8B%B0%EB%93%9C%20%ED%88%AC%20%EC%B9%A0%EB%A6%AC.jpg"
+    },
+    {
+      name: "만다린 오",
+      desc: "밝은 크리미한 살몬핑크",
+      code: "#e43d45",
+      category: "코랄",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EB%A7%8C%EB%8B%A4%EB%A6%B0%20%EC%98%A4.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EB%A7%8C%EB%8B%A4%EB%A6%B0%20%EC%98%A4.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EB%A7%8C%EB%8B%A4%EB%A6%B0%20%EC%98%A4.jpg"
+    },
+    {
+      name: "스테이 큐리어스",
+      desc: "차분한 핑크 레드",
+      code: "#ba3a39",
+      category: "레드",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EC%8A%A4%ED%85%8C%EC%9D%B4%20%ED%81%90%EB%A6%AC%EC%96%B4%EC%8A%A4.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EC%8A%A4%ED%85%8C%EC%9D%B4%20%ED%81%90%EB%A6%AC%EC%96%B4%EC%8A%A4.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%8A%A4%ED%85%8C%EC%9D%B4%20%ED%81%90%EB%A6%AC%EC%96%B4%EC%8A%A4.jpg"
+    },
+    {
+      name: "어 리틀 템드",
+      desc: "중간 톤 핑크",
+      code: "#c13d4a",
+      category: "핑크",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EC%96%B4%20%EB%A6%AC%ED%8B%80%20%ED%85%9C%EB%93%9C.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EC%96%B4%20%EB%A6%AC%ED%8B%80%20%ED%85%9C%EB%93%9C.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%96%B4%20%EB%A6%AC%ED%8B%80%20%ED%85%9C%EB%93%9C.jpg"
+    },
+    {
+      name: "브릭쓰루",
+      desc: "웜 로즈 레드",
+      code: "#b65451",
+      category: "레드",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EB%B8%8C%EB%A6%AD%EC%93%B0%EB%A3%A8.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EB%B8%8C%EB%A6%AD%EC%93%B0%EB%A3%A8.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EB%B8%8C%EB%A6%AD%EC%93%B0%EB%A3%A8.jpg"
+    },
+    {
+      name: "웍, 웍, 웍",
+      desc: "쿨 레드",
+      code: "#ba0b08",
+      category: "레드",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EC%9B%8D%EC%9B%8D%EC%9B%8D.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EC%9B%8D%EC%9B%8D%EC%9B%8D.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%9B%8D%EC%9B%8D%EC%9B%8D.jpg"
+    },
+    {
+      name: "쉬어 아웃트레지",
+      desc: "자몽 코랄 핑크",
+      code: "#da5751",
+      category: "코랄",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EC%89%AC%EC%96%B4%20%EC%95%84%EC%9B%83%ED%8A%B8%EB%A0%88%EC%A7%80.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EC%89%AC%EC%96%B4%20%EC%95%84%EC%9B%83%ED%8A%B8%EB%A0%88%EC%A7%80.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%89%AC%EC%96%B4%20%EC%95%84%EC%9B%83%ED%8A%B8%EB%A0%88%EC%A7%80.jpg"
+    },
+    {
+      name: "서트리니스",
+      desc: "베이비 핑크",
+      code: "#d87c89",
+      category: "핑크",
+      product:
+        "https://storage.googleapis.com/cometes-storage/product/LIP/powderkissLipstick/powder_%EC%84%9C%ED%8A%B8%EB%A6%AC%EB%8B%88%EC%8A%A4.avif",
+      texture:
+        "https://storage.googleapis.com/cometes-storage/texture/LIP/powderkissLipstick/powder_%EC%84%9C%ED%8A%B8%EB%A6%AC%EB%8B%88%EC%8A%A4.avif",
+      icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%84%9C%ED%8A%B8%EB%A6%AC%EB%8B%88%EC%8A%A4.jpg"
+    }
+  ],
+  price: "39000"
+};

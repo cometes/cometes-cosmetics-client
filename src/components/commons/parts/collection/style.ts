@@ -66,7 +66,7 @@ export const Container = styled.div`
   }
 `;
 export const CollectionSection = styled.section`
-  margin-top: 150px;
+  margin-top: 140px;
 
   &.mTop100 {
     margin-top: 100px;

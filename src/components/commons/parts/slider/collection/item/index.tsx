@@ -46,6 +46,10 @@ const StyledSlider = styled(SliderComponent)<{
     right: 0;
     mask-image: url("/banner/next.svg");
   }
+
+  .slick-slide div {
+    outline: none;
+  }
 `;
 const ItemBox = styled.div`
   padding: 6px;

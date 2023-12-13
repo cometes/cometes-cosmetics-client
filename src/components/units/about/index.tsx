@@ -5,7 +5,7 @@ import * as S from "./style";
 export default function About() {
   return (
     <>
-      <Banner src="https://storage.googleapis.com/cometes-storage/collection/about/about.webp" />
+      <Banner src="/collection/about/about.webp" />
       <WrapperWidth1000px>
         <S.AboutSection>
           <S.Title>PROFESSIONAL</S.Title>
@@ -17,12 +17,12 @@ export default function About() {
             만나보세요.
           </S.content>
           <S.ImgWrap>
-            <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/left.png" />
+            <S.ContentImg src="/collection/about/left.png" />
             <S.ImgWrap className="col">
-              <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/rightTop.png" />
+              <S.ContentImg src="/collection/about/rightTop.png" />
               <S.ImgWrap className="row">
-                <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/rightBtmLeft.png" />
-                <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/rightBtmRight.png" />
+                <S.ContentImg src="/collection/about/rightBtmLeft.png" />
+                <S.ContentImg src="/collection/about/rightBtmRight.png" />
               </S.ImgWrap>
             </S.ImgWrap>
           </S.ImgWrap>
@@ -35,7 +35,7 @@ export default function About() {
             지지합니다.
           </S.content>
           <S.ImgWrap>
-            <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/section2.png" />
+            <S.ContentImg src="/collection/about/section2.png" />
           </S.ImgWrap>
         </S.AboutSection>
         <S.AboutSection>
@@ -49,7 +49,7 @@ export default function About() {
             우리의 꿈을 위해 함께 동참해보세요.
           </S.content>
           <S.ImgWrap>
-            <S.ContentImg src="https://storage.googleapis.com/cometes-storage/collection/about/section3.png" />
+            <S.ContentImg src="/collection/about/section3.png" />
           </S.ImgWrap>
         </S.AboutSection>
       </WrapperWidth1000px>

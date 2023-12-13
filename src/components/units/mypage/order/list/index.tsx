@@ -1,6 +1,4 @@
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Title from "../../../../commons/parts/title";
-import * as S from "./style";
 import * as T from "../../../../commons/parts/table/style";
 import ButtonHeight30px from "../../../../commons/parts/buttons/height30px";
 import WrapperWidth800px from "../../../../commons/parts/wrapper/w800";

@@ -12,6 +12,9 @@ const Container = styled.div`
     width: 100%;
     padding: 0 40px;
   }
+  ${max(768)} {
+    padding: 0 24px;
+  }
 `;
 
 export default function WrapperWidth1000px(props) {

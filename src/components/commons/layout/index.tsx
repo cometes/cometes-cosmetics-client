@@ -18,7 +18,7 @@ export default function Layout(props: any) {
   return (
     <>
       {isMainHeaderActive && (
-        <Header iswhite={iswhiteHeaderActive[0] !== undefined ? true : false} />
+        <Header isWhite={iswhiteHeaderActive[0] !== undefined ? true : false} />
       )}
       {props.children}
       {isMainHeaderActive && (

@@ -16,15 +16,15 @@ export const Wrapper = styled.footer<{
   }
 `;
 export const Container = styled.div`
-  width: 1620px;
+  width: 1440px;
   margin: 0 auto;
-  padding: 0 80px;
 
-  ${max(1635)} {
+  ${max(1455)} {
     width: 100%;
     padding: 0 40px;
   }
-  ${max(815)} {
+  ${max(768)} {
+    padding: 0 24px;
   }
 `;
 export const FooterTop = styled.div`
