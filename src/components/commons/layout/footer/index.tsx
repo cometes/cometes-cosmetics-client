@@ -1,6 +1,4 @@
-import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import * as S from "./style";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faInstagram,
@@ -8,9 +6,9 @@ import {
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Footer() {
+export default function Footer(props: { isCollection: boolean }) {
   return (
-    <S.Wrapper>
+    <S.Wrapper isCollection={props.isCollection}>
       <S.Container>
         <S.FooterTop>
           <S.FlexBox>

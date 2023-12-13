@@ -2,36 +2,71 @@ import Title from "../../commons/parts/title";
 import WrapperWidth1000px from "../../commons/parts/wrapper/w1000";
 import * as S from "./styles";
 import * as T from "../../commons/parts/table/style";
-import WrapperWidth800px from "../../commons/parts/wrapper/w800";
 import ButtonHeight50px from "../../commons/parts/buttons/height50px";
 import ButtonHeight30px from "../../commons/parts/buttons/height30px";
+import ItemWithHeart from "../../commons/parts/item/heart";
 
-export default function Order() {
+export default function Order(props: { isComplete: boolean }) {
+
   return (
     <WrapperWidth1000px>
-      <Title title="주문하기" />
+      {props.isComplete && (
+        <S.CompleteWrap>
+          <S.CompleteMessage>주문이 완료되었습니다.</S.CompleteMessage>
+          <S.CompleteNumberBox>
+            <S.CompleteNumber>주문번호: 111111111111111</S.CompleteNumber>
+          </S.CompleteNumberBox>
+        </S.CompleteWrap>
+      )}
+      {!props.isComplete && <Title title="주문하기" />}
       <S.FlexWrap>
         <S.Article>
-          <T.SectionWrap>
-            <T.Subtitle>배송지</T.Subtitle>
-            <S.ContentWrap>
-              <div>
-                <S.ContentSubText>전혜원</S.ContentSubText>
-                <S.ContentSubTextGrey>010 7556 4661</S.ContentSubTextGrey>
-                <S.ContentSubText>
-                  경기도 수원시 장안구 율전로 73 어쩌구저쩌구 아파트 111-1111
-                  (11111)
-                </S.ContentSubText>
-              </div>
-              <T.ItemButtonBox>
-                <ButtonHeight30px
-                  content="변경하기"
-                  color="#fff"
-                  background="#111"
-                />
-              </T.ItemButtonBox>
-            </S.ContentWrap>
-          </T.SectionWrap>
+          {!props.isComplete && (
+            <T.SectionWrap>
+              <T.Subtitle>배송지</T.Subtitle>
+              <S.ContentWrap>
+                <div>
+                  <S.ContentSubText>전혜원</S.ContentSubText>
+                  <S.ContentSubTextGrey>010 7556 4661</S.ContentSubTextGrey>
+                  <S.ContentSubText>
+                    경기도 수원시 장안구 율전로 73 어쩌구저쩌구 아파트 111-1111
+                    (11111)
+                  </S.ContentSubText>
+                </div>
+                <T.ItemButtonBox>
+                  <ButtonHeight30px
+                    content="변경하기"
+                    color="#fff"
+                    background="#111"
+                  />
+                </T.ItemButtonBox>
+              </S.ContentWrap>
+            </T.SectionWrap>
+          )}
+          {props.isComplete && (
+            <T.SectionWrap>
+              <T.Subtitle>배송지 정보</T.Subtitle>
+              <T.ProductWrap>
+                <S.ProductBox>
+                  <S.FlexBox>
+                    <S.ProductDesc>받는 분</S.ProductDesc>
+                    <p>전혜원</p>
+                  </S.FlexBox>
+                  <S.FlexBox>
+                    <S.ProductDesc>연락처</S.ProductDesc>
+                    <p>010 7556 4661</p>
+                  </S.FlexBox>
+                  <S.FlexBox>
+                    <S.ProductDesc>주소</S.ProductDesc>
+                    <p>
+                      경기도 수원시 장안구 율전로 73 <br />
+                      어쩌구저쩌구아파트 111 - 1111
+                    </p>
+                  </S.FlexBox>
+                </S.ProductBox>
+              </T.ProductWrap>
+            </T.SectionWrap>
+          )}
           <T.SectionWrap>
             <T.Subtitle>주문상품</T.Subtitle>
             <T.ProductWrap>
@@ -71,34 +106,44 @@ export default function Order() {
               </T.TableWrap>
             </T.ProductWrap>
           </T.SectionWrap>
-          <T.SectionWrap>
-            <T.Subtitle>내 포인트</T.Subtitle>
-            <S.ContentWrap>
-              <div>
-                <S.ContentSubText>보유</S.ContentSubText>
-                <T.ItemStrongText>1,000,000,000P</T.ItemStrongText>
-              </div>
-              <T.ItemButtonBox>
-                <ButtonHeight30px
-                  content="충전하기"
+          {!props.isComplete && (
+            <T.SectionWrap>
+              <T.Subtitle>내 포인트</T.Subtitle>
+              <S.ContentWrap>
+                <div>
+                  <S.ContentSubText>보유</S.ContentSubText>
+                  <T.ItemStrongText>1,000,000,000P</T.ItemStrongText>
+                </div>
+                <T.ItemButtonBox>
+                  <ButtonHeight30px
+                    content="충전하기"
+                    color="#fff"
+                    background="#111"
+                  />
+                </T.ItemButtonBox>
+              </S.ContentWrap>
+            </T.SectionWrap>
+          )}
+          {props.isComplete && (
+            <T.SectionWrap>
+              <T.Subtitle>함께 볼만한 상품을 추천드려요!</T.Subtitle>
+              <ItemWithHeart />
+            </T.SectionWrap>
+          )}
+          {!props.isComplete && (
+            <S.SubmitButtonWrap>
+              <S.ContentSubText>
+                주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.
+              </S.ContentSubText>
+              <S.SubmitButtonBox>
+                <ButtonHeight50px
+                  content="2개 상품 구매하기"
                   color="#fff"
                   background="#111"
                 />
-              </T.ItemButtonBox>
-            </S.ContentWrap>
-          </T.SectionWrap>
-          <S.SubmitButtonWrap>
-            <S.ContentSubText>
-              주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.
-            </S.ContentSubText>
-            <S.SubmitButtonBox>
-              <ButtonHeight50px
-                content="2개 상품 구매하기"
-                color="#fff"
-                background="#111"
-              />
-            </S.SubmitButtonBox>
-          </S.SubmitButtonWrap>
+              </S.SubmitButtonBox>
+            </S.SubmitButtonWrap>
+          )}
         </S.Article>
         <S.Aside className="sticky">
           <T.SectionWrap>

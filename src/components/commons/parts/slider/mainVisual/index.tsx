@@ -1,8 +1,10 @@
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./style";
 import { mainVisualItem } from "../../../../../commons/libraries/array";
+import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
 
 export default function MainVisual() {
+  const { onClickMoveToPage } = useMoveToPage();
   const settings = {
     arrows: true,
     autoplay: true,
@@ -32,7 +34,7 @@ export default function MainVisual() {
                 <S.Badge color={el.color}>{el.badge}</S.Badge>
                 <S.Title color={el.color}>{el.title}</S.Title>
                 <S.SubTitle color={el.color}>{el.content}</S.SubTitle>
-                <S.MoreBtn>
+                <S.MoreBtn onClick={onClickMoveToPage(el.url)}>
                   <S.MoreBtnText>View More</S.MoreBtnText>
                   <S.MoreBtnArrow icon={faChevronRight} />
                 </S.MoreBtn>

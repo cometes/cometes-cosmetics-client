@@ -10,7 +10,7 @@ export const StyledSlider = styled(SliderComponent)`
   }
 
   .slick-arrow {
-    z-index: 999;
+    z-index: 997;
     width: 60px;
     height: 100px;
     transform: none;
@@ -51,7 +51,7 @@ export const SlideItem = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 25% 50%;
 `;
 export const TextBox = styled.div`
   width: 500px;

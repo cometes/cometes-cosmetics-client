@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { mq } from "../../../commons/libraries/breakPoints";
+import { max } from "../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${mq.small} {
+  ${max(430)} {
     padding: 0 16px;
   }
 `;
@@ -18,7 +18,7 @@ export const Logo = styled.img`
   display: block;
   width: 20rem;
 
-  ${mq.small} {
+  ${max(430)} {
     width: 18rem;
   }
 `;
@@ -28,7 +28,7 @@ export const Container = styled.div`
   padding: 60px 80px;
   margin-top: 30px;
 
-  ${mq.small} {
+  ${max(430)} {
     padding: 60px;
   }
 `;
@@ -37,7 +37,7 @@ export const Text = styled.p`
   line-height: 4.6rem;
   font-weight: 300;
 
-  ${mq.small} {
+  ${max(430)} {
     font-size: 2.4rem;
     line-height: 3.2rem;
   }

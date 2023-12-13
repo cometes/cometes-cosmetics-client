@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { mq } from "../../../../../commons/libraries/breakPoints";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const Logo = styled.img`
   display: block;
   width: 20rem;
 
-  ${mq.small} {
+  ${max(430)} {
     width: 18rem;
   }
 `;

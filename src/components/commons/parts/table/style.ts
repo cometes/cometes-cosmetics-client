@@ -1,7 +1,17 @@
 import styled from "@emotion/styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const SectionWrap = styled.section`
   margin-top: 40px;
+
+  &.mTop50 {
+    margin-top: 50px;
+  }
+`;
+export const FlexBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const Subtitle = styled.h2`
   font-size: 1.8rem;
@@ -107,36 +117,20 @@ export const ItemPrice = styled.p`
   text-align: center;
   margin-top: 4px;
 `;
-// export const AlignBox = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-// export const JustifyBox = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   margin-top: 30px;
-
-//   &:first-of-type {
-//     margin-top: 0;
-//   }
-// `;
-// export const ProductBox = styled.div`
-//   padding: 20px;
-// `;
-// export const FlexBox = styled.div`
-//   display: flex;
-//   margin-top: 30px;
-//   &:first-of-type {
-//     margin-top: 0;
-//   }
-// `;
-// export const ProductDesc = styled.span`
-//   display: block;
-//   width: 100px;
-//   color: #8f8f8f;
-// `;
-// export const ProductStrong = styled.p`
-//   font-size: 2rem;
-//   font-weight: 500;
-// `;
+export const MoreButtonBox = styled.div<{
+  active?: boolean;
+}>`
+  display: ${props => (props.active ? "flex" : "none")};
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;
+export const MoreButtonText = styled.span`
+  display: block;
+  color: #6d6d6d;
+`;
+export const MoreButtonIcon = styled(FontAwesomeIcon)`
+  font-size: 1.6rem;
+  color: #6d6d6d;
+  margin-left: 4px;
+`;

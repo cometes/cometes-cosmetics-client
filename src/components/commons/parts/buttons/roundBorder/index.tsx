@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { mq } from "../../../../../commons/libraries/breakPoints";
+import { max } from "../../../../../commons/libraries/breakPoints";
 import { IButtonProps } from "../types";
 
 const Button = styled.button<{
@@ -23,7 +23,7 @@ const Image = styled.img`
   height: 2.4rem;
   margin-right: 8px;
 
-  ${mq.small} {
+  ${max(430)} {
     width: 1.8rem;
     height: auto;
   }

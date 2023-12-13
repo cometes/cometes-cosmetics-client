@@ -12,7 +12,7 @@ export default function Signup() {
       </a>
       <S.Container>
         <S.Text>
-          3초안에 가입하고,
+          3초만에 가입하고,
           <br />
           특별한 혜택 받아가세요!
         </S.Text>
