@@ -7,10 +7,12 @@ export default function Layout(props: any) {
 
   // header 숨기기
   const HIDDEN_HEADER = "/signup";
-  const COLLECTION = "/collection";
-  const WHITE_HEADER = ["/mypage", "/order", "/collection"];
+  const HIDDEN_FOOTER_MARGIN = ["/collection"];
+  const WHITE_HEADER = ["/mypage", "/order", "/collection", "/item"];
   const isMainHeaderActive = !router.asPath.includes(HIDDEN_HEADER);
-  const isCollectionActive = router.asPath.includes(COLLECTION);
+  const isfooterMarginActive = HIDDEN_FOOTER_MARGIN.filter(el =>
+    router.asPath.includes(el)
+  );
   const iswhiteHeaderActive = WHITE_HEADER.filter(el =>
     router.asPath.includes(el)
   );
@@ -22,7 +24,9 @@ export default function Layout(props: any) {
       )}
       {props.children}
       {isMainHeaderActive && (
-        <Footer isCollection={isCollectionActive ? true : false} />
+        <Footer
+          isCollection={isfooterMarginActive[0] !== undefined ? true : false}
+        />
       )}
     </>
   );

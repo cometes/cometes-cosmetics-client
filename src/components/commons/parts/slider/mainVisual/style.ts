@@ -8,7 +8,9 @@ export const StyledSlider = styled(SliderComponent)`
   .slick-list {
     height: 100vh;
   }
-
+  .slick-slide div {
+    outline: none;
+  }
   .slick-arrow {
     z-index: 997;
     width: 60px;
