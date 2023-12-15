@@ -18,7 +18,7 @@ export const Wrapper = styled.header<{
   border-bottom: ${props =>
     props.active || props.isWhite ? "1px solid #d9d9d9" : ""};
   overflow: ${props => (props.ishover ? "visible" : "hidden")};
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-bottom 0.2s ease;
   padding-right: ${props => (props.scrollLock ? "15px" : "0")};
 `;
 export const Container = styled.div`
@@ -126,6 +126,7 @@ export const NavItem = styled.a<{
 export const SubNavBox = styled.ul`
   position: absolute;
   z-index: -999;
+  top: 81px;
   left: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -138,7 +139,6 @@ export const SubNavBox = styled.ul`
     z-index: 998;
     opacity: 1;
     visibility: visible;
-    top: 81px;
   }
 
   &::before {

@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
 import { max } from "../../../../../commons/libraries/breakPoints";
+import { ReactChild, ReactFragment, ReactPortal } from "react";
 
-const Wrapper = styled.div`
-  margin-top: 80px;
+const Wrapper = styled.div<{
+  margin: string;
+}>`
+  margin-top: ${props => props.margin};
 `;
 const Container = styled.div`
   width: 1000px;
@@ -17,9 +20,14 @@ const Container = styled.div`
   }
 `;
 
-export default function WrapperWidth1000px(props) {
+interface WrapperProps {
+  margin: string;
+  children: boolean | ReactChild | ReactFragment | ReactPortal;
+}
+
+export default function WrapperWidth1000px(props: WrapperProps) {
   return (
-    <Wrapper>
+    <Wrapper margin={props.margin}>
       <Container>{props.children}</Container>
     </Wrapper>
   );

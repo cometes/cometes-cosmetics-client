@@ -27,7 +27,6 @@ export const StyledSlider = styled(SliderComponent)<{
     background-color: ${props => props.color};
     background-color: ${props => props.highlight};
 
-
     ${max(915)} {
       width: 40px;
       height: 72px;
@@ -77,6 +76,7 @@ export const StyledSlider = styled(SliderComponent)<{
     background-position: center;
   }
   .slick-slide div {
+    outline: none;
   }
 `;
 export const SlideWrap = styled.div`

@@ -32,6 +32,7 @@ const Text = styled.span<{
   color: string;
 }>`
   display: block;
+  font-size: 1.5rem;
   color: ${props => props.color};
 `;
 

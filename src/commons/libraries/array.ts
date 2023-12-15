@@ -361,9 +361,17 @@ export const arr = [
 
 // lip
 export const lipArr = {
+  gallery: [
+    "https://storage.googleapis.com/cometes-storage/gallery/LIP/powderkissLipstick/powder1.jpg",
+    "https://storage.googleapis.com/cometes-storage/gallery/LIP/powderkissLipstick/powder2.jpg",
+    "https://storage.googleapis.com/cometes-storage/gallery/LIP/powderkissLipstick/powder3.jpg",
+    "https://storage.googleapis.com/cometes-storage/gallery/LIP/powderkissLipstick/powder4.jpg"
+  ],
   img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%BD%EC%8A%A4%ED%8B%B1.png",
   tag: ["가볍보송", "매트착붙", "블러연출"],
+  weight: "3g",
   title: "파우더 키스 립스틱",
+  endTitle: "POWDER KISS LIPSTIC",
   color: [
     {
       name: "멀 잇 오버",
@@ -465,5 +473,35 @@ export const lipArr = {
       icon: "https://storage.googleapis.com/cometes-storage/icon/LIP/powderkissLipstick/%EC%84%9C%ED%8A%B8%EB%A6%AC%EB%8B%88%EC%8A%A4.jpg"
     }
   ],
-  price: "39000"
+  price: "39000",
+  summary:
+    "가볍고 편안한 텍스처의 매트 립스틱. 부드러운 발림성으로 즉각적인 수분감을 주고 입술 라인을 부드럽게 연출해주는 새로운 맥 아이코닉 립스틱 제품",
+  content:
+    "https://storage.googleapis.com/cometes-storage/content/LIP/powderkissLipstick.jpg",
+  info: {
+    name: "파우더 키스 립스틱",
+    weight: "3G",
+    type: "모든 피부 타입",
+    useBy: "대부분 사용기한 1년 이상 남은 제품을 배송해드립니다.",
+    method:
+      "립브러시를 사용하여 바르거나 립스틱을 입술에 대고 그대로 발라줍니다.",
+    seller: "이엘씨에이한국(유)",
+    origin: "이탈리아",
+    ingredient:
+      "다이메티콘,트라이데실트라이멜리테이트,폴리에틸렌,페닐트라이메티콘,다이메티콘크로스폴리머,에이치디아이/트라이메틸올헥실락톤크로스폴리머,제올라이트,카올린,알루미나,실리카,실리카다이메틸실릴레이트,폴리실리콘-11,카프릴릴글라이콜,폴리하이드록시스테아릭애씨드,향료,소듐사카린,토코페롤,[+/- 마이카,티타늄디옥사이드,적색산화철,황색산화철,흑색산화철,비스머스옥시클로라이드,청색1호 레이크,카민,등색201호 레이크,적색201호,적색223호,적색104호의(1),적색226호,적색201호 레이크,적색202호 레이크,적색103호의(1) 레이크,적색104호의(1) 레이크,적색226호 레이크,적색227호 레이크,황색4호 레이크,황색5호 레이크] [ILN45315] * 제공된 성분은 동일 제품이라도 경우에 따라 변경될 수 있습니다. 최신정보는 제품 포장의 성분을 참고하시거나 본사 고객관리지원팀으로 연락 부탁 드립니다. ",
+    certification: "해당사항 없음",
+    cautions: [
+      "1) 화장품을 사용하여 다음과 같은 이상이 있는 경우에는 사용을 중지하여야 하며, 계속 사용하면 증상이 악화되므로 피부과 전문의 등에게 상담할 것",
+      "가) 사용 중 붉은 반점, 부어오름, 가려움증, 자극 등의 이상이 있는 경우",
+      "나) 적용 부위가 직사광선에 의하여 위와 같은 이상이 있는 경우",
+      "2) 상처가 있는 부위, 습진 및 피부염 등의 이상이 있는 부위에는 사용을 하지 말 것",
+      "3) 보관 및 취급 시의 주의사항",
+      "가) 사용 후에는 반드시 마개를 닫아둘 것",
+      "나) 유아ㆍ소아의 손이 닿지 않는 곳에 보관할 것",
+      "다) 고온 또는 저온의 장소 및 직사광선이 닿는 곳에는 보관하지 말 것",
+      "* 기타 제품 특이적인 주의사항은 제품 포장 참조"
+    ],
+    qualityGuarantee:
+      "이엘씨에이한국(유)를 통해 공식 수입.판매되는 제품에 한해서, 제품에 이상이 있을 경우 공정거래위원회고시 품목별 소비자 분쟁 해결 기준에 따라 안내 받으실 수 있습니다."
+  }
 };

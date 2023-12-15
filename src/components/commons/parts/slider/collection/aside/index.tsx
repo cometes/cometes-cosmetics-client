@@ -2,10 +2,13 @@ import styled from "@emotion/styled";
 import SliderComponent from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { max } from "../../../../../../commons/libraries/breakPoints";
 
 const StyledSlider = styled(SliderComponent)`
   height: calc(100vh - 80px);
+
+  .slick-slide div {
+    outline: none;
+  }
 `;
 const SlideImg = styled.img`
   display: block;
