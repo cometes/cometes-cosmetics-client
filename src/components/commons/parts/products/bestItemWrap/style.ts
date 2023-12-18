@@ -75,7 +75,7 @@ export const GridDefaultWrap = styled.div`
   margin-top: 40px;
 
   ${max(1015)} {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   ${max(600)} {
     grid-template-columns: 1fr 1fr;

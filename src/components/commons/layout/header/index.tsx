@@ -20,6 +20,8 @@ export default function Header(props) {
     ishover,
     menu,
     scrollPosition,
+    fullNavActive,
+    searchActive,
     setIsBgOn,
     setIsFullNavOn,
     setishover,
@@ -57,8 +59,9 @@ export default function Header(props) {
         onClickFullMenu={onClickFullMenu}
         onClickSubMenu={onClickSubMenu}
         menu={menu}
+        fullNavActive={fullNavActive}
       />
-      <SearchBox isSearchOn={isSearchOn} />
+      <SearchBox isSearchOn={isSearchOn} searchActive={searchActive} />
     </>
   );
 }

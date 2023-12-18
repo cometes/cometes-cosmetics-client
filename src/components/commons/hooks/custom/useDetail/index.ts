@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 
 export const useDetail = data => {
+  /** 콘텐트, 인포, 리뷰 ref **/
+  const infoRef = useRef(null);
+  const reviewRef = useRef(null);
+
+  const onClickRef = (ref: MutableRefObject<any>) => () => {
+    ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   const [isInfoOn, setIsInfoOn] = useState(false);
   const [colorCategory, setColorCategory] = useState("");
   const [colorIcon, setColorIcon] = useState({
@@ -28,13 +36,6 @@ export const useDetail = data => {
 
   const onClickColorCategory = (value: string) => () => {
     setColorCategory(value);
-    setColorIcon({
-      code: "",
-      name: "",
-      desc: "",
-      product: "",
-      texture: ""
-    });
     const filterArr = data.color.filter(el => {
       if (value === "") {
         return data.color;
@@ -79,8 +80,11 @@ export const useDetail = data => {
     onClickColorCategory,
     onClickColorIcon,
     onClickClear,
+    onClickRef,
     colorCategory,
     filtered,
-    colorIcon
+    colorIcon,
+    infoRef,
+    reviewRef,
   };
 };

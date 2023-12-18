@@ -51,8 +51,8 @@ export default function DetailInfo(props) {
   ];
   return (
     <>
-      <WrapperWidth1000px margin="80px">
-        <S.ProductInfoWrap onClick={props.onClickInfo}>
+      <WrapperWidth1000px>
+        <S.ProductInfoWrap onClick={props.onClickInfo} ref={props.infoRef}>
           <S.ProductInfoTitle>상품 정보/전성분 안내</S.ProductInfoTitle>
           <S.ProductInfoSub>
             본 상품정보는 [공정거래위원회의 전자상거래 등에서의 상품정보제공

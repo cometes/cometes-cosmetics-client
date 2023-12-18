@@ -1,34 +1,51 @@
 import styled from "@emotion/styled";
 import { max } from "../../../../../commons/libraries/breakPoints";
 
-export const Wrapper = styled.div<{
-  isSearchOn: number;
-}>`
-  height: ${props => (props.isSearchOn ? "360px" : "0")};
+export const Wrapper = styled.div`
+  max-height: 0;
   overflow: hidden;
   position: fixed;
-  top: 0;
+  top: 81px;
   left: 0;
   z-index: 998;
   width: 100%;
   background: rgba(247, 247, 247, 0.85);
   backdrop-filter: blur(12px);
 
-  transition: all 0.3s ease-in-out;
+  &.active {
+    animation: searchAppear 0.5s ease-in-out forwards;
+  }
+  &.disable {
+    animation: searchDisappear 0.5s ease-in-out forwards;
+  }
+
+  @keyframes searchAppear {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 500px;
+    }
+  }
+  @keyframes searchDisappear {
+    from {
+      max-height: 500px;
+    }
+    to {
+      max-height: 0;
+    }
+  }
 `;
 export const Container = styled.div`
   width: 800px;
   margin: 0 auto;
-  padding: 160px 0 80px 0;
+  padding: 100px 0;
 
   ${max(815)} {
     width: 100%;
     padding: 160px 40px 80px 40px;
   }
 `;
-export const SearchTop = styled.div``;
-export const SearchBtm = styled.div``;
-export const InputWrap = styled.div``;
 export const InputBox = styled.div`
   position: relative;
   display: flex;

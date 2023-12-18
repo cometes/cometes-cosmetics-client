@@ -10,7 +10,7 @@ export const Wrapper = styled.header<{
   width: 100%;
   background: ${props =>
     props.active || props.isWhite
-      ? "#fff"
+      ? "rgba(255,255,255,0.95)"
       : "linear-gradient(180deg,rgba(51, 51, 51, 0.3) 0%,rgba(51, 51, 51, 0) 100% );"};
   position: ${props => (props.isWhite ? "sticky" : "fixed")};
   top: 0;
@@ -19,7 +19,7 @@ export const Wrapper = styled.header<{
     props.active || props.isWhite ? "1px solid #d9d9d9" : ""};
   overflow: ${props => (props.ishover ? "visible" : "hidden")};
   transition: background-color 0.2s ease, border-bottom 0.2s ease;
-  padding-right: ${props => (props.scrollLock ? "15px" : "0")};
+  /* padding-right: ${props => (props.scrollLock ? "15px" : "0")}; */
 `;
 export const Container = styled.div`
   width: 1440px;
@@ -51,7 +51,7 @@ export const NavBox = styled.ul`
   align-items: center;
 `;
 export const NavList = styled.li`
-  margin-left: 60px;
+  margin-left: 50px;
 
   &.mymac {
     position: relative;
@@ -94,7 +94,7 @@ export const NavList = styled.li`
     }
   }
 
-  ${max(1440)} {
+  ${max(1215)} {
     margin-left: 30px;
   }
 `;
@@ -167,6 +167,7 @@ export const SubNavItem = styled.a`
 
   &:hover {
     color: #111;
+    font-weight: 500;
   }
 `;
 export const SubContainer = styled.div`

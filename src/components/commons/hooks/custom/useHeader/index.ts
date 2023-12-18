@@ -10,6 +10,8 @@ export const useHeader = () => {
 
   const [isBgOn, setIsBgOn] = useState(false);
   const [isFullNavOn, setIsFullNavOn] = useState(false);
+  const [fullNavActive, setFullNavActive] = useState("disable");
+  const [searchActive, setSearchActive] = useState("disable");
   const [isSearchOn, setIsSearchOn] = useState(false);
   const [ishover, setishover] = useState(false);
   const [menu, setMenu] = useState("");
@@ -22,11 +24,22 @@ export const useHeader = () => {
     setMenu("");
   };
 
-  const onClickFullNavBtn = () => {
-    setIsFullNavOn(prev => !prev);
+  const onClickFullNavBtn = async () => {
     setIsSearchOn(false);
-    document.body.style.overflow = isFullNavOn ? "" : "hidden";
-    // document.body.style.paddingRight = isFullNavOn ? "" : "15px";
+
+    if (isFullNavOn) {
+      setFullNavActive("disable");
+      document.body.style.overflow = "";
+
+      // 1초 후에 setIsFullNavOn(false)를 호출하도록 setTimeout 사용
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      setIsFullNavOn(false);
+    } else {
+      setFullNavActive("active");
+      setIsFullNavOn(true);
+      document.body.style.overflow = "hidden";
+    }
   };
   const onClickFullMenu = (value: string) => () => {
     if (value === menu) {
@@ -43,11 +56,20 @@ export const useHeader = () => {
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
   };
-  const onClickSearch = () => {
-    setIsSearchOn(prev => !prev);
+  const onClickSearch = async () => {
     setIsFullNavOn(false);
-    document.body.style.overflow = isSearchOn ? "" : "hidden";
-    // document.body.style.paddingRight = isSearchOn ? "" : "15px";
+    if (isSearchOn) {
+      setSearchActive("disable");
+      document.body.style.overflow = "";
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      setIsSearchOn(false);
+    } else {
+      setSearchActive("active");
+      setIsSearchOn(true);
+      document.body.style.overflow = "hidden";
+    }
   };
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -66,6 +88,8 @@ export const useHeader = () => {
     ishover,
     menu,
     scrollPosition,
+    fullNavActive,
+    searchActive,
     setIsBgOn,
     setIsFullNavOn,
     setIsSearchOn,

@@ -56,7 +56,7 @@ export const SlideItem = styled.img`
   object-position: 25% 50%;
 `;
 export const TextBox = styled.div`
-  width: 500px;
+  width: fit-content;
   position: absolute;
   bottom: 10%;
   right: 5%;
@@ -73,6 +73,7 @@ export const Title = styled.p`
   font-family: "AritaBuri";
 `;
 export const SubTitle = styled.p`
+  max-width: 500px;
   font-size: 2rem;
   line-height: 2.8rem;
   margin-top: 20px;

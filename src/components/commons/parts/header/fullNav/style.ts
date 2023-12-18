@@ -1,20 +1,40 @@
 import styled from "@emotion/styled";
 
-export const FullNav = styled.div<{
-  isFullNavOn: number;
-}>`
-  opacity: ${props => (props.isFullNavOn ? "1" : "0")};
-  visibility: ${props => (props.isFullNavOn ? "visible" : "hidden")};
+export const FullNav = styled.div`
+  opacity: 0;
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 80px;
   left: 0;
-  z-index: ${props => (props.isFullNavOn ? "998" : "-999")};
+  z-index: 998;
   padding: 0 40px;
   background-color: rgba(6, 6, 6, 0.5);
   backdrop-filter: blur(30px);
-  transition: all 0.3s ease-in-out;
+
+  &.active {
+    animation: fullNavAppear 0.5s ease-in-out forwards;
+  }
+  &.disable {
+    animation: fullNavDisappear 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fullNavAppear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fullNavDisappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 export const FullNavBox = styled.ul`
   width: 100%;

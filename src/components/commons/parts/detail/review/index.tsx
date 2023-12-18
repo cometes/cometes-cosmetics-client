@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import RoundBorderButton from "../../buttons/roundBorder";
 
-export default function DetailReview() {
+export default function DetailReview(props) {
   return (
-    <S.ReviewSection>
+    <S.ReviewSection ref={props.reviewRef}>
       <WrapperWidth1000px margin="140px">
         <S.ReviewTitle>REVIEWS</S.ReviewTitle>
         <S.RateWrap>
