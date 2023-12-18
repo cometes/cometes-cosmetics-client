@@ -137,35 +137,23 @@ export default function HeaderMain(props) {
               <S.NavList
                 onMouseEnter={props.onMouseEnterNav("about")}
                 onMouseLeave={props.onMouseLeaveNav}
-                className="mymac"
+                className="horizontal"
               >
                 <S.NavItem
                   active={active ? 1 : 0}
                   isWhite={props.isWhite ? 1 : 0}
-                  onClick={props.onClickSubMenu("/about/")}
                 >
                   ABOUT
                 </S.NavItem>
                 <S.SubNavBox className={props.menu === "about" ? "active" : ""}>
                   <S.SubNavList>
-                    <S.SubNavItem
-                      onClick={props.onClickSubMenu("/mypage/cart/")}
-                    >
-                      장바구니
+                    <S.SubNavItem onClick={props.onClickSubMenu("/about/")}>
+                      Our Story
                     </S.SubNavItem>
                   </S.SubNavList>
                   <S.SubNavList>
-                    <S.SubNavItem
-                      onClick={props.onClickSubMenu("/mypage/point/")}
-                    >
-                      포인트
-                    </S.SubNavItem>
-                  </S.SubNavList>
-                  <S.SubNavList>
-                    <S.SubNavItem
-                      onClick={props.onClickSubMenu("/mypage/order/list/")}
-                    >
-                      주문내역
+                    <S.SubNavItem onClick={props.onClickSubMenu("/")}>
+                      맥 에이즈 펀드
                     </S.SubNavItem>
                   </S.SubNavList>
                 </S.SubNavBox>
@@ -173,7 +161,7 @@ export default function HeaderMain(props) {
               <S.NavList
                 onMouseEnter={props.onMouseEnterNav("MYMAC")}
                 onMouseLeave={props.onMouseLeaveNav}
-                className="mymac"
+                className="horizontal"
               >
                 <S.NavItem
                   active={active ? 1 : 0}

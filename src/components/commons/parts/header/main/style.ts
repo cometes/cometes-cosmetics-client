@@ -53,7 +53,7 @@ export const NavBox = styled.ul`
 export const NavList = styled.li`
   margin-left: 50px;
 
-  &.mymac {
+  &.horizontal {
     position: relative;
 
     & ul {
@@ -61,10 +61,11 @@ export const NavList = styled.li`
       justify-content: center;
     }
     & ul li {
-      margin-left: 30px;
+      padding: 0 15px;
+      border-left: 1px solid #ccc;
 
       &:first-of-type {
-        margin-left: 0;
+        border-left: none;
       }
     }
   }
@@ -161,6 +162,7 @@ export const SubNavList = styled.li`
 export const SubNavItem = styled.a`
   display: block;
   font-size: 1.8rem;
+  line-height: 1.8rem;
   color: #666;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
