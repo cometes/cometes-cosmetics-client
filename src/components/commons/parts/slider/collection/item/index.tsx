@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import SliderComponent from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { max } from "../../../../../../commons/libraries/breakPoints";
 import CollectionItem from "../../../item/collection";
 
 const StyledSlider = styled(SliderComponent)<{
@@ -58,6 +57,7 @@ const ItemBox = styled.div`
 export default function CollectionItemSlick(props) {
   const settings = {
     arrows: false,
+    dots: true,
     infinite: false,
     speed: 500,
     autoplaySpeed: 5000,
@@ -66,7 +66,7 @@ export default function CollectionItemSlick(props) {
     cssEase: "ease-in-out",
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 900,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,

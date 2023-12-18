@@ -5,14 +5,14 @@ export const ArrowBox = styled.div<{
   item: boolean;
 }>`
   display: ${props => (props.item ? "none" : "flex")};
-  margin-bottom: 10px;
+  margin-bottom: ${props => (props.item ? "10px" : "0")};
   justify-content: ${props => (props.item ? "flex-end" : "")};
 
   & button:last-of-type {
     margin-left: 20px;
   }
 
-  ${max(800)} {
+  ${max(900)} {
     display: flex;
   }
 `;
@@ -29,9 +29,14 @@ export const ArrowImg = styled.img<{
   display: block;
   width: 48px;
   height: 48px;
-  background: #222;
-  background: ${props => props.color};
-  background: ${props => props.highlight};
+  background: #ccc;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #444;
+    background: ${props => props.color};
+    background: ${props => props.highlight};
+  }
 
   &.prev {
     mask-image: url("/banner/prev.svg");

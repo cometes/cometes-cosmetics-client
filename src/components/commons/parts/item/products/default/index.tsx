@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useMoveToPage } from "../../../../hooks/custom/useMoveToPage";
+import { useRouter } from "next/router";
 
 const ItemImgBox = styled.div`
   background: #f7f7f7;
@@ -78,10 +80,14 @@ const ItemPrice = styled.p`
 
 export default function ProductsItemDefault(props) {
   const colorArr = props.data?.color.slice(0, 5);
+  const { onClickMoveToPage } = useMoveToPage();
+  const routerStr = props.data?.title.replace(/\s/g, "-");
 
   return (
     <div>
-      <ItemImgBox>
+      <ItemImgBox
+        onClick={onClickMoveToPage(`/products/lip/item/${routerStr}`)}
+      >
         <ItemImg src={props.data?.img} />
         <ItemHeartBox>
           <ItemHeartIcon className="fi fi-rs-heart" />

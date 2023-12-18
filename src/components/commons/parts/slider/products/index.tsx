@@ -18,6 +18,7 @@ const SlideWrap = styled.div`
 const SlideImg = styled.img`
   display: block;
   max-width: 100%;
+  cursor: pointer;
 `;
 const ItemTitle = styled.p`
   margin-top: 10px;

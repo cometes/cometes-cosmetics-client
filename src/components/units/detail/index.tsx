@@ -15,9 +15,12 @@ export default function ProductsDetail() {
     onClickColorCategory,
     onClickColorIcon,
     onClickClear,
+    onClickRef,
     colorCategory,
     filtered,
-    colorIcon
+    colorIcon,
+    infoRef,
+    reviewRef,
   } = useDetail(lipArr);
 
   return (
@@ -25,7 +28,7 @@ export default function ProductsDetail() {
       <S.Wrapper>
         <S.LeftWrap>
           <S.LeftAside>
-            <DetailSlick data={lipArr.gallery} selected={colorIcon}/>
+            <DetailSlick data={lipArr.gallery} selected={colorIcon} />
           </S.LeftAside>
         </S.LeftWrap>
         <S.RightWrap>
@@ -125,9 +128,13 @@ export default function ProductsDetail() {
           </S.RightContainer>
           <S.DetailSection>
             <S.DetailTabWrap>
-              <S.DetailTab className="active">상세 페이지</S.DetailTab>
-              <S.DetailTab>전성분 · 상품정보</S.DetailTab>
-              <S.DetailTab>리뷰</S.DetailTab>
+              <S.DetailTab className="active">
+                상세 페이지
+              </S.DetailTab>
+              <S.DetailTab onClick={onClickRef(infoRef)}>
+                전성분 · 상품정보
+              </S.DetailTab>
+              <S.DetailTab onClick={onClickRef(reviewRef)}>리뷰</S.DetailTab>
             </S.DetailTabWrap>
             <S.RightContainer className="content">
               <S.DetailContent src={lipArr.content} />
@@ -135,8 +142,12 @@ export default function ProductsDetail() {
           </S.DetailSection>
         </S.RightWrap>
       </S.Wrapper>
-      <DetailInfo isInfoOn={isInfoOn} onClickInfo={onClickInfo} />
-      <DetailReview />
+      <DetailInfo
+        isInfoOn={isInfoOn}
+        onClickInfo={onClickInfo}
+        infoRef={infoRef}
+      />
+      <DetailReview reviewRef={reviewRef} />
     </>
   );
 }

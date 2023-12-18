@@ -505,3 +505,20 @@ export const lipArr = {
       "이엘씨에이한국(유)를 통해 공식 수입.판매되는 제품에 한해서, 제품에 이상이 있을 경우 공정거래위원회고시 품목별 소비자 분쟁 해결 기준에 따라 안내 받으실 수 있습니다."
   }
 };
+
+// story
+
+export const storyData = [
+  {
+    title: "M·A·C Viva Glam",
+    content:
+      "M·A·C 에이즈 펀드는 전 세계 다양한 조직들을 지원하여 빈곤과 HIV/AIDS의 관련성을 해소하기 위해 전념하고 있습니다.",
+    img: "https://storage.googleapis.com/cometes-storage/main/story1.webp"
+  },
+  {
+    title: "ANIMAL TESTING",
+    content:
+      "맥은 동물실험을 하지 않습니다. 맥은 동물실험을 한 적이 없으며 전 세계적으로 동물실험을 끝내기 위한 움직임에 앞장서고 있습니다.",
+    img: "https://storage.googleapis.com/cometes-storage/main/story2.webp"
+  }
+];

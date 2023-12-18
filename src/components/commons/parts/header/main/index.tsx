@@ -134,7 +134,11 @@ export default function HeaderMain(props) {
                   </S.SubNavList>
                 </S.SubNavBox>
               </S.NavList>
-              <S.NavList>
+              <S.NavList
+                onMouseEnter={props.onMouseEnterNav("about")}
+                onMouseLeave={props.onMouseLeaveNav}
+                className="mymac"
+              >
                 <S.NavItem
                   active={active ? 1 : 0}
                   isWhite={props.isWhite ? 1 : 0}
@@ -142,6 +146,29 @@ export default function HeaderMain(props) {
                 >
                   ABOUT
                 </S.NavItem>
+                <S.SubNavBox className={props.menu === "about" ? "active" : ""}>
+                  <S.SubNavList>
+                    <S.SubNavItem
+                      onClick={props.onClickSubMenu("/mypage/cart/")}
+                    >
+                      장바구니
+                    </S.SubNavItem>
+                  </S.SubNavList>
+                  <S.SubNavList>
+                    <S.SubNavItem
+                      onClick={props.onClickSubMenu("/mypage/point/")}
+                    >
+                      포인트
+                    </S.SubNavItem>
+                  </S.SubNavList>
+                  <S.SubNavList>
+                    <S.SubNavItem
+                      onClick={props.onClickSubMenu("/mypage/order/list/")}
+                    >
+                      주문내역
+                    </S.SubNavItem>
+                  </S.SubNavList>
+                </S.SubNavBox>
               </S.NavList>
               <S.NavList
                 onMouseEnter={props.onMouseEnterNav("MYMAC")}
