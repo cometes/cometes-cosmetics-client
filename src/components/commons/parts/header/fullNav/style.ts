@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 export const FullNav = styled.div`
   opacity: 0;
@@ -7,7 +8,7 @@ export const FullNav = styled.div`
   position: fixed;
   top: 80px;
   left: 0;
-  z-index: 998;
+  z-index: 1000;
   padding: 0 40px;
   background-color: rgba(6, 6, 6, 0.5);
   backdrop-filter: blur(30px);
@@ -34,6 +35,10 @@ export const FullNav = styled.div`
     to {
       opacity: 0;
     }
+  }
+
+  ${max(768)} {
+    padding: 0 24px;
   }
 `;
 export const FullNavBox = styled.ul`

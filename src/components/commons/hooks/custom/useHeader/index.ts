@@ -1,11 +1,17 @@
+import { debounce } from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export const useHeader = () => {
   const router = useRouter();
 
+  // scroll 이벤트 리스너
   useEffect(() => {
     window.addEventListener("scroll", updateScroll);
+
+    return () => {
+      window.removeEventListener("scroll", updateScroll);
+    };
   });
 
   const [isBgOn, setIsBgOn] = useState(false);
@@ -15,8 +21,10 @@ export const useHeader = () => {
   const [isSearchOn, setIsSearchOn] = useState(false);
   const [ishover, setishover] = useState(false);
   const [menu, setMenu] = useState("");
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [currentScroll, setCurrentScroll] = useState(0);
+  const [headerActive, setHeaderActive] = useState(true);
 
+  // 헤더 마우스 엔터 이벤트
   const onMouseEnterNav = (value: string) => () => {
     setMenu(value);
   };
@@ -24,6 +32,7 @@ export const useHeader = () => {
     setMenu("");
   };
 
+  // full 네비게이션 버튼 클릭 이벤트
   const onClickFullNavBtn = async () => {
     setIsSearchOn(false);
 
@@ -41,6 +50,8 @@ export const useHeader = () => {
       document.body.style.overflow = "hidden";
     }
   };
+
+  // full 네비게이션 메뉴 클릭 이벤트
   const onClickFullMenu = (value: string) => () => {
     if (value === menu) {
       setMenu("");
@@ -48,19 +59,23 @@ export const useHeader = () => {
       setMenu(value);
     }
   };
+
+  // sub 메뉴 클릭 이벤트
   const onClickSubMenu = (url: string) => () => {
     router.push(url);
     setIsFullNavOn(false);
     setishover(false);
     setIsSearchOn(false);
     document.body.style.overflow = "";
-    document.body.style.paddingRight = "";
   };
+
+  // 검색 버튼 클릭 이벤트
   const onClickSearch = async () => {
     setIsFullNavOn(false);
     if (isSearchOn) {
       setSearchActive("disable");
       document.body.style.overflow = "";
+      document.body.style.width = "100%";
 
       await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -69,11 +84,16 @@ export const useHeader = () => {
       setSearchActive("active");
       setIsSearchOn(true);
       document.body.style.overflow = "hidden";
+      document.body.style.width = "calc(100% - 15px)";
     }
   };
-  const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
+
+  // 스크롤 감시 이벤트
+  const updateScroll = debounce(() => {
+    const current = window.scrollY;
+    setCurrentScroll(window.scrollY || document.documentElement.scrollTop);
+    setHeaderActive(current <= window.innerHeight || currentScroll > current);
+  }, 150);
 
   return {
     onMouseEnterNav,
@@ -87,13 +107,15 @@ export const useHeader = () => {
     isSearchOn,
     ishover,
     menu,
-    scrollPosition,
+    currentScroll,
     fullNavActive,
     searchActive,
+    headerActive,
     setIsBgOn,
     setIsFullNavOn,
     setIsSearchOn,
     setishover,
-    setMenu
+    setMenu,
+    setHeaderActive
   };
 };

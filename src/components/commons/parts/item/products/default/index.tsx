@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useMoveToPage } from "../../../../hooks/custom/useMoveToPage";
 import { useRouter } from "next/router";
+import { max } from "../../../../../../commons/libraries/breakPoints";
 
 const ItemImgBox = styled.div`
   background: #f7f7f7;
@@ -8,11 +9,15 @@ const ItemImgBox = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `;
 const ItemImg = styled.img`
   display: block;
   width: 100%;
-  cursor: pointer;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  aspect-ratio: 1 / 1;
 `;
 const ItemHeartBox = styled.div`
   position: absolute;
@@ -36,6 +41,9 @@ const ItemHeartIcon = styled.i`
     color: #d86565;
   }
 `;
+const ItemContentBox = styled.div`
+  padding: 0 8px;
+`;
 const ItemTagBox = styled.div`
   display: flex;
   margin-top: 20px;
@@ -48,6 +56,14 @@ const ItemTag = styled.span`
 
   &:first-of-type {
     margin-left: 0;
+  }
+
+  ${max(500)} {
+    margin-left: 6px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
   }
 `;
 const ItemTitle = styled.p`
@@ -93,21 +109,23 @@ export default function ProductsItemDefault(props) {
           <ItemHeartIcon className="fi fi-rs-heart" />
         </ItemHeartBox>
       </ItemImgBox>
-      <ItemTagBox>
-        {props.data?.tag.map(el => (
-          <ItemTag>#{el}</ItemTag>
-        ))}
-      </ItemTagBox>
-      <ItemTitle>{props.data?.title}</ItemTitle>
-      <ItemColorBox>
-        {colorArr.map(el => (
-          <ItemColorIcon background={el.code} />
-        ))}
-        {props.data?.color.length > 5 && (
-          <ItemColorEllipsis>⋯</ItemColorEllipsis>
-        )}
-      </ItemColorBox>
-      <ItemPrice>₩ {props.data?.price}</ItemPrice>
+      <ItemContentBox>
+        <ItemTagBox>
+          {props.data?.tag.map(el => (
+            <ItemTag>#{el}</ItemTag>
+          ))}
+        </ItemTagBox>
+        <ItemTitle>{props.data?.title}</ItemTitle>
+        <ItemColorBox>
+          {colorArr.map(el => (
+            <ItemColorIcon background={el.code} />
+          ))}
+          {props.data?.color.length > 5 && (
+            <ItemColorEllipsis>⋯</ItemColorEllipsis>
+          )}
+        </ItemColorBox>
+        <ItemPrice>₩ {props.data?.price}</ItemPrice>
+      </ItemContentBox>
     </div>
   );
 }

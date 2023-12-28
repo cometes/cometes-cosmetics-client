@@ -9,12 +9,14 @@ export default function CollectionItemWrap(props) {
         <S.CollectionSubTitle>{props.data?.mainSubTitle}</S.CollectionSubTitle>
         <S.CollectionTitle>{props.data?.mainTitle}</S.CollectionTitle>
         <S.CollectionContent>{props.data?.mainContent}</S.CollectionContent>
+      </C.Container>
+      <S.CollectionContainer>
         <S.GridWrap>
           {props.data?.mainItem.map(el => (
             <CollectionItem data={el} />
           ))}
         </S.GridWrap>
-      </C.Container>
+      </S.CollectionContainer>
     </S.CollectionSection>
   );
 }

@@ -49,7 +49,7 @@ export default function ProductsBannerWrap(props) {
   const selectRef = useRef(null);
 
   const handleClickOutside = ({ target }) => {
-    if (!selectRef.current.contains(target) && isSelectOn) {
+    if (!selectRef.current?.contains(target) && isSelectOn) {
       setIsSelectOn(false);
     }
   };

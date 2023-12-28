@@ -19,6 +19,9 @@ const Container = styled.div`
   ${max(768)} {
     padding: 0 24px;
   }
+  ${max(500)} {
+    padding: 0 16px;
+  }
 `;
 
 interface WrapperProps {

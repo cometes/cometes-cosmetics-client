@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <Banner src="/collection/about/about.webp" />
-      <WrapperWidth1000px>
+      <WrapperWidth1000px margin="100px">
         <S.AboutSection>
           <S.Title>PROFESSIONAL</S.Title>
           <S.SubTitle>독보적인 전문성</S.SubTitle>
@@ -17,14 +17,18 @@ export default function About() {
             만나보세요.
           </S.content>
           <S.ImgWrap>
-            <S.ContentImg src="/collection/about/left.png" />
-            <S.ImgWrap className="col">
+            <S.ImgBox className="div1">
+              <S.ContentImg src="/collection/about/left.png" />
+            </S.ImgBox>
+            <S.ImgBox className="div2">
               <S.ContentImg src="/collection/about/rightTop.png" />
-              <S.ImgWrap className="row">
-                <S.ContentImg src="/collection/about/rightBtmLeft.png" />
-                <S.ContentImg src="/collection/about/rightBtmRight.png" />
-              </S.ImgWrap>
-            </S.ImgWrap>
+            </S.ImgBox>
+            <S.ImgBox className="div3">
+              <S.ContentImg src="/collection/about/rightBtmLeft.png" />
+            </S.ImgBox>
+            <S.ImgBox className="div4">
+              <S.ContentImg src="/collection/about/rightBtmRight.png" />
+            </S.ImgBox>
           </S.ImgWrap>
         </S.AboutSection>
         <S.AboutSection>
@@ -34,9 +38,9 @@ export default function About() {
             맥은 다양성과 개성을 존중하며, 모든 연령, 모든 인종, 모든 젠더를
             지지합니다.
           </S.content>
-          <S.ImgWrap>
+          <S.ImgBox className="section">
             <S.ContentImg src="/collection/about/section2.png" />
-          </S.ImgWrap>
+          </S.ImgBox>
         </S.AboutSection>
         <S.AboutSection>
           <S.Title>social responsibility</S.Title>
@@ -48,9 +52,9 @@ export default function About() {
             <br />
             우리의 꿈을 위해 함께 동참해보세요.
           </S.content>
-          <S.ImgWrap>
+          <S.ImgBox className="section">
             <S.ContentImg src="/collection/about/section3.png" />
-          </S.ImgWrap>
+          </S.ImgBox>
         </S.AboutSection>
       </WrapperWidth1000px>
     </>

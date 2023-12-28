@@ -8,10 +8,10 @@ const StyledSlider = styled(SliderComponent)<{
   highlight?: string;
   color: string;
 }>`
-  ${max(915)} {
+  ${max(1015)} {
     position: relative;
+    max-height: 400px;
   }
-
   .slick-list {
   }
   .slick-arrow {
@@ -24,7 +24,7 @@ const StyledSlider = styled(SliderComponent)<{
     background-color: ${props => props.color};
     background-color: ${props => props.highlight};
 
-    ${max(915)} {
+    ${max(1015)} {
       width: 40px;
       height: 72px;
       top: 50%;
@@ -36,7 +36,7 @@ const StyledSlider = styled(SliderComponent)<{
   .slick-next:before {
     display: none;
 
-    ${max(915)} {
+    ${max(1015)} {
       content: "";
       display: block;
       width: 40px;
@@ -48,7 +48,7 @@ const StyledSlider = styled(SliderComponent)<{
     mask-image: url("/banner/prev.svg");
     left: -50%;
 
-    ${max(915)} {
+    ${max(1015)} {
       left: 0;
       mask-image: none;
     }
@@ -57,7 +57,7 @@ const StyledSlider = styled(SliderComponent)<{
     mask-image: url("/banner/next.svg");
     left: calc(-50% + 68px);
 
-    ${max(915)} {
+    ${max(1015)} {
       left: calc(100% - 40px);
       mask-image: none;
     }
@@ -74,13 +74,27 @@ const StyledSlider = styled(SliderComponent)<{
   }
   .slick-slide div {
     outline: none;
+
+    ${max(1015)} {
+      max-height: 400px;
+    }
   }
 `;
 const SlideImg = styled.img`
   display: block;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   aspect-ratio: 4 / 3;
   background-color: #ccc;
+  object-fit: cover;
+
+  ${max(1215)} {
+    aspect-ratio: 1 / 1;
+  }
+  ${max(1015)} {
+    max-height: 400px;
+    object-position: 50% 25%;
+  }
 `;
 
 export default function MainStory(props) {
@@ -93,18 +107,16 @@ export default function MainStory(props) {
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: props.progress
-    // responsive: [
-    //   {
-    //     breakpoint: 915,
-    //     settings: {
-    //       arrows: true,
-    //       slidesToShow: 1,
-    //       centerMode: true,
-    //       centerPadding: "10%"
-    //     }
-    //   }
-    // ]
+    beforeChange: props.progress,
+    responsive: [
+      {
+        breakpoint: 1015,
+        settings: {
+          arrows: true,
+          slidesToShow: 1
+        }
+      }
+    ]
   };
 
   return (

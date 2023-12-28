@@ -14,6 +14,9 @@ const ImgBox = styled.div`
 const Item = styled.img`
   display: block;
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
   aspect-ratio: 1 / 1;
 `;
 const ItemTitle = styled.p<{
@@ -21,7 +24,7 @@ const ItemTitle = styled.p<{
 }>`
   color: #666;
   text-transform: uppercase;
-  padding: 0 6px;
+  padding: 0 8px;
   margin-top: 12px;
   word-break: keep-all;
 

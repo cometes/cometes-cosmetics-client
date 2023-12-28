@@ -19,9 +19,10 @@ export default function Header(props) {
     isSearchOn,
     ishover,
     menu,
-    scrollPosition,
+    currentScroll,
     fullNavActive,
     searchActive,
+    headerActive,
     setIsBgOn,
     setIsFullNavOn,
     setishover,
@@ -43,7 +44,8 @@ export default function Header(props) {
         isBgOn={isBgOn}
         isWhite={props.isWhite}
         menu={menu}
-        scrollPosition={scrollPosition}
+        currentScroll={currentScroll}
+        headerActive={headerActive}
         setIsBgOn={setIsBgOn}
         setishover={setishover}
         setMenu={setMenu}

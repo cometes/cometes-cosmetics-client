@@ -1,21 +1,40 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
-import { MainContainer, MainSection, MainTitle } from "../../../../units/main/style";
+import {
+  MainContainer,
+  MainSection,
+  MainTitle
+} from "../../../../units/main/style";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 export const MoreWrap = styled.div`
   display: flex;
   gap: 12px;
   margin-top: 40px;
+
+  ${max(650)} {
+    flex-direction: column;
+  }
 `;
 export const MoreBox = styled.div`
   position: relative;
+  overflow: hidden;
   width: 25%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 
   &.active {
     width: 50%;
+  }
+
+  ${max(650)} {
+    transition: none;
+    width: 100%;
+
+    &.active {
+      width: 100%;
+    }
   }
 `;
 export const MoreImg = styled.div<{
@@ -24,8 +43,12 @@ export const MoreImg = styled.div<{
   display: block;
   width: 100%;
   height: 480px;
-  background: ${props => `#a8a8a8 url(${props.bg}) no-repeat 50% / cover;`};
+  background: ${props => `#a8a8a8 url(${props.bg}) no-repeat 50% 0% / cover;`};
   background-blend-mode: multiply;
+
+  ${max(768)} {
+    height: 360px;
+  }
 `;
 export const MoreTextBox = styled.div`
   position: absolute;
@@ -44,10 +67,15 @@ export const MoreCategory = styled.h3`
   color: #fff;
   display: inline-block;
   border-bottom: 3px solid #fff;
+
+  ${max(768)} {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 `;
 export const MoreContent = styled.p`
   position: absolute;
-  width: 580px;
+  width: 500px;
   top: 100%;
   color: #fff;
   text-align: center;
@@ -76,6 +104,7 @@ export default function MainMoreWrap() {
   const onMouseEnterMore = (value: string) => () => {
     SetMoreMenu(value);
   };
+
   return (
     <MainSection>
       <MainContainer>
@@ -125,7 +154,9 @@ export default function MainMoreWrap() {
               <MoreCategory>FACE</MoreCategory>
               {moreMenu === "face" && (
                 <MoreContent>
-                  모두를 위한 쉐이드의 포뮬러로 페이스를 완성해보세요.
+                  모두를 위한 쉐이드의 포뮬러로
+                  <br />
+                  페이스를 완성해보세요.
                 </MoreContent>
               )}
             </MoreTextBox>

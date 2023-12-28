@@ -18,7 +18,7 @@ export default function LoginModal(props) {
       footer={null}
       width={"fit-content"}
       closeIcon={false}
-      style={{ top: "200px" }}
+      style={{ top: "25%" }}
     >
       <S.Wrapper>
         <S.Logo onClick={e => e.preventDefault()}>

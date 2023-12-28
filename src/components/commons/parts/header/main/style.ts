@@ -6,6 +6,7 @@ export const Wrapper = styled.header<{
   isWhite: number;
   active: number;
   scrollLock: number;
+  scrollHide: number;
 }>`
   width: 100%;
   background: ${props =>
@@ -13,13 +14,30 @@ export const Wrapper = styled.header<{
       ? "rgba(255,255,255,0.95)"
       : "linear-gradient(180deg,rgba(51, 51, 51, 0.3) 0%,rgba(51, 51, 51, 0) 100% );"};
   position: ${props => (props.isWhite ? "sticky" : "fixed")};
-  top: 0;
+  top: ${props => {
+    if (props.isWhite || props.scrollLock) return "0";
+    if (props.scrollHide) {
+      return "0";
+    } else {
+      return "-100%";
+    }
+  }};
   z-index: 999;
-  border-bottom: ${props =>
-    props.active || props.isWhite ? "1px solid #d9d9d9" : ""};
+  border-bottom: ${props => (props.isWhite ? "1px solid #d9d9d9" : "")};
   overflow: ${props => (props.ishover ? "visible" : "hidden")};
-  transition: background-color 0.2s ease, border-bottom 0.2s ease;
+  transition: background-color 0.2s ease, border-bottom 0.2s ease, top 0.6s ease;
   /* padding-right: ${props => (props.scrollLock ? "15px" : "0")}; */
+
+  /* fullpage 첫번쨰 섹션에서만 헤더 보임 */
+  .fp-viewing-0 & {
+    top: 0;
+  }
+  .fp-viewing-1 &,
+  .fp-viewing-2 &,
+  .fp-viewing-3 &,
+  .fp-viewing-4 & {
+    top: -100%;
+  }
 `;
 export const Container = styled.div`
   width: 1440px;
@@ -31,6 +49,9 @@ export const Container = styled.div`
   ${max(1455)} {
     width: 100%;
     padding: 0 40px;
+  }
+  ${max(768)} {
+    padding: 0 24px;
   }
 `;
 export const Logo = styled.img`
@@ -103,6 +124,7 @@ export const NavItem = styled.a<{
   isWhite: number;
   active: number;
 }>`
+  font-family: "Raleway", sans-serif;
   position: relative;
   display: block;
   line-height: 1.6rem;
@@ -127,7 +149,7 @@ export const NavItem = styled.a<{
 export const SubNavBox = styled.ul`
   position: absolute;
   z-index: -999;
-  top: 81px;
+  top: 80px;
   left: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -144,6 +166,7 @@ export const SubNavBox = styled.ul`
 
   &::before {
     content: "";
+    border-top: 1px solid #d9d9d9;
     position: absolute;
     top: 0;
     left: -50vw;
@@ -237,6 +260,7 @@ export const ProductsCollection = styled.div`
 export const ProductsTitle = styled.a`
   display: block;
   font-size: 1.8rem;
+  cursor: pointer;
 `;
 export const ProductsSub = styled.a`
   display: block;
@@ -260,6 +284,7 @@ export const ProductsImg = styled.img`
   aspect-ratio: 1 / 1;
   display: block;
   background-color: #ccc;
+  cursor: pointer;
 `;
 
 export const ButtonWrap = styled.div`

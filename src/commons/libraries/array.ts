@@ -55,15 +55,17 @@ export const NavProductsItem = [
 export const mainVisualItem = [
   {
     image: "/banner/pc/banner1.png",
+    image2: "/banner/mobile/banner1.png",
     badge: "2023 Happy Holiday",
     title: "2023 맥 홀리데이 컬렉션",
     content:
       "새하얀 눈과 얼음으로 뒤덮여 보석처럼 반짝이는 은빛의 한정판 컬렉션을 지금 바로 만나보세요!",
-    color: "#111",
+    color: "#222",
     url: "/collections/mac-2023-holiday"
   },
   {
     image: "/banner/pc/banner2.png",
+    image2: "/banner/mobile/banner2.png",
     badge: "Lisa loves MAC",
     title: "MAC X L Collection",
     content:
@@ -73,6 +75,7 @@ export const mainVisualItem = [
   },
   {
     image: "/banner/pc/banner3.png",
+    image2: "/banner/mobile/banner3.png",
     badge: "Vivaglam is Back!",
     title: "비바 글램 캠페인 26주년",
     content:
@@ -81,14 +84,16 @@ export const mainVisualItem = [
   },
   {
     image: "/banner/pc/banner4.png",
+    image2: "/banner/mobile/banner4.png",
     badge: "Re:think PINK!",
     title: "리:띵크 핑크! 컬렉션",
     content:
       "모두의 마음 속엔 핑크가 있다! 오직 당신만의 핑크 립스틱을 찾아보세요.",
-    color: "#FF007A"
+    color: "#222"
   },
   {
     image: "/banner/pc/banner5.png",
+    image2: "/banner/mobile/banner5.png",
     badge: "2022 Lunar New Year!",
     title: "맥 루나 뉴이어 컬렉션",
     content:

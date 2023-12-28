@@ -6,7 +6,8 @@ const Button = styled.button<{
   background: string;
   border: string;
 }>`
-  padding: 16px 20px;
+  padding: 0 16px;
+  width: fit-content;
   height: 40px;
   border: none;
   border: ${props => props.border};

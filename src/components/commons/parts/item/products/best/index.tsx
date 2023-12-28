@@ -10,6 +10,7 @@ const ItemImgBox = styled.div<{
   justify-content: center;
   position: relative;
   aspect-ratio: ${props => (props.idx > 3 ? "3 / 4" : "1 / 1")};
+  cursor: pointer;
 
   ${max(915)} {
     aspect-ratio: 3 / 4;
@@ -20,7 +21,10 @@ const ItemImg = styled.img<{
 }>`
   display: block;
   width: ${props => (props.idx > 3 ? "100%" : "80%")};
-  cursor: pointer;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  aspect-ratio: 1 / 1;
 
   ${max(915)} {
     width: 100%;
@@ -40,6 +44,10 @@ const Number = styled.span`
   display: block;
   font-size: 3.6rem;
   font-family: "AritaBuri";
+
+  ${max(500)} {
+    font-size: 3rem;
+  }
 `;
 const ItemHeartBox = styled.div`
   position: absolute;
@@ -54,7 +62,7 @@ const ItemHeartBox = styled.div`
 const ItemHeartIcon = styled.i`
   display: block;
   font-size: 3rem;
-  line-height: 3rem;
+  height: 3rem;
   color: #ccc;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -62,6 +70,14 @@ const ItemHeartIcon = styled.i`
   &:hover {
     color: #d86565;
   }
+
+  ${max(500)} {
+    font-size: 2.4rem;
+    height: 2.4rem;
+  }
+`;
+const ItemContentBox = styled.div`
+  padding: 0 8px;
 `;
 const ItemTagBox = styled.div`
   display: flex;
@@ -75,6 +91,14 @@ const ItemTag = styled.span`
 
   &:first-of-type {
     margin-left: 0;
+  }
+
+  ${max(500)} {
+    margin-left: 6px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
   }
 `;
 const ItemTitle = styled.p`
@@ -119,21 +143,23 @@ export default function ProductsItemBest(props) {
           <ItemHeartIcon className="fi fi-rs-heart" />
         </ItemHeartBox>
       </ItemImgBox>
-      <ItemTagBox>
-        {props.data?.tag.map(el => (
-          <ItemTag>#{el}</ItemTag>
-        ))}
-      </ItemTagBox>
-      <ItemTitle>{props.data?.title}</ItemTitle>
-      <ItemColorBox>
-        {colorArr.map(el => (
-          <ItemColorIcon background={el.code} />
-        ))}
-        {props.data?.color.length > 5 && (
-          <ItemColorEllipsis>⋯</ItemColorEllipsis>
-        )}
-      </ItemColorBox>
-      <ItemPrice>₩ {props.data?.price}</ItemPrice>
+      <ItemContentBox>
+        <ItemTagBox>
+          {props.data?.tag.map(el => (
+            <ItemTag>#{el}</ItemTag>
+          ))}
+        </ItemTagBox>
+        <ItemTitle>{props.data?.title}</ItemTitle>
+        <ItemColorBox>
+          {colorArr.map(el => (
+            <ItemColorIcon background={el.code} />
+          ))}
+          {props.data?.color.length > 5 && (
+            <ItemColorEllipsis>⋯</ItemColorEllipsis>
+          )}
+        </ItemColorBox>
+        <ItemPrice>₩ {props.data?.price}</ItemPrice>
+      </ItemContentBox>
     </div>
   );
 }

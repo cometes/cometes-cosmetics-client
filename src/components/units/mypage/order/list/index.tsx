@@ -3,151 +3,125 @@ import * as T from "../../../../commons/parts/table/style";
 import ButtonHeight30px from "../../../../commons/parts/buttons/height30px";
 import WrapperWidth800px from "../../../../commons/parts/wrapper/w800";
 import Process from "../../../../commons/parts/process";
+import * as S from "./style";
+import { Checkbox, ConfigProvider } from "antd";
 
 export default function OrderList() {
   return (
-    <WrapperWidth800px>
+    <>
       <Title title="마이 쇼핑" />
-      <Process />
-      <T.SectionWrap>
-        <T.ProductWrap>
-          <T.TableWrap>
-            <thead>
-              <tr>
-                <T.TableTab>주문일자</T.TableTab>
-                <T.TableTab>상품</T.TableTab>
-                <T.TableTab>수량</T.TableTab>
-                <T.TableTab>주문금액</T.TableTab>
-                <T.TableTab>상태</T.TableTab>
-              </tr>
-            </thead>
-            <T.TableBody>
-              <T.TableRow>
-                <td>
-                  <T.ItemBox className="column">
+      <WrapperWidth800px>
+        <Process />
+        <S.ProductWrap>
+          <S.TableWrap>
+            <S.TabWrap>
+              <S.Tab>주문일자</S.Tab>
+              <S.Tab>상품정보</S.Tab>
+              <S.Tab>수량</S.Tab>
+              <S.Tab>주문금액</S.Tab>
+              <S.Tab>상태</S.Tab>
+            </S.TabWrap>
+            <S.RowWrap>
+              <S.RowBox>
+                <S.ItemBox className="pTop date">
+                  <S.MobileCategory>주문일자 : </S.MobileCategory>
+                  <S.ItemOptionBox>
                     <p>2023. 11. 11</p>
-                    <T.ItemTextButton>상세보기</T.ItemTextButton>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox>
-                    <T.ItemInfoWrap>
-                      <T.ItemImg />
-                      <T.ItemInfoBox>
-                        <p>파우더키스 립스틱</p>
-                        <T.ItemOption>옵션 | 저스트 큐리어스</T.ItemOption>
-                      </T.ItemInfoBox>
-                    </T.ItemInfoWrap>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>1개</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>100,000 P</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStatus>결제완료</T.ItemStatus>
-                    <T.ItemButtonBox>
-                      <ButtonHeight30px
-                        content="리뷰작성"
-                        color="#666"
-                        background="transparent"
-                        border="1px solid #aaa"
-                      />
-                    </T.ItemButtonBox>
-                  </T.ItemBox>
-                </td>
-              </T.TableRow>
-            </T.TableBody>
-            <T.TableBody>
-              <T.TableRow>
-                <td rowSpan={2}>
-                  <T.ItemBox className="column">
+                    <S.ItemTextButton>상세보기</S.ItemTextButton>
+                  </S.ItemOptionBox>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="info">
+                  <S.ItemInfoWrap>
+                    <S.ItemImg />
+                    <S.ItemInfoBox>
+                      <p>파우더키스 립스틱</p>
+                      <S.ItemOptionBox>
+                        <S.ItemOption>옵션 | 저스트 큐리어스</S.ItemOption>
+                      </S.ItemOptionBox>
+                    </S.ItemInfoBox>
+                  </S.ItemInfoWrap>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="bgCell">
+                  <S.MobileCategory>주문수량</S.MobileCategory>
+                  <S.ItemStrongText>1개</S.ItemStrongText>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="pTop">
+                  <S.MobileCategory>상품금액</S.MobileCategory>
+                  <S.ItemStrongText>100,000P</S.ItemStrongText>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="status">
+                  <S.ItemStatus>결제완료</S.ItemStatus>
+                  <S.ButtonFlex>
+                    <S.ItemButtonBox>
+                      <S.OptionBtn>배송조회</S.OptionBtn>
+                    </S.ItemButtonBox>
+                    <S.ItemButtonBox>
+                      <S.OptionBtn className="line">리뷰작성</S.OptionBtn>
+                    </S.ItemButtonBox>
+                  </S.ButtonFlex>
+                </S.ItemBox>
+              </S.RowBox>
+            </S.RowWrap>
+            <S.RowWrap>
+              <S.RowBox>
+                <S.ItemBox className="pTop date">
+                  <S.MobileCategory>주문일자 : </S.MobileCategory>
+                  <S.ItemOptionBox>
                     <p>2023. 11. 11</p>
-                    <T.ItemTextButton>상세보기</T.ItemTextButton>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox>
-                    <T.ItemInfoWrap>
-                      <T.ItemImg />
-                      <T.ItemInfoBox>
-                        <p>파우더키스 립스틱</p>
-                        <T.ItemOption>옵션 | 저스트 큐리어스</T.ItemOption>
-                      </T.ItemInfoBox>
-                    </T.ItemInfoWrap>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>1개</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>100,000 P</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStatus>결제완료</T.ItemStatus>
-                    <T.ItemButtonBox>
-                      <ButtonHeight30px
-                        content="리뷰작성"
-                        color="#666"
-                        background="transparent"
-                        border="1px solid #aaa"
-                      />
-                    </T.ItemButtonBox>
-                  </T.ItemBox>
-                </td>
-              </T.TableRow>
-              <T.TableRow>
-                <td>
-                  <T.ItemBox>
-                    <T.ItemInfoWrap>
-                      <T.ItemImg />
-                      <T.ItemInfoBox>
-                        <p>러스터글래스 립스틱</p>
-                        <T.ItemOption>옵션 | 저스트 큐리어스</T.ItemOption>
-                      </T.ItemInfoBox>
-                    </T.ItemInfoWrap>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>1개</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStrongText>100,000 P</T.ItemStrongText>
-                  </T.ItemBox>
-                </td>
-                <td>
-                  <T.ItemBox className="column">
-                    <T.ItemStatus>결제완료</T.ItemStatus>
-                    <T.ItemButtonBox>
-                      <ButtonHeight30px
-                        content="리뷰작성"
-                        color="#666"
-                        background="transparent"
-                        border="1px solid #aaa"
-                      />
-                    </T.ItemButtonBox>
-                  </T.ItemBox>
-                </td>
-              </T.TableRow>
-            </T.TableBody>
-          </T.TableWrap>
-        </T.ProductWrap>
-      </T.SectionWrap>
-    </WrapperWidth800px>
+                    <S.ItemTextButton>상세보기</S.ItemTextButton>
+                  </S.ItemOptionBox>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="info">
+                  <S.ItemInfoWrap>
+                    <S.ItemImg />
+                    <S.ItemInfoBox>
+                      <p>파우더키스 립스틱</p>
+                      <S.ItemOptionBox>
+                        <S.ItemOption>옵션 | 저스트 큐리어스</S.ItemOption>
+                      </S.ItemOptionBox>
+                    </S.ItemInfoBox>
+                  </S.ItemInfoWrap>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="bgCell">
+                  <S.MobileCategory>주문수량</S.MobileCategory>
+                  <S.ItemStrongText>1개</S.ItemStrongText>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="pTop">
+                  <S.MobileCategory>상품금액</S.MobileCategory>
+                  <S.ItemStrongText>100,000P</S.ItemStrongText>
+                </S.ItemBox>
+              </S.RowBox>
+              <S.RowBox>
+                <S.ItemBox className="status">
+                  <S.ItemStatus>결제완료</S.ItemStatus>
+                  <S.ButtonFlex>
+                    <S.ItemButtonBox>
+                      <S.OptionBtn>배송조회</S.OptionBtn>
+                    </S.ItemButtonBox>
+                    <S.ItemButtonBox>
+                      <S.OptionBtn className="line">리뷰작성</S.OptionBtn>
+                    </S.ItemButtonBox>
+                  </S.ButtonFlex>
+                </S.ItemBox>
+              </S.RowBox>
+            </S.RowWrap>
+          </S.TableWrap>
+        </S.ProductWrap>
+      </WrapperWidth800px>
+    </>
   );
 }

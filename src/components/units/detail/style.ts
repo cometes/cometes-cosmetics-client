@@ -14,12 +14,16 @@ export const LeftAside = styled.aside`
 export const RightWrap = styled.div`
   width: 50%;
 `;
-export const RightContainer = styled.div`
-  margin: 80px 80px 0 80px;
-
-  &.content {
-    margin: 16px 60px 0 60px;
-  }
+export const RightBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 0 80px;
+`;
+export const ContentBox = styled.div`
+  padding: 20px 60px 0 60px;
 `;
 export const CategoryWrap = styled.div`
   display: flex;
@@ -44,7 +48,7 @@ export const CategoryIcon = styled.i`
   color: #6d6d6d;
 `;
 export const ProductSection = styled.section`
-  margin-top: 30px;
+  margin-top: 60px;
 `;
 export const ProductTitleWrap = styled.div`
   display: flex;
@@ -255,7 +259,7 @@ export const ProductButtonBox = styled.div`
   }
 `;
 export const DetailSection = styled.section`
-  margin-top: 80px;
+  /* margin-top: 80px; */
 `;
 export const DetailTabWrap = styled.div`
   display: flex;

@@ -12,14 +12,19 @@ export default function MainCollectionWrap() {
   return (
     <S.CollectionSection>
       <S.CollectionWrap>
-        <S.CollectionBanner data-aos="fade-right">
-          <S.CollectionBannerImg src="https://storage.googleapis.com/cometes-storage/main/lisa1.webp" />
-        </S.CollectionBanner>
+        <S.CollectionContainer>
+          <S.CollectionBanner data-aos="fade-right">
+            <S.CollectionBannerImg
+              src="https://storage.googleapis.com/cometes-storage/main/lisa1.webp"
+              className="first"
+            />
+          </S.CollectionBanner>
+        </S.CollectionContainer>
         <MainContainer>
           <S.CollectionTextWrap data-aos="fade-up" data-aos-delay="300">
             <S.CollectionTitle>MAC X L Collection</S.CollectionTitle>
             <S.CollectionContent>
-              리사가 가장 사랑하는 것에 영감을 받아 탄생한 NEW 컬러와 <br />
+              리사가 가장 사랑하는 것에 영감을 받아 탄생한 NEW 컬러와
               그녀가 좋아하는 맥 아이템으로 가득한 새로운 리미티드 컬렉션을
               소개합니다.
             </S.CollectionContent>
@@ -36,7 +41,7 @@ export default function MainCollectionWrap() {
             <S.CollectionTitle>Re:Think Pink Collection</S.CollectionTitle>
             <S.CollectionContent>
               모두의 마음 속엔 핑크가 있다!
-              <br />맥 총알 립스틱의 다양한 텍스쳐와 피니쉬로 당신의 핑크 드림을
+              맥 총알 립스틱의 다양한 텍스쳐와 피니쉬로 당신의 핑크 드림을
               펼쳐보세요.
             </S.CollectionContent>
             <MainTextBtn>view more</MainTextBtn>
@@ -46,32 +51,32 @@ export default function MainCollectionWrap() {
       <S.CollectionWrap>
         <MainContainer>
           <S.CollectionBannerWrap>
-            <S.CollectionBanner data-aos="fade-right">
-              <S.CollectionDeco
-                className="left"
-                color={"#a8dbff"}
-                data-aos-delay="300"
-                data-aos="fade-right"
-              >
-                HOLIDAY
-              </S.CollectionDeco>
+            <S.CollectionDeco
+              className="left"
+              color={"#a8dbff"}
+              data-aos-delay="300"
+              data-aos="fade-right"
+            >
+              HOLIDAY
+            </S.CollectionDeco>
+            <S.CollectionDeco
+              className="right"
+              color={"#a8dbff"}
+              data-aos-delay="300"
+              data-aos="fade-left"
+            >
+              Collection
+            </S.CollectionDeco>
+            <S.CollectionBanner data-aos="fade-right" className="left">
               <S.CollectionBannerImg
                 src="https://storage.googleapis.com/cometes-storage/main/holiday1.webp"
-                className="vertical left"
+                className="vertical"
               />
             </S.CollectionBanner>
-            <S.CollectionBanner data-aos="fade-left">
-              <S.CollectionDeco
-                className="right"
-                color={"#a8dbff"}
-                data-aos-delay="300"
-                data-aos="fade-left"
-              >
-                Collection
-              </S.CollectionDeco>
+            <S.CollectionBanner data-aos="fade-left" className="right">
               <S.CollectionBannerImg
                 src="https://storage.googleapis.com/cometes-storage/main/holiday2.webp"
-                className="vertical right"
+                className="vertical"
               />
             </S.CollectionBanner>
           </S.CollectionBannerWrap>

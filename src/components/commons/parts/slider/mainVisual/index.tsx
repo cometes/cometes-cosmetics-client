@@ -17,11 +17,12 @@ export default function MainVisual() {
 
   return (
     <>
-      <S.Fullbanner>
-        <S.StyledSlider {...settings}>
-          {mainVisualItem.map((el, idx) => (
-            <S.SlideWrap key={idx}>
-              <S.SlideItem src={el.image} />
+      {/* <S.Fullbanner> */}
+      <S.StyledSlider {...settings}>
+        {mainVisualItem.map((el, idx) => (
+          <S.SlideWrap key={idx}>
+            <S.SlideItem img={el.image} img2={el.image2}/>
+            <S.SlideContent>
               <S.SlidePageBox>
                 <S.SlideCurrentPage color={el.color}>
                   {idx + 1}
@@ -39,11 +40,39 @@ export default function MainVisual() {
                   <S.MoreBtnArrow icon={faChevronRight} />
                 </S.MoreBtn>
               </S.TextBox>
+            </S.SlideContent>
+          </S.SlideWrap>
+        ))}
+      </S.StyledSlider>
+      {/* </S.Fullbanner> */}
+      {/* <S.Mobilebanner>
+        <S.StyledSlider {...settings}>
+          {mainVisualItem.map((el, idx) => (
+            <S.SlideWrap key={idx}>
+              <S.SlideItem src={el.image2} />
+              <S.SlideContent>
+                <S.SlidePageBox>
+                  <S.SlideCurrentPage color={el.color}>
+                    {idx + 1}
+                  </S.SlideCurrentPage>
+                  <S.SlidePageLength color={el.color}>{`/${String(
+                    mainVisualItem.length
+                  ).padStart(2, "0")}`}</S.SlidePageLength>
+                </S.SlidePageBox>
+                <S.TextBox>
+                  <S.Badge color={el.color}>{el.badge}</S.Badge>
+                  <S.Title color={el.color}>{el.title}</S.Title>
+                  <S.SubTitle color={el.color}>{el.content}</S.SubTitle>
+                  <S.MoreBtn onClick={onClickMoveToPage(el.url)}>
+                    <S.MoreBtnText>View More</S.MoreBtnText>
+                    <S.MoreBtnArrow icon={faChevronRight} />
+                  </S.MoreBtn>
+                </S.TextBox>
+              </S.SlideContent>
             </S.SlideWrap>
           ))}
         </S.StyledSlider>
-      </S.Fullbanner>
-      <S.Mobilebanner></S.Mobilebanner>
+      </S.Mobilebanner> */}
     </>
   );
 }
