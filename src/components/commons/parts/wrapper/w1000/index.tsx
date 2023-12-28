@@ -5,7 +5,7 @@ import { ReactChild, ReactFragment, ReactPortal } from "react";
 const Wrapper = styled.div<{
   margin: string;
 }>`
-  margin-top: 80px;
+  margin-top: 50px;
   margin-top: ${props => props.margin};
 `;
 const Container = styled.div`
@@ -18,6 +18,9 @@ const Container = styled.div`
   }
   ${max(768)} {
     padding: 0 24px;
+  }
+  ${max(500)} {
+    padding: 0 16px;
   }
 `;
 

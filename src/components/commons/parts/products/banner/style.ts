@@ -52,8 +52,8 @@ export const RightWrap = styled.div`
   overflow: hidden;
 
   ${max(1015)} {
-    width: 80%;
-    margin-top: 60px;
+    visibility: hidden;
+    height: 0;
   }
 `;
 export const Title = styled.h1`
@@ -63,6 +63,9 @@ export const Title = styled.h1`
   color: #fff;
   text-transform: uppercase;
 
+  ${max(1215)} {
+    font-size: 6rem;
+  }
   ${max(1015)} {
     font-size: 5rem;
   }
@@ -70,7 +73,7 @@ export const Title = styled.h1`
 export const SelectWrap = styled.div`
   margin-top: 20px;
   position: relative;
-  width: 260px;
+  min-width: 260px;
   border: 1px solid #fff;
   font-size: 16px;
   color: #fff;

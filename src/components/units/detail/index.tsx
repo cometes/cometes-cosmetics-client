@@ -20,7 +20,7 @@ export default function ProductsDetail() {
     filtered,
     colorIcon,
     infoRef,
-    reviewRef,
+    reviewRef
   } = useDetail(lipArr);
 
   return (
@@ -32,7 +32,7 @@ export default function ProductsDetail() {
           </S.LeftAside>
         </S.LeftWrap>
         <S.RightWrap>
-          <S.RightContainer>
+          <S.RightBox>
             <S.CategoryWrap>
               <S.CategoryTitle>Products</S.CategoryTitle>
               <S.CategoryIcon className="fi fi-rr-angle-small-right" />
@@ -125,20 +125,18 @@ export default function ProductsDetail() {
                 </S.ProductButtonBox>
               </S.ProductButtonWrap>
             </S.ProductSection>
-          </S.RightContainer>
+          </S.RightBox>
           <S.DetailSection>
             <S.DetailTabWrap>
-              <S.DetailTab className="active">
-                상세 페이지
-              </S.DetailTab>
+              <S.DetailTab className="active">상세 페이지</S.DetailTab>
               <S.DetailTab onClick={onClickRef(infoRef)}>
                 전성분 · 상품정보
               </S.DetailTab>
               <S.DetailTab onClick={onClickRef(reviewRef)}>리뷰</S.DetailTab>
             </S.DetailTabWrap>
-            <S.RightContainer className="content">
+            <S.ContentBox>
               <S.DetailContent src={lipArr.content} />
-            </S.RightContainer>
+            </S.ContentBox>
           </S.DetailSection>
         </S.RightWrap>
       </S.Wrapper>

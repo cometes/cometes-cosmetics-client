@@ -60,6 +60,12 @@ export const VideoLeft = styled.div`
     min-height: auto;
     padding: 0 40px;
   }
+  ${max(768)} {
+    padding: 0 24px;
+  }
+  ${max(500)} {
+    padding: 0 16px;
+  }
 `;
 export const VideoRight = styled.div`
   width: 50%;

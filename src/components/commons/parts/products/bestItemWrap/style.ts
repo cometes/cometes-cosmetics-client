@@ -13,12 +13,28 @@ export const ItemTopBox = styled.div`
   align-items: center;
   margin-bottom: 40px;
 `;
+export const ItemContainer = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 80px;
+
+  ${max(1215)} {
+    width: 100%;
+    padding: 0 40px;
+  }
+  ${max(768)} {
+    padding: 0 24px;
+  }
+  ${max(500)} {
+    padding: 0;
+  }
+`;
 export const GridWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 80px 12px;
-  margin-top: 40px;
+  margin-top: 30px;
 
   & > div:nth-of-type(-1n + 3) {
     grid-column: span 4;
@@ -67,12 +83,15 @@ export const GridWrap = styled.div`
   ${max(600)} {
     grid-template-columns: 1fr 1fr;
   }
+  ${max(500)} {
+    gap: 80px 8px;
+  }
 `;
 export const GridDefaultWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 80px 12px;
-  margin-top: 40px;
+  margin-top: 30px;
 
   ${max(1015)} {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -80,14 +99,24 @@ export const GridDefaultWrap = styled.div`
   ${max(600)} {
     grid-template-columns: 1fr 1fr;
   }
+  ${max(500)} {
+    gap: 80px 8px;
+  }
 `;
 export const BestTitle = styled.h2`
-  font-family: "Raleway";
+  font-family: "RaleWay", sans-serif;
   font-size: 6rem;
-  font-weight: 500;
+  line-height: 6rem;
+  font-weight: 400;
+  letter-spacing: -0.2rem;
 
-  ${max(768)} {
-    font-size: 3.6rem;
-    line-height: 3.4rem;
+  ${max(1015)} {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  ${max(500)} {
+    font-size: 4rem;
+    line-height: 4rem;
+    padding: 0 16px;
   }
 `;

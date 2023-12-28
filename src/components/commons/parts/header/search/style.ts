@@ -5,12 +5,13 @@ export const Wrapper = styled.div`
   max-height: 0;
   overflow: hidden;
   position: fixed;
-  top: 81px;
+  top: 80px;
   left: 0;
   z-index: 998;
   width: 100%;
-  background: rgba(247, 247, 247, 0.85);
+  background: rgba(247, 247, 247, 0.65);
   backdrop-filter: blur(12px);
+  border-top: 1px solid #d9d9d9;
 
   &.active {
     animation: searchAppear 0.5s ease-in-out forwards;
@@ -43,7 +44,7 @@ export const Container = styled.div`
 
   ${max(815)} {
     width: 100%;
-    padding: 160px 40px 80px 40px;
+    padding: 100px 40px 80px 40px;
   }
 `;
 export const InputBox = styled.div`

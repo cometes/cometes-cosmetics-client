@@ -1,19 +1,23 @@
-import { Button, Checkbox, ConfigProvider, Divider, InputNumber } from "antd";
-import Title from "../../../commons/parts/title";
+import { Button, Checkbox, ConfigProvider, InputNumber } from "antd";
 import * as S from "./style";
-import ButtonHeight30px from "../../../commons/parts/buttons/height30px";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import DivideLine from "../../../commons/parts/divideLine";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import ButtonHeight50px from "../../../commons/parts/buttons/height50px";
 import WrapperWidth1000px from "../../../commons/parts/wrapper/w1000";
 import * as T from "../../../commons/parts/table/style";
+import ButtonHeight40px from "../../../commons/parts/buttons/height40px";
 
 export default function Cart() {
   return (
     <WrapperWidth1000px>
-      <Title title="장바구니" />
+      <S.CategoryWrap>
+        <S.CategoryTitle>장바구니</S.CategoryTitle>
+        <S.CategoryIcon className="fi fi-rr-angle-small-right" />
+        <S.CategoryTitle>주문/결제</S.CategoryTitle>
+        <S.CategoryIcon className="fi fi-rr-angle-small-right" />
+        <S.CategoryTitle>주문완료</S.CategoryTitle>
+      </S.CategoryWrap>
       <S.SelectBox>
         <ConfigProvider
           theme={{
@@ -36,154 +40,140 @@ export default function Cart() {
           </Button>
         </ConfigProvider>
       </S.SelectBox>
-      <T.ProductWrap>
-        <T.TableWrap>
-          <thead>
-            <tr>
-              <T.TableTab>상품정보</T.TableTab>
-              <T.TableTab>구매가</T.TableTab>
-              <T.TableTab>수량</T.TableTab>
-              <T.TableTab>배송정보</T.TableTab>
-              <T.TableTab>선택</T.TableTab>
-            </tr>
-          </thead>
-          <T.TableBody>
-            <T.TableRow>
-              <td>
-                <T.ItemBox>
-                  <ConfigProvider
-                    theme={{
-                      token: {
-                        colorPrimary: "#111"
-                      }
-                    }}
-                  >
-                    <Checkbox />
-                  </ConfigProvider>
-                  <T.ItemInfoWrap className="checkbox">
-                    <T.ItemImg />
-                    <T.ItemInfoBox>
-                      <p>파우더키스 립스틱</p>
-                      <T.ItemOption>옵션 | 저스트 큐리어스</T.ItemOption>
-                      <T.ItemOptionButton>옵션변경</T.ItemOptionButton>
-                    </T.ItemInfoBox>
-                  </T.ItemInfoWrap>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemStrongText>100,000P</T.ItemStrongText>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <ConfigProvider
-                    theme={{
-                      token: {
-                        colorPrimary: "#111"
-                      }
-                    }}
-                  >
-                    <InputNumber min={1} max={10} defaultValue={1} />
-                  </ConfigProvider>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemSubText>배송비</T.ItemSubText>
-                  <p>+4000P</p>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemButtonBox>
-                    <ButtonHeight30px
-                      content="바로구매"
-                      color="#fff"
-                      background="#111"
-                    />
-                  </T.ItemButtonBox>
-                  <T.ItemButtonBox>
-                    <ButtonHeight30px
-                      border="2px solid #efefef"
-                      color="#949494"
-                      content="삭제하기"
-                      background="transparent"
-                    />
-                  </T.ItemButtonBox>
-                </T.ItemBox>
-              </td>
-            </T.TableRow>
-          </T.TableBody>
-          <T.TableBody>
-            <T.TableRow>
-              <td>
-                <T.ItemBox>
-                  <ConfigProvider
-                    theme={{
-                      token: {
-                        colorPrimary: "#111"
-                      }
-                    }}
-                  >
-                    <Checkbox />
-                  </ConfigProvider>
-                  <T.ItemInfoWrap className="checkbox">
-                    <T.ItemImg />
-                    <T.ItemInfoBox>
-                      <p>파우더키스 립스틱</p>
-                      <T.ItemOption>옵션 | 저스트 큐리어스</T.ItemOption>
-                      <T.ItemOptionButton>옵션변경</T.ItemOptionButton>
-                    </T.ItemInfoBox>
-                  </T.ItemInfoWrap>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemStrongText>100,000P</T.ItemStrongText>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <ConfigProvider
-                    theme={{
-                      token: {
-                        colorPrimary: "#111"
-                      }
-                    }}
-                  >
-                    <InputNumber min={1} max={10} defaultValue={1} />
-                  </ConfigProvider>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemSubText>배송비</T.ItemSubText>
-                  <p>+4000P</p>
-                </T.ItemBox>
-              </td>
-              <td>
-                <T.ItemBox className="column">
-                  <T.ItemButtonBox>
-                    <ButtonHeight30px
-                      content="바로구매"
-                      color="#fff"
-                      background="#111"
-                    />
-                  </T.ItemButtonBox>
-                  <T.ItemButtonBox>
-                    <ButtonHeight30px
-                      border="2px solid #efefef"
-                      color="#949494"
-                      content="삭제하기"
-                      background="transparent"
-                    />
-                  </T.ItemButtonBox>
-                </T.ItemBox>
-              </td>
-            </T.TableRow>
-          </T.TableBody>
-        </T.TableWrap>
+      <S.ProductWrap>
+        <S.TableWrap>
+          <S.TabWrap>
+            <S.Tab>상품정보</S.Tab>
+            <S.Tab>구매가</S.Tab>
+            <S.Tab>수량</S.Tab>
+            <S.Tab>배송정보</S.Tab>
+            <S.Tab>선택</S.Tab>
+          </S.TabWrap>
+          <S.RowWrap>
+            <S.RowBox>
+              <S.ItemBox className="info">
+                <ConfigProvider
+                  theme={{
+                    token: {
+                      colorPrimary: "#111"
+                    }
+                  }}
+                >
+                  <Checkbox />
+                </ConfigProvider>
+                <S.ItemInfoWrap className="checkbox">
+                  <S.ItemImg />
+                  <S.ItemInfoBox>
+                    <p>파우더키스 립스틱</p>
+                    <S.ItemOptionBox>
+                      <S.ItemOption>옵션 | 저스트 큐리어스</S.ItemOption>
+                      <S.ItemOptionButton>옵션변경</S.ItemOptionButton>
+                    </S.ItemOptionBox>
+                  </S.ItemInfoBox>
+                </S.ItemInfoWrap>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox className="bgCell">
+                <S.MobileCategory>주문수량</S.MobileCategory>
+                <ConfigProvider
+                  theme={{
+                    token: {
+                      colorPrimary: "#111"
+                    }
+                  }}
+                >
+                  <InputNumber min={1} max={10} defaultValue={1} />
+                </ConfigProvider>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox className="pTop">
+                <S.MobileCategory>상품금액</S.MobileCategory>
+                <S.ItemStrongText>100,000P</S.ItemStrongText>
+              </S.ItemBox>
+            </S.RowBox>
+
+            <S.RowBox>
+              <S.ItemBox>
+                <S.ItemSubText>배송비</S.ItemSubText>
+                <p>+4000P</p>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox>
+                <S.ItemButtonBox>
+                  <S.OptionBtn>바로구매</S.OptionBtn>
+                </S.ItemButtonBox>
+                <S.ItemButtonBox>
+                  <S.OptionBtn className="line">삭제하기</S.OptionBtn>
+                </S.ItemButtonBox>
+              </S.ItemBox>
+            </S.RowBox>
+          </S.RowWrap>
+          <S.RowWrap>
+            <S.RowBox>
+              <S.ItemBox className="info">
+                <ConfigProvider
+                  theme={{
+                    token: {
+                      colorPrimary: "#111"
+                    }
+                  }}
+                >
+                  <Checkbox />
+                </ConfigProvider>
+                <S.ItemInfoWrap className="checkbox">
+                  <S.ItemImg />
+                  <S.ItemInfoBox>
+                    <p>파우더키스 립스틱</p>
+                    <S.ItemOptionBox>
+                      <S.ItemOption>옵션 | 저스트 큐리어스</S.ItemOption>
+                      <S.ItemOptionButton>옵션변경</S.ItemOptionButton>
+                    </S.ItemOptionBox>
+                  </S.ItemInfoBox>
+                </S.ItemInfoWrap>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox className="bgCell">
+                <S.MobileCategory>주문수량</S.MobileCategory>
+                <ConfigProvider
+                  theme={{
+                    token: {
+                      colorPrimary: "#111"
+                    }
+                  }}
+                >
+                  <InputNumber min={1} max={10} defaultValue={1} />
+                </ConfigProvider>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox className="pTop">
+                <S.MobileCategory>상품금액</S.MobileCategory>
+                <S.ItemStrongText>100,000P</S.ItemStrongText>
+              </S.ItemBox>
+            </S.RowBox>
+
+            <S.RowBox>
+              <S.ItemBox>
+                <S.ItemSubText>배송비</S.ItemSubText>
+                <p>+4000P</p>
+              </S.ItemBox>
+            </S.RowBox>
+            <S.RowBox>
+              <S.ItemBox>
+                <S.ItemButtonBox>
+                  <S.OptionBtn>바로구매</S.OptionBtn>
+                </S.ItemButtonBox>
+                <S.ItemButtonBox>
+                  <S.OptionBtn className="line">삭제하기</S.OptionBtn>
+                </S.ItemButtonBox>
+              </S.ItemBox>
+            </S.RowBox>
+          </S.RowWrap>
+        </S.TableWrap>
         <DivideLine border="1px solid #ebebeb" />
         <S.ItemTotalWrap>
           <S.ItemTotalBox>
@@ -196,18 +186,18 @@ export default function Cart() {
             <S.ItemTotalText>4,000P</S.ItemTotalText>
           </S.ItemTotalBox>
           <S.ItemTotalBox className="divide vertical">
-            <T.ItemStrongText>주문금액</T.ItemStrongText>
+            <S.ItemStrongText>주문금액</S.ItemStrongText>
             <S.ItemTotalPrice>204,000P</S.ItemTotalPrice>
           </S.ItemTotalBox>
           <S.ItemTotalButton>
-            <ButtonHeight50px
+            <ButtonHeight40px
               content="2건 주문하기"
               color="#fff"
               background="#111"
             />
           </S.ItemTotalButton>
         </S.ItemTotalWrap>
-      </T.ProductWrap>
+      </S.ProductWrap>
     </WrapperWidth1000px>
   );
 }

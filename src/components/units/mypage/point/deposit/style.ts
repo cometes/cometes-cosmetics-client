@@ -8,11 +8,11 @@ export const SectionWrap = styled.section`
   }
 `;
 export const SectionTitle = styled.p`
-  font-size: 2rem;
-  width: 250px;
+  font-size: 1.8rem;
+  width: 30%;
 `;
 export const SectionContent = styled.div`
-  width: calc(100% - 250px);
+  width: 70%;
 `;
 export const SectionListWrap = styled.ul``;
 export const SectionListBox = styled.li`

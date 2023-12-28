@@ -12,7 +12,9 @@ export default function HeaderMain(props) {
     props.isFullNavOn ||
     props.isSearchOn ||
     props.ishover ||
-    props.scrollPosition > 80;
+    props.currentScroll > 80;
+
+  const scrollHide = props.headerActive;
   const scrollLock = props.isFullNavOn || props.isSearchOn;
 
   return (
@@ -22,6 +24,7 @@ export default function HeaderMain(props) {
         active={active ? 1 : 0}
         isWhite={props.isWhite ? 1 : 0}
         scrollLock={scrollLock ? 1 : 0}
+        scrollHide={scrollHide ? 1 : 0}
         onMouseEnter={() => {
           props.setishover(true);
           document.body.style.overflowX = "hidden";
@@ -126,7 +129,10 @@ export default function HeaderMain(props) {
                         </div>
                       ))}
                       <S.ProductsCollection>
-                        <S.ProductsImg src={NavNewItem[0].img} />
+                        <S.ProductsImg
+                          src={NavNewItem[0].img}
+                          onClick={props.onClickSubMenu(NavNewItem[0].url)}
+                        />
                         <S.ProductsTitle>NEW COLLECTION</S.ProductsTitle>
                         <S.ProductsSub>{NavNewItem[0].title}</S.ProductsSub>
                       </S.ProductsCollection>
@@ -147,12 +153,16 @@ export default function HeaderMain(props) {
                 </S.NavItem>
                 <S.SubNavBox className={props.menu === "about" ? "active" : ""}>
                   <S.SubNavList>
-                    <S.SubNavItem onClick={props.onClickSubMenu("/about/")}>
+                    <S.SubNavItem
+                      onClick={props.onClickSubMenu("/about/story/")}
+                    >
                       Our Story
                     </S.SubNavItem>
                   </S.SubNavList>
                   <S.SubNavList>
-                    <S.SubNavItem onClick={props.onClickSubMenu("/")}>
+                    <S.SubNavItem
+                      onClick={props.onClickSubMenu("/about/mac-aids-fund/")}
+                    >
                       맥 에이즈 펀드
                     </S.SubNavItem>
                   </S.SubNavList>

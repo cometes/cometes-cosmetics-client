@@ -5,7 +5,7 @@ import ProductsItemBest from "../../item/products/best";
 
 export default function ProductsBestItemWrap() {
   return (
-    <WrapperWidth1200px>
+    <S.ItemContainer>
       <S.ItemSection>
         <S.BestTitle>LIP</S.BestTitle>
         <S.GridWrap>
@@ -30,6 +30,6 @@ export default function ProductsBestItemWrap() {
           ))}
         </S.GridDefaultWrap>
       </S.ItemSection>
-    </WrapperWidth1200px>
+    </S.ItemContainer>
   );
 }

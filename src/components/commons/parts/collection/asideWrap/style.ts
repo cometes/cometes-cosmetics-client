@@ -27,6 +27,9 @@ export const AsideBox = styled.div`
 `;
 export const AsideImg = styled.img`
   width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: 90% 50%;
   display: none;
 
   ${max(1215)} {

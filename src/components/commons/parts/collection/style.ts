@@ -64,6 +64,12 @@ export const Container = styled.div`
     width: 100%;
     padding: 0 40px;
   }
+  ${max(768)} {
+    padding: 0 24px;
+  }
+  ${max(500)} {
+    padding: 0 16px;
+  }
 `;
 export const CollectionSection = styled.section`
   margin-top: 140px;

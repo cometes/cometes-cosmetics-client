@@ -1,13 +1,33 @@
 import styled from "@emotion/styled";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 export const StoryWrap = styled.div`
   display: flex;
+
+  ${max(1015)} {
+    flex-direction: column;
+  }
 `;
 export const TextWrap = styled.div`
   width: 43%;
+  padding-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  ${max(1215)} {
+    width: 50%;
+    padding-right: 0;
+  }
+  ${max(1015)} {
+    width: 100%;
+  }
+`;
+export const TextBox = styled.div`
+  padding: 20px 0;
+  ${max(1015)} {
+    padding: 30px 0;
+  }
 `;
 export const StorySubText = styled.span`
   display: block;
@@ -21,6 +41,10 @@ export const StoryTitle = styled.h3`
   font-size: 5rem;
   font-weight: 400;
   margin-top: 20px;
+
+  ${max(1215)} {
+    font-size: 4rem;
+  }
 `;
 export const StoryContent = styled.p`
   color: #222;
@@ -28,10 +52,19 @@ export const StoryContent = styled.p`
   word-break: keep-all;
   margin-top: 20px;
 `;
+export const ArrowBox = styled.div`
+  ${max(1015)} {
+    display: none;
+  }
+`;
 export const ProgressWrap = styled.div`
   display: flex;
   align-items: center;
   margin-top: 30px;
+
+  ${max(1015)} {
+    display: none;
+  }
 `;
 export const ProgressBox = styled.div<{
   progress: number;
@@ -68,6 +101,11 @@ export const ProgressNumber = styled.span`
 export const SlickWrap = styled.div`
   overflow: hidden;
   width: 57%;
-  max-width: 900px;
-  margin-left: 40px;
+
+  ${max(1215)} {
+    width: 50%;
+  }
+  ${max(1015)} {
+    width: 100%;
+  }
 `;

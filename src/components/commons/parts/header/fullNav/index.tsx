@@ -70,6 +70,24 @@ export default function FullNav(props) {
             </S.FullNavList>
             <S.FullNavList onClick={props.onClickFullMenu("ABOUT")}>
               <S.FullNavItem>ABOUT</S.FullNavItem>
+              <S.FullSubNavBox
+                className={props.menu === "ABOUT" ? "active" : ""}
+              >
+                <S.FullSubNavList>
+                  <S.FullSubNavItem
+                    onClick={props.onClickSubMenu("/about/story/")}
+                  >
+                    Our Story
+                  </S.FullSubNavItem>
+                </S.FullSubNavList>
+                <S.FullSubNavList>
+                  <S.FullSubNavItem
+                    onClick={props.onClickSubMenu("/about/mac-aids-fund/")}
+                  >
+                    맥 에이즈 펀드
+                  </S.FullSubNavItem>
+                </S.FullSubNavList>
+              </S.FullSubNavBox>
             </S.FullNavList>
             <S.FullNavList onClick={props.onClickFullMenu("MYMAC")}>
               <S.FullNavItem>MY M·A·C</S.FullNavItem>
