@@ -4,6 +4,7 @@ import { max } from "../../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.footer<{
   isCollection: boolean;
+  isAll: boolean;
 }>`
   margin-top: ${props => (props.isCollection ? "0" : "180px")};
   width: 100%;
@@ -12,7 +13,7 @@ export const Wrapper = styled.footer<{
   color: #fff;
 
   ${max(1215)} {
-    margin-top: 180px;
+    margin-top: ${props => (props.isAll ? "0" : "180px")};
   }
 `;
 export const Container = styled.div`
@@ -62,12 +63,17 @@ export const FooterContent = styled.div`
   margin-top: 24px;
 `;
 export const FooterList = styled.li`
-  font-size: 3rem;
   margin-top: 20px;
-  cursor: pointer;
+
   &:first-of-type {
     margin-top: 0;
   }
+`;
+export const FooterItem = styled.a`
+  display: block;
+  cursor: pointer;
+  font-size: 3rem;
+  color: #fff;
 `;
 export const FooterBottom = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -86,13 +92,18 @@ export const FooterAddress = styled.p`
   margin-top: 16px;
   word-break: keep-all;
 `;
-export const FooterIcon = styled(FontAwesomeIcon)`
-  font-size: 3rem;
+export const FooterIconBox = styled.a`
+  display: block;
   margin-left: 30px;
-  cursor: pointer;
   &:first-of-type {
     margin-left: 0;
   }
+`;
+export const FooterIcon = styled(FontAwesomeIcon)`
+  font-size: 3rem;
+
+  cursor: pointer;
+  color: #fff;
 
   ${max(1015)} {
     font-size: 2.4rem;

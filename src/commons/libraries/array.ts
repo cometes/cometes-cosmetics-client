@@ -26,27 +26,32 @@ export const NavNewItem = [
 export const NavProductsItem = [
   {
     title: "립",
-    content: ["전체보기", "립스틱", "리퀴드 립", "립밤"]
+    content: [
+      { title: "전체보기", url: "/products/lip/" },
+      { title: "립스틱", url: "/products/lip/lipstick/" },
+      { title: "리퀴드 립", url: "/products/lip/liquidlip/" },
+      { title: "립밤", url: "/products/lip/lipbalm/" }
+    ]
   },
   {
     title: "아이",
     content: [
-      "전체보기",
-      "싱글섀도우",
-      "아이팔레트",
-      "아이라이너",
-      "아이브로우"
+      { title: "전체보기", url: "/products/eye/" },
+      { title: "싱글섀도우", url: "/products/eye/shadow/" },
+      { title: "아이팔레트", url: "/products/eye/palette/" },
+      { title: "아이라이너", url: "/products/eye/liner/" },
+      { title: "아이브로우", url: "/products/eye/brow/" }
     ]
   },
   {
     title: "페이스",
     content: [
-      "전체보기",
-      "파운데이션·쿠션",
-      "프라이머",
-      "파우더",
-      "블러셔",
-      "하이라이터"
+      { title: "전체보기", url: "/products/face/" },
+      { title: "파운데이션", url: "/products/face/foundation/" },
+      { title: "쿠션", url: "/products/face/cushion/" },
+      { title: "프라이머 · 하이라이터", url: "/products/face/primer/" },
+      { title: "파우더", url: "/products/face/powder/" },
+      { title: "블러셔", url: "/products/face/blush/" }
     ]
   }
 ];

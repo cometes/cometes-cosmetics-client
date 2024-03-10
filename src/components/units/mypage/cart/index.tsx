@@ -5,7 +5,6 @@ import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import DivideLine from "../../../commons/parts/divideLine";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import WrapperWidth1000px from "../../../commons/parts/wrapper/w1000";
-import * as T from "../../../commons/parts/table/style";
 import ButtonHeight40px from "../../../commons/parts/buttons/height40px";
 
 export default function Cart() {
@@ -44,8 +43,8 @@ export default function Cart() {
         <S.TableWrap>
           <S.TabWrap>
             <S.Tab>상품정보</S.Tab>
-            <S.Tab>구매가</S.Tab>
             <S.Tab>수량</S.Tab>
+            <S.Tab>구매가</S.Tab>
             <S.Tab>배송정보</S.Tab>
             <S.Tab>선택</S.Tab>
           </S.TabWrap>
@@ -93,7 +92,6 @@ export default function Cart() {
                 <S.ItemStrongText>100,000P</S.ItemStrongText>
               </S.ItemBox>
             </S.RowBox>
-
             <S.RowBox>
               <S.ItemBox>
                 <S.ItemSubText>배송비</S.ItemSubText>

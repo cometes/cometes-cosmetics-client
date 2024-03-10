@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSlickArrow } from "../../../hooks/custom/useSlickArrow";
 import { useState } from "react";
-import { arr } from "../../../../../commons/libraries/array";
 
 const StyledSlider = styled(SliderComponent)`
   .slick-slide div {
@@ -18,6 +17,10 @@ const SlideWrap = styled.div`
 const SlideImg = styled.img`
   display: block;
   max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-position: 50% 50%;
+  object-fit: cover;
   cursor: pointer;
 `;
 const ItemTitle = styled.p`
@@ -79,12 +82,12 @@ const ArrowImg = styled.button`
   }
 `;
 
-export default function ProductSlick() {
+export default function ProductSlick(props) {
   const { sliderRef, previous, next } = useSlickArrow();
   const [progressBar, setProgressBar] = useState(0);
 
   const progress = (_, newIndex: number) => {
-    const calc = (newIndex / (arr.length - 1)) * 100;
+    const calc = (newIndex / (props.data?.length - 1)) * 100;
     setProgressBar(calc);
   };
 
@@ -111,11 +114,11 @@ export default function ProductSlick() {
   return (
     <>
       <StyledSlider {...settings} ref={sliderRef}>
-        {arr.map(el => (
+        {props.data?.map(el => (
           <SlideWrap>
-            <SlideImg src={el.img} />
-            <ItemTitle>{el.title}</ItemTitle>
-            <ItemPrice>₩35,000</ItemPrice>
+            <SlideImg src={el.thumbnail} />
+            <ItemTitle>{el.name}</ItemTitle>
+            <ItemPrice>₩ {el.price.toLocaleString()}</ItemPrice>
           </SlideWrap>
         ))}
       </StyledSlider>

@@ -1,12 +1,11 @@
 import Title from "../../../../commons/parts/title";
-import * as T from "../../../../commons/parts/table/style";
-import ButtonHeight30px from "../../../../commons/parts/buttons/height30px";
 import WrapperWidth800px from "../../../../commons/parts/wrapper/w800";
 import Process from "../../../../commons/parts/process";
 import * as S from "./style";
-import { Checkbox, ConfigProvider } from "antd";
+import { useMoveToPage } from "../../../../commons/hooks/custom/useMoveToPage";
 
 export default function OrderList() {
+  const { onClickMoveToPage } = useMoveToPage();
   return (
     <>
       <Title title="마이 쇼핑" />
@@ -27,7 +26,11 @@ export default function OrderList() {
                   <S.MobileCategory>주문일자 : </S.MobileCategory>
                   <S.ItemOptionBox>
                     <p>2023. 11. 11</p>
-                    <S.ItemTextButton>상세보기</S.ItemTextButton>
+                    <S.ItemTextButton
+                      onClick={onClickMoveToPage("/mypage/order/111/")}
+                    >
+                      상세보기
+                    </S.ItemTextButton>
                   </S.ItemOptionBox>
                 </S.ItemBox>
               </S.RowBox>

@@ -1,6 +1,33 @@
 import styled from "@emotion/styled";
-import { max } from "../../../../../commons/libraries/breakPoints";
+import { max, min } from "../../../../../commons/libraries/breakPoints";
 
+export const CategoryWrap = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  & > * {
+    margin-left: 20px;
+  }
+  & span:first-of-type {
+    margin-left: 0;
+  }
+
+  ${max(1000)} {
+    justify-content: flex-start;
+  }
+`;
+export const CategoryTitle = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  color: #222;
+`;
+export const CategoryIcon = styled.i`
+  display: block;
+  font-size: 1.6rem;
+  height: 1.6rem;
+  color: #6d6d6d;
+`;
 export const ItemTopBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -24,7 +51,7 @@ export const ItemContainer = styled.div`
 `;
 export const GridWrap = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
   gap: 80px 12px;
   margin-top: 40px;
 
@@ -34,4 +61,10 @@ export const GridWrap = styled.div`
   ${max(500)} {
     gap: 80px 8px;
   }
+`;
+
+export const PaginationBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 `;

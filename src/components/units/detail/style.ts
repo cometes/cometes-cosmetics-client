@@ -3,27 +3,67 @@ import { max } from "../../../commons/libraries/breakPoints";
 
 export const Wrapper = styled.div`
   display: flex;
+
+  ${max(1000)} {
+    flex-direction: column;
+  }
 `;
 export const LeftWrap = styled.div`
   width: 50%;
+
+  ${max(1000)} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
 `;
 export const LeftAside = styled.aside`
   position: sticky;
   top: 80px;
+
+  ${max(1000)} {
+    position: relative;
+    top: 0;
+  }
 `;
 export const RightWrap = styled.div`
   width: 50%;
+
+  ${max(1000)} {
+    width: 100%;
+  }
 `;
 export const RightBox = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   width: 100%;
-  height: calc(100vh - 80px);
-  padding: 0 80px;
+  /* height: calc(100vh - 80px); */
+  padding: 60px 70px;
+
+  ${max(1015)} {
+    height: auto;
+    width: 100%;
+    padding: 40px;
+  }
+  ${max(768)} {
+    padding: 40px 24px;
+  }
+  ${max(500)} {
+    padding: 40px 16px;
+  }
 `;
 export const ContentBox = styled.div`
-  padding: 20px 60px 0 60px;
+  padding: 20px 40px 0 40px;
+
+  ${max(1015)} {
+    padding: 20px 40px 0 40px;
+  }
+  ${max(768)} {
+    padding: 24px;
+  }
+  ${max(500)} {
+    padding: 16px;
+  }
 `;
 export const CategoryWrap = styled.div`
   display: flex;
@@ -34,6 +74,10 @@ export const CategoryWrap = styled.div`
   }
   & span:first-of-type {
     margin-left: 0;
+  }
+
+  ${max(1000)} {
+    justify-content: flex-start;
   }
 `;
 export const CategoryTitle = styled.span`
@@ -48,17 +92,26 @@ export const CategoryIcon = styled.i`
   color: #6d6d6d;
 `;
 export const ProductSection = styled.section`
-  margin-top: 60px;
+  margin-top: 40px;
+
+  ${max(1000)} {
+    margin-top: 24px;
+  }
 `;
 export const ProductTitleWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
+  & h1:last-of-type {
+    margin-top: 6px;
+  }
 `;
 export const ProductTitle = styled.h1`
   font-size: 3rem;
   color: #222;
   font-weight: 500;
   text-transform: uppercase;
+
+  ${max(1000)} {
+    font-size: 2.4rem;
+  }
 `;
 export const HeartBox = styled.div`
   width: 40px;
@@ -84,6 +137,10 @@ export const ProductPriceWrap = styled.div`
   display: flex;
   align-items: flex-end;
   margin-top: 40px;
+
+  ${max(1000)} {
+    margin-top: 24px;
+  }
 `;
 export const ProductPrice = styled.p`
   font-size: 3rem;
@@ -100,6 +157,8 @@ export const ProductCurrency = styled.span`
 `;
 export const ProductTagWrap = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   margin-top: 24px;
 `;
 export const ProductTag = styled.div`
@@ -110,12 +169,8 @@ export const ProductTag = styled.div`
   padding: 6px 16px;
   font-size: 1.6rem;
   line-height: 1.6rem;
-  margin-left: 10px;
   cursor: pointer;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
+  word-break: keep-all;
 
   ${max(768)} {
     font-size: 1.4rem;
@@ -245,9 +300,14 @@ export const ClearText = styled.span`
 `;
 export const ProductContent = styled.p`
   color: #222;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
   margin-top: 30px;
-  word-break: keep-all;
+
+  ${max(1000)} {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
 `;
 export const ProductButtonWrap = styled.div`
   display: flex;
@@ -258,12 +318,16 @@ export const ProductButtonBox = styled.div`
     margin-left: 10px;
   }
 `;
-export const DetailSection = styled.section`
-  /* margin-top: 80px; */
-`;
+export const DetailSection = styled.section``;
 export const DetailTabWrap = styled.div`
   display: flex;
   border-bottom: 1px solid #d9d9d9;
+  background-color: rgba(255, 255, 255, 0.95);
+
+  ${max(1000)} {
+    position: sticky;
+    top: 80px;
+  }
 `;
 export const DetailTab = styled.div`
   width: calc(100% / 3);

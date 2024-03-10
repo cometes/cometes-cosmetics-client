@@ -1,3 +1,4 @@
+import { useMoveToPage } from "../../hooks/custom/useMoveToPage";
 import * as S from "./style";
 import {
   faFacebookF,
@@ -6,9 +7,14 @@ import {
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Footer(props: { isCollection: boolean }) {
+export default function Footer(props: {
+  isCollection: boolean;
+  isAll: boolean;
+}) {
+  const { onClickMoveToPage } = useMoveToPage();
+
   return (
-    <S.Wrapper isCollection={props.isCollection}>
+    <S.Wrapper isCollection={props.isCollection} isAll={props.isAll}>
       <S.Container>
         <S.FooterTop>
           <S.FlexBox>
@@ -21,10 +27,29 @@ export default function Footer(props: { isCollection: boolean }) {
             </S.FooterContentBox>
           </S.FlexBox>
           <ul>
-            <S.FooterList>STORE</S.FooterList>
-            <S.FooterList>PRODUCT</S.FooterList>
-            <S.FooterList>ABOUT</S.FooterList>
-            <S.FooterList>MY M·A·C</S.FooterList>
+            <S.FooterList>
+              <S.FooterItem
+                href="https://www.maccosmetics.co.kr/stores"
+                target="_blank"
+              >
+                STORE
+              </S.FooterItem>
+            </S.FooterList>
+            <S.FooterList>
+              <S.FooterItem onClick={onClickMoveToPage("/products/all/")}>
+                PRODUCT
+              </S.FooterItem>
+            </S.FooterList>
+            <S.FooterList>
+              <S.FooterItem onClick={onClickMoveToPage("/about/story/")}>
+                ABOUT
+              </S.FooterItem>
+            </S.FooterList>
+            <S.FooterList>
+              <S.FooterItem onClick={onClickMoveToPage("/mypage/")}>
+                MY M·A·C
+              </S.FooterItem>
+            </S.FooterList>
           </ul>
         </S.FooterTop>
         <S.FooterBottom>
@@ -42,10 +67,30 @@ export default function Footer(props: { isCollection: boolean }) {
             </S.FooterAddress>
           </S.FooterContentBox>
           <S.FlexBox>
-            <S.FooterIcon icon={faFacebookF} />
-            <S.FooterIcon icon={faInstagram} />
-            <S.FooterIcon icon={faTwitter} />
-            <S.FooterIcon icon={faYoutube} />
+            <S.FooterIconBox
+              href="https://www.facebook.com/MACCosmeticsKorea"
+              target="_blank"
+            >
+              <S.FooterIcon icon={faFacebookF} />
+            </S.FooterIconBox>
+            <S.FooterIconBox
+              href="https://www.instagram.com/maccosmeticskorea/"
+              target="_blank"
+            >
+              <S.FooterIcon icon={faInstagram} />
+            </S.FooterIconBox>
+            <S.FooterIconBox
+              href="https://twitter.com/MACcosmetics"
+              target="_blank"
+            >
+              <S.FooterIcon icon={faTwitter} />
+            </S.FooterIconBox>
+            <S.FooterIconBox
+              href="https://www.youtube.com/user/MACcosmeticsKR/MACCosmetics"
+              target="_blank"
+            >
+              <S.FooterIcon icon={faYoutube} />
+            </S.FooterIconBox>
           </S.FlexBox>
         </S.FooterBottom>
       </S.Container>

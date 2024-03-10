@@ -1,4 +1,4 @@
-import { MutableRefObject, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 export const useDetail = data => {
   /** 콘텐트, 인포, 리뷰 ref **/
@@ -10,23 +10,32 @@ export const useDetail = data => {
   };
 
   const [isInfoOn, setIsInfoOn] = useState(false);
+  const [isReviewDetailOn, setIsReviewDetailOn] = useState(false);
   const [colorCategory, setColorCategory] = useState("");
   const [colorIcon, setColorIcon] = useState({
     code: "",
     name: "",
     desc: "",
-    product: "",
+    image: "",
     texture: ""
   });
-  const [filtered, setFiltered] = useState(data.color);
+
+  const [filtered, setFiltered] = useState([]);
+
+  useEffect(() => {
+    setFiltered(data?.color);
+  }, [data?.color]);
 
   const onClickInfo = () => {
     setIsInfoOn(prev => !prev);
   };
+  const onClickReviewDetail = () => {
+    setIsReviewDetailOn(prev => !prev);
+  };
 
   const colorCategories = [];
 
-  data.color.forEach(el => {
+  data?.color.forEach(el => {
     colorCategories.push(el.category);
   });
 
@@ -36,9 +45,9 @@ export const useDetail = data => {
 
   const onClickColorCategory = (value: string) => () => {
     setColorCategory(value);
-    const filterArr = data.color.filter(el => {
+    const filterArr = data?.color.filter(el => {
       if (value === "") {
-        return data.color;
+        return data?.color;
       }
       return el.category === value;
     });
@@ -50,7 +59,7 @@ export const useDetail = data => {
       code: string;
       name: string;
       desc: string;
-      product: string;
+      image: string;
       texture: string;
     }) =>
     () => {
@@ -58,7 +67,7 @@ export const useDetail = data => {
         code: value.code,
         name: value.name,
         desc: value.desc,
-        product: value.product,
+        image: value.image,
         texture: value.texture
       });
     };
@@ -68,23 +77,25 @@ export const useDetail = data => {
       code: "",
       name: "",
       desc: "",
-      product: "",
+      image: "",
       texture: ""
     });
   };
 
   return {
     isInfoOn,
+    isReviewDetailOn,
     onClickInfo,
     categories,
     onClickColorCategory,
     onClickColorIcon,
     onClickClear,
     onClickRef,
+    onClickReviewDetail,
     colorCategory,
     filtered,
     colorIcon,
     infoRef,
-    reviewRef,
+    reviewRef
   };
 };

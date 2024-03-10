@@ -54,7 +54,7 @@ export default function HeaderMain(props) {
                 <S.NavItem
                   active={active ? 1 : 0}
                   isWhite={props.isWhite ? 1 : 0}
-                  onClick={props.onClickSubMenu("")}
+                  onClick={props.onClickSubMenu("/collections/")}
                 >
                   WHAT'S NEW
                 </S.NavItem>
@@ -124,7 +124,12 @@ export default function HeaderMain(props) {
                             margin="10px 0 0 0"
                           />
                           {el.content.map(sub => (
-                            <S.ProductsSub key={sub}>{sub}</S.ProductsSub>
+                            <S.ProductsSub
+                              key={sub.title}
+                              onClick={props.onClickSubMenu(sub.url)}
+                            >
+                              {sub.title}
+                            </S.ProductsSub>
                           ))}
                         </div>
                       ))}
