@@ -22,6 +22,8 @@ export const useDetail = data => {
 
   const [filtered, setFiltered] = useState([]);
 
+  const [currentOption, setCurrentOption] = useState("");
+
   useEffect(() => {
     setFiltered(data?.color);
   }, [data?.color]);
@@ -70,6 +72,7 @@ export const useDetail = data => {
         image: value.image,
         texture: value.texture
       });
+      setCurrentOption(value.name);
     };
 
   const onClickClear = () => {
@@ -87,6 +90,7 @@ export const useDetail = data => {
     isReviewDetailOn,
     onClickInfo,
     categories,
+    currentOption,
     onClickColorCategory,
     onClickColorIcon,
     onClickClear,

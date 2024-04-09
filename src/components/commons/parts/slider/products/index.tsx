@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSlickArrow } from "../../../hooks/custom/useSlickArrow";
 import { useState } from "react";
+import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
 
 const StyledSlider = styled(SliderComponent)`
   .slick-slide div {
@@ -91,6 +92,8 @@ export default function ProductSlick(props) {
     setProgressBar(calc);
   };
 
+  const { onClickMoveToPage } = useMoveToPage();
+
   const settings = {
     arrows: false,
     infinite: true,
@@ -115,7 +118,13 @@ export default function ProductSlick(props) {
     <>
       <StyledSlider {...settings} ref={sliderRef}>
         {props.data?.map(el => (
-          <SlideWrap>
+          <SlideWrap
+            onClick={onClickMoveToPage(
+              `/products/${el.mainCategory.toLowerCase()}/${el.subCategory.toLowerCase()}/item/${
+                el.id
+              }`
+            )}
+          >
             <SlideImg src={el.thumbnail} />
             <ItemTitle>{el.name}</ItemTitle>
             <ItemPrice>₩ {el.price.toLocaleString()}</ItemPrice>

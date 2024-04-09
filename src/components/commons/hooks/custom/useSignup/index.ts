@@ -6,13 +6,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaSignup } from "../../../../../commons/libraries/schema";
 import { useRecoilState } from "recoil";
 import {
+  accessTokenState,
   userEmailState,
   userPhoneState,
   userProviderState
 } from "../../../../../commons/stores";
+import { useCookies } from "react-cookie";
 
 export const useSignup = () => {
   const router = useRouter();
+  const [appCookies, setAppCookies] = useCookies();
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const date = new Date();
+  date.setDate(date.getDate() + 14);
 
   // 주소 state
   const [address, setAddress] = useState("");
@@ -51,17 +57,29 @@ export const useSignup = () => {
   // =============== 추가정보 제출 버튼 클릭 ===============
   const onClickSubmitSignUp = async data => {
     try {
-      const result = await axios.post("https://seungwon.shop/user/createUser", {
-        email: data.email,
-        provider: data.provider,
-        phone: data.phone,
-        name: data.name,
-        addressCode: data.addressCode,
-        address: data.address,
-        detailAddress: data.detailAddress
-      });
+      const result = await axios
+        .post("https://seungwon.shop/user/createUser", {
+          email: data.email,
+          provider: data.provider,
+          phone: data.phone,
+          name: data.name,
+          addressCode: data.addressCode,
+          address: data.address,
+          detailAddress: data.detailAddress
+        })
+        .then(async res => {
+          const login = await axios.post("https://seungwon.shop/login", {
+            id: res?.data?.data
+          });
 
-      storage.setItem("id", result?.data?.data);
+          setAccessToken(login?.data?.data);
+          localStorage.setItem("accessToken", login?.data?.data ?? "");
+          setAppCookies("accessToken", login?.data?.data ?? "", {
+            path: "/",
+            expires: date
+          });
+        });
+
       storage.removeItem("phone");
       storage.removeItem("email");
       storage.removeItem("provider");

@@ -7,7 +7,7 @@ export default function Layout(props: any) {
 
   // header 숨기기
   const HIDDEN_HEADER = "/signup";
-  const HIDDEN_FOOTER_MARGIN = ["/collections/"];
+  const HIDDEN_FOOTER_MARGIN = ["/collections/", "/mypage/cart/"];
   const WHITE_HEADER = ["/mypage", "/order", "/collections", "/item"];
   const isMainHeaderActive = !router.asPath.includes(HIDDEN_HEADER);
   const isfooterMarginActive = HIDDEN_FOOTER_MARGIN.filter(el =>

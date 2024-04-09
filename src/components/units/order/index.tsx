@@ -1,13 +1,29 @@
 import Title from "../../commons/parts/title";
 import WrapperWidth1000px from "../../commons/parts/wrapper/w1000";
 import * as S from "./styles";
-import * as T from "../../commons/parts/table/style";
 import ButtonHeight50px from "../../commons/parts/buttons/height50px";
-import ButtonHeight30px from "../../commons/parts/buttons/height30px";
 import ItemWithHeart from "../../commons/parts/item/heart";
 import ButtonHeight40px from "../../commons/parts/buttons/height40px";
+import { useEffect, useState } from "react";
 
 export default function Order(props: { isComplete: boolean }) {
+  const [shoppingData, setShoppingData] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    detailAddress: "",
+    addressCode: "",
+    point: 0,
+    list: [],
+    priceSum: 0,
+    sum: 0
+  });
+
+  useEffect(() => {
+    const sessionStorage = globalThis?.sessionStorage;
+    setShoppingData(JSON.parse(sessionStorage.getItem("shoppingData")));
+  }, []);
+
   return (
     <>
       {!props.isComplete && <Title title="주문하기" />}
@@ -27,12 +43,11 @@ export default function Order(props: { isComplete: boolean }) {
                 <S.Subtitle>배송지</S.Subtitle>
                 <S.ContentWrap>
                   <div>
-                    <S.ContentSubText>전혜원</S.ContentSubText>
-                    <S.ContentSubTextGrey>010 7556 4661</S.ContentSubTextGrey>
-                    <S.ContentSubText>
-                      경기도 수원시 장안구 율전로 73 어쩌구저쩌구 아파트
-                      111-1111 (11111)
-                    </S.ContentSubText>
+                    <S.ContentSubText>{shoppingData?.name}</S.ContentSubText>
+                    <S.ContentSubTextGrey>
+                      {shoppingData?.phone}
+                    </S.ContentSubTextGrey>
+                    <S.ContentSubText>{`${shoppingData?.address} ${shoppingData?.detailAddress} (${shoppingData?.addressCode})`}</S.ContentSubText>
                   </div>
                   <S.ItemButtonBox>
                     <ButtonHeight40px
@@ -77,35 +92,41 @@ export default function Order(props: { isComplete: boolean }) {
                     <S.Tab>수량</S.Tab>
                     <S.Tab>상품금액</S.Tab>
                   </S.TabWrap>
-                  <S.RowWrap>
-                    <S.RowBox>
-                      <S.ItemBox className="info">
-                        <S.ItemInfoWrap>
-                          <S.ItemImg />
-                          <S.ItemInfoBox>
-                            <p>파우더키스 립스틱</p>
-                            <S.ItemOptionBox>
-                              <S.ItemOption>
-                                옵션 | 저스트 큐리어스
-                              </S.ItemOption>
-                            </S.ItemOptionBox>
-                          </S.ItemInfoBox>
-                        </S.ItemInfoWrap>
-                      </S.ItemBox>
-                    </S.RowBox>
-                    <S.RowBox>
-                      <S.ItemBox className="bgCell">
-                        <S.MobileCategory>주문수량</S.MobileCategory>
-                        <S.ItemStrongText>1개</S.ItemStrongText>
-                      </S.ItemBox>
-                    </S.RowBox>
-                    <S.RowBox>
-                      <S.ItemBox className="pTop">
-                        <S.MobileCategory>상품금액</S.MobileCategory>
-                        <S.ItemStrongText>100,000P</S.ItemStrongText>
-                      </S.ItemBox>
-                    </S.RowBox>
-                  </S.RowWrap>
+                  {shoppingData?.list.map(el => (
+                    <S.RowWrap>
+                      <S.RowBox>
+                        <S.ItemBox className="info">
+                          <S.ItemInfoWrap>
+                            <S.ItemImg src={el.product.thumbnail} />
+                            <S.ItemInfoBox>
+                              <S.ItemName>{el.product.name}</S.ItemName>
+                              {el.option !== "" && (
+                                <S.ItemOptionBox>
+                                  <S.ItemOption>
+                                    옵션 | {el.option}
+                                  </S.ItemOption>
+                                </S.ItemOptionBox>
+                              )}
+                            </S.ItemInfoBox>
+                          </S.ItemInfoWrap>
+                        </S.ItemBox>
+                      </S.RowBox>
+                      <S.RowBox>
+                        <S.ItemBox className="bgCell">
+                          <S.MobileCategory>주문수량</S.MobileCategory>
+                          <S.ItemStrongText>{el.count}개</S.ItemStrongText>
+                        </S.ItemBox>
+                      </S.RowBox>
+                      <S.RowBox>
+                        <S.ItemBox className="pTop">
+                          <S.MobileCategory>상품금액</S.MobileCategory>
+                          <S.ItemStrongText>
+                            {(el.count * el.product.price).toLocaleString()}P
+                          </S.ItemStrongText>
+                        </S.ItemBox>
+                      </S.RowBox>
+                    </S.RowWrap>
+                  ))}
                 </S.TableWrap>
               </S.ProductWrap>
             </S.SectionWrap>
@@ -115,7 +136,7 @@ export default function Order(props: { isComplete: boolean }) {
                 <S.ContentWrap>
                   <div>
                     <S.ContentSubText>보유</S.ContentSubText>
-                    <S.ItemStrongText>1,000,000,000P</S.ItemStrongText>
+                    <S.ItemStrongText>{shoppingData?.point?.toLocaleString()}P</S.ItemStrongText>
                   </div>
                   <S.ItemButtonBox>
                     <ButtonHeight40px
@@ -154,11 +175,13 @@ export default function Order(props: { isComplete: boolean }) {
               <S.AsideWrap>
                 <S.AsideBox>
                   <S.AsideTitle>총 상품금액</S.AsideTitle>
-                  <S.AsideText>100,000P</S.AsideText>
+                  <S.AsideText>
+                    {shoppingData?.priceSum.toLocaleString()}P
+                  </S.AsideText>
                 </S.AsideBox>
                 <S.AsideBox>
                   <S.AsideTitle>총 배송비</S.AsideTitle>
-                  <S.AsideText>+ 4000P</S.AsideText>
+                  <S.AsideText>+ 4,000P</S.AsideText>
                 </S.AsideBox>
                 <S.AsideBox>
                   <S.AsideTitle>총 할인금액</S.AsideTitle>
@@ -166,7 +189,9 @@ export default function Order(props: { isComplete: boolean }) {
                 </S.AsideBox>
                 <S.AsideBox className="strong">
                   <S.AsideTitle>결제금액</S.AsideTitle>
-                  <S.AsideText>104,000P</S.AsideText>
+                  <S.AsideText>
+                    {shoppingData?.sum.toLocaleString()}P
+                  </S.AsideText>
                 </S.AsideBox>
               </S.AsideWrap>
             </S.SectionWrap>
@@ -178,7 +203,7 @@ export default function Order(props: { isComplete: boolean }) {
               </S.ContentSubText>
               <S.SubmitButtonBox>
                 <ButtonHeight50px
-                  content="2개 상품 구매하기"
+                  content={`${shoppingData?.list.length}개 상품 구매하기`}
                   color="#fff"
                   background="#111"
                 />

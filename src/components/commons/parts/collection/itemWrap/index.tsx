@@ -3,6 +3,7 @@ import * as S from "./style";
 import * as C from "../style";
 
 export default function CollectionItemWrap(props) {
+  console.log(props.listData);
   return (
     <S.CollectionSection>
       <C.Container>
@@ -12,7 +13,7 @@ export default function CollectionItemWrap(props) {
       </C.Container>
       <S.CollectionContainer>
         <S.GridWrap>
-          {props.data?.mainItem.map(el => (
+          {props.listData.data?.map(el => (
             <CollectionItem data={el} />
           ))}
         </S.GridWrap>

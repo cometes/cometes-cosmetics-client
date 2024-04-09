@@ -14,10 +14,15 @@ export default function ProductsItemWrap(props) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    //   const { data: listData } = await useFetchProducts("ALL", 1);
-    //   const { data: count } = await useFetchProductsCount("ALL");
     setList(props.listData);
   }, [props.listData]);
+
+  const getDataLogined = async () => {
+    const result = await useFetchProducts(
+      props.sub ? props.sub : props.category,
+      1
+    );
+  };
 
   const onClickPagination = async (page: number) => {
     const result = await useFetchProducts(

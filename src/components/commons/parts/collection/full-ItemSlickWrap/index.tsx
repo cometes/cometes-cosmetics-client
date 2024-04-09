@@ -23,7 +23,7 @@ export default function CollectionFullItemSlickWrap(props) {
             next={next}
           />
           <CollectionItemSlick
-            data={props.data?.fullItem}
+            data={props.listData?.data}
             highlight={props.data?.highlight}
             sliderRef={sliderRef}
           />

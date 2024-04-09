@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { max } from "../../../../commons/libraries/breakPoints";
 
+export const Wrapper = styled.div`
+  margin-bottom: 180px;
+`;
 export const CategoryWrap = styled.div`
   display: flex;
   align-items: center;
@@ -16,7 +19,12 @@ export const CategoryWrap = styled.div`
 export const CategoryTitle = styled.span`
   display: block;
   font-size: 1.4rem;
-  color: #222;
+  color: #6d6d6d;
+
+  &.current {
+    font-weight: 600;
+    color: #222;
+  }
 `;
 export const CategoryIcon = styled.i`
   display: block;
@@ -73,7 +81,6 @@ export const ItemBox = styled.div`
 export const ItemInfoWrap = styled.div`
   display: flex;
   align-items: center;
-  cursor: pointer;
 
   &.checkbox {
     margin-left: 20px;
@@ -81,6 +88,16 @@ export const ItemInfoWrap = styled.div`
     ${max(1000)} {
       margin-left: 14px;
     }
+  }
+`;
+export const ItemName = styled.p`
+  cursor: pointer;
+  word-break: keep-all;
+  ${max(1000)} {
+    font-size: 1.4rem;
+  }
+  ${max(768)} {
+    font-size: 1.6rem;
   }
 `;
 export const ItemInfoBox = styled.div`
@@ -94,14 +111,22 @@ export const ItemImg = styled.img`
   width: 80px;
   height: 80px;
   display: block;
-  background-color: #ccc;
+  background-color: #f7f7f7;
   border-radius: 6px;
   aspect-ratio: 1 / 1;
+  cursor: pointer;
 `;
 export const ItemOption = styled.span`
   display: inline-block;
   color: #555;
   font-size: 1.4rem;
+
+  ${max(1000)} {
+    font-size: 1.2rem;
+  }
+  ${max(768)} {
+    font-size: 1.4rem;
+  }
 `;
 export const ItemOptionBox = styled.div`
   display: flex;
@@ -120,6 +145,7 @@ export const ItemOptionButton = styled.span`
   font-size: 1.2rem;
   margin-left: 10px;
   text-decoration: underline;
+  cursor: pointer;
 
   ${max(1000)} {
     margin-left: 0;
@@ -242,14 +268,14 @@ export const Tab = styled.span`
   text-align: center;
 
   &:first-of-type {
-    width: 40%;
+    width: 45%;
 
     ${max(768)} {
       width: 100%;
     }
   }
   &:not(:first-of-type) {
-    width: 15%;
+    width: calc(55% / 4);
 
     ${max(768)} {
       display: none;
@@ -273,14 +299,14 @@ export const RowWrap = styled.div`
 `;
 export const RowBox = styled.div`
   &:first-of-type {
-    width: 40%;
+    width: 45%;
 
     ${max(768)} {
       width: 100%;
     }
   }
   &:not(:first-of-type) {
-    width: 15%;
+    width: calc(55% / 4);
 
     ${max(768)} {
       width: 100%;
@@ -314,4 +340,23 @@ export const OptionBtn = styled.button`
   ${max(768)} {
     height: 36px;
   }
+`;
+
+export const FullWrapper = styled.div`
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+`;
+export const FullInfoTitle = styled.p`
+  font-size: 2rem;
+  text-align: center;
+`;
+export const FullInfoDesc = styled.p`
+  color: #888;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 10px 0 30px 0;
 `;

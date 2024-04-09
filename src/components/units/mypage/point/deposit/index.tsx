@@ -6,6 +6,8 @@ import InputHeight40px from "../../../../commons/parts/inputs/height40px";
 import DivideLine from "../../../../commons/parts/divideLine";
 import ButtonHeight50px from "../../../../commons/parts/buttons/height50px";
 import WrapperWidth800px from "../../../../commons/parts/wrapper/w800";
+import { usePoint } from "../../../../commons/hooks/custom/usePoint";
+import Script from "next/script";
 
 export default function Deposit() {
   const priceArr = {
@@ -21,8 +23,13 @@ export default function Deposit() {
   const onClickPayment = value => () => {
     setSelectedPayment(value);
   };
+
+  const { onClickCharge } = usePoint();
+
+  console.log(selectedValue, selectedPayment);
   return (
     <>
+      <Script src="https://cdn.iamport.kr/v1/iamport.js" />
       <Title title="포인트 충전" />
       <WrapperWidth800px>
         <S.SectionWrap>
@@ -43,7 +50,7 @@ export default function Deposit() {
                         value={el}
                         defaultChecked={priceArr.checked === el}
                       />
-                      <S.Point>{el}P</S.Point>
+                      <S.Point>{el.toLocaleString()}P</S.Point>
                     </S.LabelBox>
                     <S.Price>{el}원</S.Price>
                   </S.LabelWrap>
@@ -60,8 +67,8 @@ export default function Deposit() {
           <S.SectionContent>
             <S.SectionListWrap>
               <S.SectionListBox
-                className={selectedPayment === "카카오페이" ? "checked" : ""}
-                onClick={onClickPayment("카카오페이")}
+                className={selectedPayment === "kakaopay" ? "checked" : ""}
+                onClick={onClickPayment("kakaopay")}
               >
                 <S.LabelWrap>
                   <S.LabelBox>
@@ -138,7 +145,12 @@ export default function Deposit() {
         <DivideLine border="1px solid #D9D9D9" margin="30px 0 0 0" />
         <S.SubmitButtonWrap>
           <S.SubmitButtonBox>
-            <ButtonHeight50px content="결제하기" />
+            <ButtonHeight50px
+              content="결제하기"
+              onClick={() => {
+                onClickCharge(selectedValue, selectedPayment);
+              }}
+            />
           </S.SubmitButtonBox>
         </S.SubmitButtonWrap>
         <S.NoteBox>

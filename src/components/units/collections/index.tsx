@@ -5,7 +5,7 @@ import * as S from "./style";
 export default function AllCollection() {
   const collectionArr = [
     {
-      img: "https://storage.googleapis.com/cometes-storage/collection/holiday/holiday-vertical1.webp",
+      img: "/collection/holiday/holiday-vertical1.webp",
       title: "2023 MAC Holiday",
       url: "/collections/mac-2023-holiday/"
     },
@@ -25,7 +25,7 @@ export default function AllCollection() {
       url: ""
     },
     {
-      img: "https://storage.googleapis.com/cometes-storage/collection/lunar/lunar-vertical.webp",
+      img: "/collection/lunar/lunar-vertical.webp",
       title: "Lunar New Year",
       url: "/collections/lunar-luck"
     }

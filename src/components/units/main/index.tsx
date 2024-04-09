@@ -1,7 +1,4 @@
-import {
-  arr,
-  storyData
-} from "../../../commons/libraries/array";
+import { arr, storyData } from "../../../commons/libraries/array";
 import MainItemSlickWrap from "../../commons/parts/main/itemSlickWrap";
 import MainStoryWrap from "../../commons/parts/main/storyWrap";
 import MainVideoWrap from "../../commons/parts/main/videoWrap";
@@ -11,13 +8,13 @@ import MainSloganWrap from "../../commons/parts/main/sloganWrap";
 import MainMoreWrap from "../../commons/parts/main/moreWrap";
 import MainInstaWrap from "../../commons/parts/main/instaWrap";
 
-export default function Main() {
+export default function Main(props) {
   return (
     <>
       <MainVisual />
-      <MainItemSlickWrap data={arr} title="BEST" />
+      <MainItemSlickWrap data={props.bestData?.data} title="BEST" />
       <MainCollectionWrap />
-      <MainItemSlickWrap data={arr} title="NEW" />
+      <MainItemSlickWrap data={props.newData?.data} title="NEW" />
       <MainVideoWrap />
       <MainSloganWrap />
       <MainStoryWrap data={storyData} />

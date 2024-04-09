@@ -116,14 +116,14 @@ export const Order = styled.p`
   text-overflow: ellipsis;
 
   &.plus {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 
   ${max(768)} {
     font-size: 1.8rem;
 
     &.plus {
-      font-size: 2.4rem;
+      font-size: 2rem;
     }
   }
 `;

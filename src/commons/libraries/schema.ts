@@ -25,7 +25,7 @@ export const schemaToken = yup.object({
   token: yup
     .string()
     .required("인증번호를 입력해주세요.")
-    .min(5, "5자리 인증번호를 입력해주세요.")
+    .min(4, "4자리 인증번호를 입력해주세요.")
 });
 export const schemaPhone = yup.object({
   phone: yup

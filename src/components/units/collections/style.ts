@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  background-color: #111;
 
   ${max(768)} {
     grid-template-columns: repeat(2, 1fr);
@@ -15,7 +16,7 @@ export const Thumbnail = styled.div<{
 }>`
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: ${props => `#a8a8a8 url(${props.bg}) no-repeat 50% / cover`};
+  background: ${props => `url(${props.bg}) no-repeat 50% / cover`};
   display: flex;
   flex-direction: column;
   align-items: flex-end;

@@ -2,10 +2,13 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../../../commons/stores";
 
 export default function KakaoCallback() {
   const router = useRouter();
   const [appCookies, setAppCookies] = useCookies();
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const date = new Date();
   date.setDate(date.getDate() + 14);
@@ -38,25 +41,28 @@ export default function KakaoCallback() {
               }
             );
 
-            // 쿠키에 리프레시 토큰 및 마지막 로그인 수단 저장
-            setAppCookies("refresh_token", res?.data?.refresh_token, {
-              path: "/",
-              expires: date
-            });
+            // 쿠키에 마지막 로그인 수단 저장
             setAppCookies("recentlyLoggedInWith", "kakao", {
               path: "/",
               expires: date
             });
 
+            const storage = globalThis?.sessionStorage;
+
             if (login?.data?.data.includes("@")) {
-              // sessionStorage에 저장
-              const storage = globalThis?.sessionStorage;
+              // 기존 회원이 아닌 경우, sessionStorage에 저장
               storage.setItem("email", login?.data?.data);
               storage.setItem("provider", "kakao");
-
               router.push(`/signup/validation`);
             } else {
-              router.push("/");
+              // 기존 회원인 경우, localStorage에 액세스 토큰 저장
+              setAccessToken(login?.data?.data);
+              localStorage.setItem("accessToken", login?.data?.data ?? "");
+              setAppCookies("accessToken", login?.data?.data ?? "", {
+                path: "/",
+                expires: date
+              });
+              router.push(storage.getItem("prevPath"));
             }
           });
       } catch (error) {

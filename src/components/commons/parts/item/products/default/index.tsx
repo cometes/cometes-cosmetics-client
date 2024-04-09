@@ -28,6 +28,7 @@ const ItemHeartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 99;
 `;
 const ItemHeartIcon = styled.i`
   display: block;
@@ -97,14 +98,15 @@ export default function ProductsItemDefault(props) {
 
   return (
     <div>
-      <ItemImgBox
-        onClick={onClickMoveToPage(
-          `/products/${props.data.mainCategory.toLowerCase()}/${props.data.subCategory.toLowerCase()}/item/${
-            props.data.id
-          }`
-        )}
-      >
-        <ItemImg src={props.data?.thumbnail} />
+      <ItemImgBox>
+        <ItemImg
+          src={props.data?.thumbnail}
+          onClick={onClickMoveToPage(
+            `/products/${props.data.mainCategory.toLowerCase()}/${props.data.subCategory.toLowerCase()}/item/${
+              props.data.id
+            }`
+          )}
+        />
         <ItemHeartBox>
           <ItemHeartIcon className="fi fi-rs-heart" />
         </ItemHeartBox>

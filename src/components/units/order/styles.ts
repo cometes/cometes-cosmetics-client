@@ -231,7 +231,6 @@ export const RowWrap = styled.div`
   }
 `;
 export const RowBox = styled.div`
-  min-width: fit-content;
   &:first-of-type {
     width: 50%;
 
@@ -285,6 +284,16 @@ export const ItemBox = styled.div`
     }
   }
 `;
+export const ItemName = styled.p`
+  cursor: pointer;
+  word-break: keep-all;
+  ${max(1000)} {
+    font-size: 1.5rem;
+  }
+  ${max(768)} {
+    font-size: 1.6rem;
+  }
+`;
 export const ItemTextButton = styled.p`
   font-size: 1.4rem;
   color: #bbb;
@@ -300,7 +309,6 @@ export const ItemTextButton = styled.p`
 export const ItemInfoWrap = styled.div`
   display: flex;
   align-items: center;
-  cursor: pointer;
 
   &.checkbox {
     margin-left: 20px;
@@ -315,13 +323,14 @@ export const ItemInfoBox = styled.div`
   height: 80px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: space-around;
 `;
 export const ItemImg = styled.img`
   width: 80px;
   height: 80px;
   display: block;
-  background-color: #ccc;
+  background-color: #f7f7f7;
   border-radius: 6px;
   aspect-ratio: 1 / 1;
 `;

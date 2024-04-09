@@ -20,7 +20,7 @@ export default function CollectionItemSlickWrap(props) {
             item={true}
           />
           <CollectionItemSlick
-            data={props.data?.mainItem}
+            data={props.listData?.data}
             color={props.color}
             sliderRef={sliderRef}
           />

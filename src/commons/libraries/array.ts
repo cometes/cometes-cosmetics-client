@@ -199,20 +199,20 @@ export const collectionLisa = {
     fullContent: "",
     fullItem: [
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/FACE/%EB%A6%AC%EC%82%AC%20%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%ED%94%BC%EB%8B%88%EC%89%AC.png",
-        title: "엑스트라 디멘션 스킨피니쉬 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/FACE/%EB%A6%AC%EC%82%AC%20%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%ED%94%BC%EB%8B%88%EC%89%AC.png",
+        name: "엑스트라 디멘션 스킨피니쉬 / MAC X L Collection"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%EB%A7%A5%20%EB%B0%94%EC%9D%B4%20%EC%97%98%20%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%AC%ED%80%B4%EB%93%9C.png",
-        title: "파우더 키스 리퀴드 립컬러 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%EB%A7%A5%20%EB%B0%94%EC%9D%B4%20%EC%97%98%20%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%AC%ED%80%B4%EB%93%9C.png",
+        name: "파우더 키스 리퀴드 립컬러 / MAC X L Collection"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
-        title: "맥 바이 엘 아이 섀도우 X 12 / MAC X L COLLECTION"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
+        name: "맥 바이 엘 아이 섀도우 X 12 / MAC X L COLLECTION"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EB%B8%8C%EB%9F%AC%EC%89%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%ED%81%AC.png",
-        title: "브러시스트로크 24-아워 라이너 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EB%B8%8C%EB%9F%AC%EC%89%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%ED%81%AC.png",
+        name: "브러시스트로크 24-아워 라이너 / MAC X L Collection"
       }
     ]
   },

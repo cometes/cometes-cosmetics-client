@@ -5,13 +5,18 @@ import { useDetail } from "../../commons/hooks/custom/useDetail";
 import DetailInfo from "../../commons/parts/detail/info";
 import DetailReview from "../../commons/parts/detail/review";
 import { Tooltip } from "antd";
+import { useShopping } from "../../commons/hooks/custom/useShopping";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function ProductsDetail(props) {
+  const router = useRouter();
   const {
     onClickInfo,
     isInfoOn,
     isReviewDetailOn,
     categories,
+    currentOption,
     onClickColorCategory,
     onClickColorIcon,
     onClickClear,
@@ -23,6 +28,8 @@ export default function ProductsDetail(props) {
     infoRef,
     reviewRef
   } = useDetail(props.detailData);
+
+  const { onClickAdd } = useShopping({ data: { list: [] } });
 
   return (
     <>
@@ -44,9 +51,7 @@ export default function ProductsDetail(props) {
                 {props.detailData?.mainCategory}
               </S.CategoryTitle>
               <S.CategoryIcon className="fi fi-rr-angle-small-right" />
-              <S.CategoryTitle>
-                {props.detailData?.subCategory}
-              </S.CategoryTitle>
+              <S.CategoryTitle>{props.detailData?.subCategory}</S.CategoryTitle>
             </S.CategoryWrap>
             <S.ProductSection>
               <S.ProductTitleWrap>
@@ -64,51 +69,54 @@ export default function ProductsDetail(props) {
                   <S.ProductTag>#{el.tag}</S.ProductTag>
                 ))}
               </S.ProductTagWrap>
-              <S.ProductColorWrap>
-                <S.ColorCategoryWrap>
-                  <S.ColorCategory
-                    className={colorCategory === "" ? "active" : ""}
-                    onClick={onClickColorCategory("")}
-                  >
-                    전체
-                  </S.ColorCategory>
-                  {categories.map(el => (
+              {props.detailData.color[0].icon !== "" && (
+                <S.ProductColorWrap>
+                  <S.ColorCategoryWrap>
                     <S.ColorCategory
-                      onClick={onClickColorCategory(el)}
-                      className={colorCategory === el ? "active" : ""}
+                      className={colorCategory === "" ? "active" : ""}
+                      onClick={onClickColorCategory("")}
                     >
-                      {el}
+                      전체
                     </S.ColorCategory>
-                  ))}
-                </S.ColorCategoryWrap>
-                <S.ColorIconWrap>
-                  {filtered?.map(el => (
-                    <Tooltip title={el.name} placement="bottom">
-                      <S.ColorIconBox
-                        className={el.name === colorIcon.name ? "active" : ""}
-                        onClick={onClickColorIcon(el)}
+                    {categories.map(el => (
+                      <S.ColorCategory
+                        onClick={onClickColorCategory(el)}
+                        className={colorCategory === el ? "active" : ""}
                       >
-                        <S.ColorIcon src={el.icon} code={el.code} />
-                      </S.ColorIconBox>
-                    </Tooltip>
-                  ))}
-                </S.ColorIconWrap>
-                {colorIcon.code && (
-                  <S.CurrentColorWrap>
-                    <S.CurrentColorBox>
-                      <S.CurrentColorIcon code={colorIcon.code} />
-                      <S.CurrentColorText code={colorIcon.code}>
-                        {colorIcon.name}
-                      </S.CurrentColorText>
-                    </S.CurrentColorBox>
-                    <S.CurrentColorDesc>{colorIcon.desc}</S.CurrentColorDesc>
-                    <S.ClearBox onClick={onClickClear}>
-                      <S.ClearIcon className="fi fi-rr-cross-circle" />
-                      <S.ClearText>Clear</S.ClearText>
-                    </S.ClearBox>
-                  </S.CurrentColorWrap>
-                )}
-              </S.ProductColorWrap>
+                        {el}
+                      </S.ColorCategory>
+                    ))}
+                  </S.ColorCategoryWrap>
+                  <S.ColorIconWrap>
+                    {filtered?.map(el => (
+                      <Tooltip title={el.name} placement="bottom">
+                        <S.ColorIconBox
+                          className={el.name === colorIcon.name ? "active" : ""}
+                          onClick={onClickColorIcon(el)}
+                        >
+                          <S.ColorIcon src={el.icon} code={el.code} />
+                        </S.ColorIconBox>
+                      </Tooltip>
+                    ))}
+                  </S.ColorIconWrap>
+                  {colorIcon.code && (
+                    <S.CurrentColorWrap>
+                      <S.CurrentColorBox>
+                        <S.CurrentColorIcon code={colorIcon.code} />
+                        <S.CurrentColorText code={colorIcon.code}>
+                          {colorIcon.name}
+                        </S.CurrentColorText>
+                      </S.CurrentColorBox>
+                      <S.CurrentColorDesc>{colorIcon.desc}</S.CurrentColorDesc>
+                      <S.ClearBox onClick={onClickClear}>
+                        <S.ClearIcon className="fi fi-rr-cross-circle" />
+                        <S.ClearText>Clear</S.ClearText>
+                      </S.ClearBox>
+                    </S.CurrentColorWrap>
+                  )}
+                </S.ProductColorWrap>
+              )}
+
               <S.ProductContent>{props.detailData?.summary}</S.ProductContent>
               <S.ProductButtonWrap>
                 <S.ProductButtonBox>
@@ -116,6 +124,9 @@ export default function ProductsDetail(props) {
                     content="장바구니 담기"
                     background="#222"
                     color="#fff"
+                    onClick={() =>
+                      onClickAdd(String(router.query.id), currentOption)
+                    }
                   />
                 </S.ProductButtonBox>
                 <S.ProductButtonBox>

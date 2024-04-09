@@ -1,13 +1,16 @@
+import { useEffect, useState } from "react";
 import {
   NavNewItem,
   NavProductsItem
 } from "../../../../../commons/libraries/array";
+import { useLogout } from "../../../hooks/custom/useLogout";
 import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
 import DivideLine from "../../divideLine";
 import * as S from "./style";
 
 export default function HeaderMain(props) {
   const { onClickMoveToPage } = useMoveToPage();
+  const { onClickLogout } = useLogout();
   const active =
     props.isFullNavOn ||
     props.isSearchOn ||
@@ -16,6 +19,12 @@ export default function HeaderMain(props) {
 
   const scrollHide = props.headerActive;
   const scrollLock = props.isFullNavOn || props.isSearchOn;
+  const [isLogin, setIsLogin] = useState(false);
+  const storage = globalThis?.localStorage;
+
+  useEffect(() => {
+    setIsLogin(storage?.getItem("accessToken") ? true : false);
+  }, [isLogin]);
 
   return (
     <>
@@ -223,30 +232,47 @@ export default function HeaderMain(props) {
                 </S.Button>
               </S.NavList>
               {/* =====fullpage===== */}
-              <S.NavList className="max1000">
-                <S.NavItem
-                  active={active ? 1 : 0}
-                  isWhite={props.isWhite ? 1 : 0}
-                  onClick={props.showModal}
-                >
-                  LOGIN
-                </S.NavItem>
-              </S.NavList>
-              <S.NavList className="max1000">
-                <S.NavItem
-                  active={active ? 1 : 0}
-                  isWhite={props.isWhite ? 1 : 0}
-                  onClick={onClickMoveToPage("/signup/")}
-                >
-                  JOIN
-                </S.NavItem>
-              </S.NavList>
+              {isLogin && (
+                <S.NavList className="max1000">
+                  <S.Button onClick={onClickLogout}>
+                    <S.NavIcon
+                      className="fi fi-rr-sign-out-alt"
+                      active={active ? 1 : 0}
+                      isWhite={props.isWhite ? 1 : 0}
+                    />
+                  </S.Button>
+                </S.NavList>
+              )}
+              {!isLogin && (
+                <>
+                  <S.NavList className="max1000">
+                    <S.NavItem
+                      active={active ? 1 : 0}
+                      isWhite={props.isWhite ? 1 : 0}
+                      onClick={props.showModal}
+                    >
+                      LOGIN
+                    </S.NavItem>
+                  </S.NavList>
+                  <S.NavList className="max1000">
+                    <S.NavItem
+                      active={active ? 1 : 0}
+                      isWhite={props.isWhite ? 1 : 0}
+                      onClick={onClickMoveToPage("/signup/")}
+                    >
+                      JOIN
+                    </S.NavItem>
+                  </S.NavList>
+                </>
+              )}
               {/* =====fullpage===== */}
               {/* =====w1000===== */}
               <S.NavList className="min1000">
-                <S.Button>
+                <S.Button onClick={isLogin ? onClickLogout : props.showModal}>
                   <S.NavIcon
-                    className="fi fi-rr-user"
+                    className={
+                      isLogin ? "fi fi-rr-sign-out-alt" : "fi fi-rr-user"
+                    }
                     active={active ? 1 : 0}
                     isWhite={props.isWhite ? 1 : 0}
                   />

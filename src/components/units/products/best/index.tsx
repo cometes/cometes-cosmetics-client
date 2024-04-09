@@ -5,7 +5,7 @@ export default function ProductsBest(props) {
   return (
     <>
       <ProductsBannerWrap bg={props.bg} bannerData={props.bannerData} />
-      <ProductsBestItemWrap />
+      <ProductsBestItemWrap listData={props.listData} />
     </>
   );
 }
