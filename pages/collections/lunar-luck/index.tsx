@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import { collectionLunar } from "../../../src/commons/libraries/array";
-import { useCollection } from "../../../src/components/commons/hooks/custom/useCollection";
 import CollectionLunarLuck from "../../../src/components/units/collections/lunar";
 import { useFetchCollection } from "../../../src/components/commons/hooks/queries/fetchCollection";
 
