@@ -8,7 +8,7 @@ export const useLogout = () => {
   const onClickLogout = async () => {
     try {
       const result = await axios.post(
-        "https://seungwon.shop/login/logout",
+        "https://macproj.shop/login/logout",
         {},
         {
           headers: {

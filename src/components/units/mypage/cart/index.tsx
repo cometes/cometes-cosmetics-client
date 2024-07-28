@@ -141,7 +141,7 @@ export default function Cart(props) {
                           <S.ItemImg src={el.product.thumbnail} />
                           <S.ItemInfoBox>
                             <S.ItemName>{el.product.name}</S.ItemName>
-                            {el.option !== "" && (
+                            {el.option !== "none" && (
                               <S.ItemOptionBox>
                                 <S.ItemOption>옵션 | {el.option}</S.ItemOption>
                                 <S.ItemOptionButton

@@ -30,11 +30,13 @@ const ItemHeartBox = styled.div`
   justify-content: center;
   z-index: 99;
 `;
-const ItemHeartIcon = styled.i`
+const ItemHeartIcon = styled.i<{
+  active: boolean;
+}>`
   display: block;
   font-size: 3rem;
   line-height: 3rem;
-  color: #ccc;
+  color: ${props => (props.active ? "#d86565" : "#ccc")};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
@@ -108,7 +110,12 @@ export default function ProductsItemDefault(props) {
           )}
         />
         <ItemHeartBox>
-          <ItemHeartIcon className="fi fi-rs-heart" />
+          <ItemHeartIcon
+            className={
+              props.data?.isShopping ? "fi fi-ss-heart" : "fi fi-rs-heart"
+            }
+            active={props.data?.isShopping}
+          />
         </ItemHeartBox>
       </ItemImgBox>
       <ItemContentBox>

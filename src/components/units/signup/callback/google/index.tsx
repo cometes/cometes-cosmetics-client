@@ -35,7 +35,7 @@ export default function GoogleCallback() {
           )
           .then(async res => {
             const login = await axios.post(
-              "https://seungwon.shop/login/socialLogin",
+              "https://macproj.shop/login/socialLogin",
               {
                 provider: "google",
                 accessToken: res?.data?.access_token

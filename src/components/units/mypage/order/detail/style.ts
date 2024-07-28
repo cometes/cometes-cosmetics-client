@@ -54,7 +54,7 @@ export const ListButtonWrap = styled.div`
   justify-content: center;
 `;
 export const ListButtonBox = styled.div`
-  width: 120px;
+  width: 100px;
 `;
 
 export const ProductWrap = styled.div`
@@ -80,14 +80,14 @@ export const Tab = styled.span`
   text-align: center;
 
   &:first-of-type {
-    width: 40%;
+    width: 45%;
 
     ${max(768)} {
       width: 100%;
     }
   }
   &:not(:first-of-type) {
-    width: 20%;
+    width: calc(55% / 3);
 
     ${max(768)} {
       display: none;
@@ -110,16 +110,15 @@ export const RowWrap = styled.div`
   }
 `;
 export const RowBox = styled.div`
-  min-width: fit-content;
   &:first-of-type {
-    width: 40%;
+    width: 45%;
 
     ${max(768)} {
       width: 100%;
     }
   }
   &:not(:first-of-type) {
-    width: 20%;
+    width: calc(55% / 3);
 
     ${max(768)} {
       width: 100%;
@@ -200,27 +199,43 @@ export const ItemImg = styled.img`
   width: 80px;
   height: 80px;
   display: block;
-  background-color: #ccc;
+  background-color: #f7f7f7;
   border-radius: 6px;
   aspect-ratio: 1 / 1;
+`;
+export const ItemName = styled.p`
+  cursor: pointer;
+  word-break: keep-all;
+  ${max(1000)} {
+    font-size: 1.4rem;
+  }
+  ${max(768)} {
+    font-size: 1.6rem;
+  }
 `;
 export const ItemOption = styled.span`
   display: inline-block;
   color: #555;
   font-size: 1.4rem;
+
+  ${max(1000)} {
+    font-size: 1.2rem;
+  }
+  ${max(768)} {
+    font-size: 1.4rem;
+  }
 `;
 export const ItemOptionBox = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
 
+  ${max(1000)} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   ${max(768)} {
     flex-direction: row;
     align-items: center;
-
-    .date & {
-      margin-left: 10px;
-    }
   }
 `;
 export const ItemStrongText = styled.p`

@@ -38,7 +38,7 @@ export default function CollectionItem(props) {
     <Wrapper>
       <ImgBox
         onClick={onClickMoveToPage(
-          `/products/${props.data.mainCategory.toLowerCase()}/${props.data.subCategory.toLowerCase()}/item/${
+          `/products/${props.data?.mainCategory?.toLowerCase()}/${props.data?.subCategory?.toLowerCase()}/item/${
             props.data.id
           }`
         )}

@@ -125,7 +125,7 @@ export default function ProductsDetail(props) {
                     background="#222"
                     color="#fff"
                     onClick={() =>
-                      onClickAdd(String(router.query.id), currentOption)
+                      onClickAdd(String(router.query.id), props.detailData?.color[0]?.name === "" ? "none" : currentOption)
                     }
                   />
                 </S.ProductButtonBox>

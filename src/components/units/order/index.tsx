@@ -5,8 +5,12 @@ import ButtonHeight50px from "../../commons/parts/buttons/height50px";
 import ItemWithHeart from "../../commons/parts/item/heart";
 import ButtonHeight40px from "../../commons/parts/buttons/height40px";
 import { useEffect, useState } from "react";
+import { useShopping } from "../../commons/hooks/custom/useShopping";
+import { useMoveToPage } from "../../commons/hooks/custom/useMoveToPage";
 
 export default function Order(props: { isComplete: boolean }) {
+  const { onClickPurchase } = useShopping();
+  const { onClickMoveToPage } = useMoveToPage();
   const [shoppingData, setShoppingData] = useState({
     name: "",
     phone: "",
@@ -15,13 +19,35 @@ export default function Order(props: { isComplete: boolean }) {
     addressCode: "",
     point: 0,
     list: [],
+    shoppingId: [],
     priceSum: 0,
     sum: 0
   });
+  const [orderNumber, setOrderNumber] = useState("");
 
   useEffect(() => {
     const sessionStorage = globalThis?.sessionStorage;
-    setShoppingData(JSON.parse(sessionStorage.getItem("shoppingData")));
+    const data = JSON.parse(sessionStorage.getItem("shoppingData"));
+    const result = JSON.parse(sessionStorage.getItem("shoppingResult"));
+    const shoppingId = data.list.map((el: { id: string }) => {
+      return el.id;
+    });
+    const orderNumber = result.info[0]?.orderNumber;
+
+    setOrderNumber(orderNumber);
+
+    setShoppingData({
+      name: data.name,
+      phone: data.phone,
+      address: data.address,
+      detailAddress: data.detailAddress,
+      addressCode: data.addressCode,
+      point: data.point,
+      list: data.list,
+      shoppingId,
+      priceSum: data.priceSum,
+      sum: data.sum
+    });
   }, []);
 
   return (
@@ -32,7 +58,7 @@ export default function Order(props: { isComplete: boolean }) {
           <S.CompleteWrap>
             <S.CompleteMessage>주문이 완료되었습니다.</S.CompleteMessage>
             <S.CompleteNumberBox>
-              <S.CompleteNumber>주문번호: 111111111111111</S.CompleteNumber>
+              <S.CompleteNumber>주문번호: {orderNumber}</S.CompleteNumber>
             </S.CompleteNumberBox>
           </S.CompleteWrap>
         )}
@@ -100,7 +126,7 @@ export default function Order(props: { isComplete: boolean }) {
                             <S.ItemImg src={el.product.thumbnail} />
                             <S.ItemInfoBox>
                               <S.ItemName>{el.product.name}</S.ItemName>
-                              {el.option !== "" && (
+                              {el.option !== "none" && (
                                 <S.ItemOptionBox>
                                   <S.ItemOption>
                                     옵션 | {el.option}
@@ -136,13 +162,16 @@ export default function Order(props: { isComplete: boolean }) {
                 <S.ContentWrap>
                   <div>
                     <S.ContentSubText>보유</S.ContentSubText>
-                    <S.ItemStrongText>{shoppingData?.point?.toLocaleString()}P</S.ItemStrongText>
+                    <S.ItemStrongText>
+                      {shoppingData?.point?.toLocaleString()}P
+                    </S.ItemStrongText>
                   </div>
                   <S.ItemButtonBox>
                     <ButtonHeight40px
                       content="충전하기"
                       color="#fff"
                       background="#111"
+                      onClick={onClickMoveToPage("/mypage/point/deposit/")}
                     />
                   </S.ItemButtonBox>
                 </S.ContentWrap>
@@ -161,9 +190,10 @@ export default function Order(props: { isComplete: boolean }) {
                 </S.ContentSubText>
                 <S.SubmitButtonBox>
                   <ButtonHeight50px
-                    content="2개 상품 구매하기"
+                    content={`${shoppingData?.list.length}개 상품 구매하기`}
                     color="#fff"
                     background="#111"
+                    onClick={onClickPurchase(shoppingData)}
                   />
                 </S.SubmitButtonBox>
               </S.SubmitButtonWrap>
@@ -206,6 +236,7 @@ export default function Order(props: { isComplete: boolean }) {
                   content={`${shoppingData?.list.length}개 상품 구매하기`}
                   color="#fff"
                   background="#111"
+                  onClick={onClickPurchase(shoppingData)}
                 />
               </S.SubmitButtonBox>
             </S.SubmitButtonWrap>

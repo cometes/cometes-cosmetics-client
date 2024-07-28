@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export async function useFetchProducts(category: string, page: number) {
+export async function useSearchProduct(search: string, page: number) {
   const request = await axios.get(
-    `https://macproj.shop/product/fetchProducts?category=${category}&page=${page}`
+    `https://macproj.shop/product/searchProduct?search=${search}&page=${page}`
   );
+
   const response = await request.data;
   const data = response.data;
 
@@ -12,7 +13,7 @@ export async function useFetchProducts(category: string, page: number) {
   };
 }
 
-export async function useFetchProductsLogin(category: string, page: number) {
+export async function useSearchProductLogin(search: string, page: number) {
   const storage = globalThis?.localStorage;
 
   const request = await axios
@@ -23,7 +24,7 @@ export async function useFetchProductsLogin(category: string, page: number) {
     })
     .then(async res => {
       const result = await axios.get(
-        `https://macproj.shop/product/fetchProducts?id=${res?.data?.data}&category=${category}&page=${page}`
+        `https://macproj.shop/product/searchProduct?id=${res?.data?.data}&search=${search}&page=${page}`
       );
       return result;
     });
@@ -35,10 +36,11 @@ export async function useFetchProductsLogin(category: string, page: number) {
   };
 }
 
-export async function useFetchProductsCount(category: string) {
+export async function useSearchProductCount(search: string) {
   const request = await axios.get(
-    `https://macproj.shop/product/fetchProducts?category=${category}&count=true`
+    `https://macproj.shop/product/searchProduct?search=${search}&count=true`
   );
+
   const response = await request.data;
   const data = response.data;
 

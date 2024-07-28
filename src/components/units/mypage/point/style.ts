@@ -33,26 +33,24 @@ export const PointMark = styled.span`
   font-weight: 600;
   margin-left: 6px;
 `;
+export const ListContainer = styled.section`
+  min-height: 200px;
+`
 export const ListWrap = styled.ul`
   margin-top: 16px;
+  border: 1px solid #d7d7d7;
+  border-radius: 6px;
 `;
 export const ListBox = styled.li`
-  border: 1px solid #d7d7d7;
-  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #d7d7d7;
   display: flex;
   justify-content: space-between;
 
-  &:first-of-type {
-    border-radius: 6px 6px 0 0;
-  }
   &:last-of-type {
-    border-radius: 0 0 6px 6px;
+    border-bottom: none;
   }
   &:only-of-type {
-    border-radius: 6px;
-  }
-  &:not(:first-of-type) {
-    margin-top: -1px;
+    border-bottom: none;
   }
 
   ${max(768)} {
@@ -149,3 +147,7 @@ export const Currency = styled.span`
     font-size: 2.4rem;
   }
 `;
+export const EmptyText = styled.p`
+  text-align: center;
+  padding: 50px 0;
+`

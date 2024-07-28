@@ -36,7 +36,7 @@ export default function NaverCallback() {
           )
           .then(async res => {
             const login = await axios.post(
-              "https://seungwon.shop/login/socialLogin",
+              "https://macproj.shop/login/socialLogin",
               {
                 provider: "naver",
                 accessToken: res?.data?.access_token

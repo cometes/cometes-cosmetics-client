@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import { useCollection } from "../src/components/commons/hooks/custom/useCollection";
-import { useRecommend } from "../src/components/commons/hooks/custom/useRecommend";
+// import { useCollection } from "../src/components/commons/hooks/custom/useCollection";
+// import { useRecommend } from "../src/components/commons/hooks/custom/useRecommend";
 import Main from "../src/components/units/main";
 import { useFetchCollection } from "../src/components/commons/hooks/queries/fetchCollection";
 import { useFetchRecommendProduct } from "../src/components/commons/hooks/queries/fetchRecommendProduct";

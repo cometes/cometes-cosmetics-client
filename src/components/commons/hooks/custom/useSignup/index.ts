@@ -58,7 +58,7 @@ export const useSignup = () => {
   const onClickSubmitSignUp = async data => {
     try {
       const result = await axios
-        .post("https://seungwon.shop/user/createUser", {
+        .post("https://macproj.shop/user/createUser", {
           email: data.email,
           provider: data.provider,
           phone: data.phone,
@@ -68,7 +68,7 @@ export const useSignup = () => {
           detailAddress: data.detailAddress
         })
         .then(async res => {
-          const login = await axios.post("https://seungwon.shop/login", {
+          const login = await axios.post("https://macproj.shop/login", {
             id: res?.data?.data
           });
 

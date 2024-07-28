@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 
 export const useShopping = (
-  listData: SetStateAction<{ data: { list: any[] } }>
+  listData?: SetStateAction<{ data: { list: any[] } }>
 ) => {
   const router = useRouter();
   const storage = globalThis?.localStorage;
@@ -103,29 +103,35 @@ export const useShopping = (
 
   // 장바구니 추가
   const onClickAdd = async (productId: string, option: string) => {
-    try {
-      const result = await axios.post(
-        "https://seungwon.shop/shopping/add",
-        {
-          productId,
-          option
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+    if (option === "") {
+      alert("옵션을 선택해주세요.");
+    } else {
+      try {
+        const result = await axios.post(
+          "https://macproj.shop/shopping/add",
+          {
+            productId,
+            option
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            }
+          }
+        );
+
+        if (result.data) {
+          if (
+            confirm(
+              "상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?"
+            )
+          ) {
+            router.push("/mypage/cart/");
           }
         }
-      );
-
-      if (result.data) {
-        if (
-          confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?")
-        ) {
-          router.push("/mypage/cart/");
-        }
+      } catch (error) {
+        if (error instanceof Error) alert(error.message);
       }
-    } catch (error) {
-      if (error instanceof Error) alert(error.message);
     }
   };
 
@@ -145,7 +151,7 @@ export const useShopping = (
     setCurrentId(shoppingId);
     try {
       const result = await axios.get(
-        `https://seungwon.shop/shopping/fetchOption?productId=${productId}`,
+        `https://macproj.shop/shopping/fetchOption?productId=${productId}`,
         {
           headers: {
             Authorization: `Bearer ${storage?.getItem("accessToken")}`
@@ -163,7 +169,7 @@ export const useShopping = (
   const onClickOptionChange = async (value: string) => {
     try {
       const result = await axios.patch(
-        "https://seungwon.shop/shopping/updateShopping",
+        "https://macproj.shop/shopping/updateShopping",
 
         [
           {
@@ -189,7 +195,7 @@ export const useShopping = (
   const onClickChangeCount = async (id: string, count: number) => {
     try {
       const result = await axios.patch(
-        "https://seungwon.shop/shopping/updateShopping",
+        "https://macproj.shop/shopping/updateShopping",
         [
           {
             shoppingId: id,
@@ -214,7 +220,7 @@ export const useShopping = (
     if (confirm("선택한 상품을 삭제하시겠습니까?")) {
       try {
         const result = await axios.delete(
-          `https://seungwon.shop/shopping/delete/${id}`,
+          `https://macproj.shop/shopping/delete/${id}`,
           {
             headers: {
               Authorization: `Bearer ${storage?.getItem("accessToken")}`
@@ -233,7 +239,7 @@ export const useShopping = (
   const onClickOrder = (shoppingList: any[]) => async () => {
     try {
       const result = await axios.patch(
-        "https://seungwon.shop/shopping/updateShopping",
+        "https://macproj.shop/shopping/updateShopping",
         shoppingList,
         {
           headers: {
@@ -260,6 +266,44 @@ export const useShopping = (
     }
   };
 
+  const onClickPurchase =
+    (shoppingData: {
+      address: string;
+      detailAddress: string;
+      addressCode: string;
+      sum: number;
+      shoppingId: any[];
+    }) =>
+    async () => {
+      try {
+        const result = await axios.post(
+          "https://macproj.shop/order/saveOrder",
+          {
+            address: shoppingData.address,
+            detailAddress: shoppingData.detailAddress,
+            addressCode: shoppingData.addressCode,
+            sum: shoppingData.sum,
+            shoppingId: shoppingData.shoppingId
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            }
+          }
+        );
+
+        console.log(result?.data?.data);
+        // sessionStorage.removeItem("shoppingData");
+        sessionStorage.setItem(
+          "shoppingResult",
+          JSON.stringify(result?.data?.data)
+        );
+        router.push(`/order/complete/${result?.data?.data?.info[0]?.id}`);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
   return {
     onClickAdd,
     onClickOption,
@@ -270,6 +314,7 @@ export const useShopping = (
     handleChangeCount,
     onCheckAllChange,
     onChangeCheckList,
+    onClickPurchase,
     data,
     optionData,
     defaultOption,
