@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { CookiesProvider } from "react-cookie";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import LoginSetting from "../src/components/commons/login";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
@@ -26,10 +27,12 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <RecoilRoot>
         <HelmetProvider>
           <CookiesProvider>
-            <Global styles={globalStyle} />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <LoginSetting>
+              <Global styles={globalStyle} />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </LoginSetting>
           </CookiesProvider>
         </HelmetProvider>
       </RecoilRoot>

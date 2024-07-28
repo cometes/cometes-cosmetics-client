@@ -10,11 +10,11 @@ import CollectionVideoWrap from "../../../commons/parts/collection/videoWrap";
 export default function CollectionMacLisa(props) {
   return (
     <CollectionWrap data={props.data} color={props.data.color}>
-      <CollectionItemSlickWrap data={props.data.main} />
+      <CollectionItemSlickWrap data={props.data.main} listData={props.listData}/>
       <CollectionFlexWrap data={props.data?.flex} />
       <CollectionBannerWrap data={props.data?.banner} />
       <CollectionLookBookWrap data={props.data?.lookbook} />
-      <CollectionFullItemSlickWrap data={props.data?.full} />
+      <CollectionFullItemSlickWrap data={props.data?.full} listData={props.listData} />
       <CollectionVideoWrap data={props.data?.video} />
       <CollectionHelpWrap />
     </CollectionWrap>

@@ -27,7 +27,7 @@ export default function FullNav(props) {
       {props.isFullNavOn && (
         <S.FullNav className={props.fullNavActive}>
           <S.FullNavBox>
-            <S.FullNavList onClick={props.onClickFullMenu("NEW")}>
+            <S.FullNavList onClick={props.onClickSubMenu("/collections/")}>
               <S.FullNavItem>WHAT'S NEW</S.FullNavItem>
             </S.FullNavList>
             <S.FullNavList onClick={props.onClickSubMenu("/products/best/")}>

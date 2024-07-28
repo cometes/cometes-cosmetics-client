@@ -235,7 +235,7 @@ export default function AIDSFund() {
                 </S.Container>
               </S.Section>
               <S.Section className="section fp-auto-height">
-                <Footer isCollection={true} />
+                <Footer isCollection={true} isAll={true} />
               </S.Section>
             </ReactFullpage.Wrapper>
           );

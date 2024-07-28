@@ -3,10 +3,20 @@ import SliderComponent from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useRef, useState } from "react";
+import { max } from "../../../../../commons/libraries/breakPoints";
 
 const StyledSlider = styled(SliderComponent)`
   height: calc(100vh - 80px);
   overflow: hidden;
+
+  ${max(1000)} {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  ${max(768)} {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 
   &:hover {
     .slick-arrow.slick-prev {
@@ -100,10 +110,20 @@ const SlideImg = styled.img`
   object-fit: cover;
   object-position: 50% 50%;
   background-color: #e7e8ea;
+
+  ${max(1000)} {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+  ${max(768)} {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 `;
 const PaginationImg = styled.img`
   display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
   background-color: #e7e8ea;
@@ -141,15 +161,19 @@ const ProgressBarBox = styled.div<{
 
 export default function DetailSlick(props) {
   const [progressBar, setProgressBar] = useState(0);
-  const [data, setData] = useState(props.data);
+  const [data, setData] = useState([]);
 
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    if (props.selected?.product !== "") {
+    setData(props.data);
+  }, [props.data]);
+
+  useEffect(() => {
+    if (props.selected?.image !== "") {
       setData([
-        props.selected?.product,
-        props.selected?.texture,
+        { gallery: props.selected?.image },
+        { gallery: props.selected?.texture },
         ...props.data
       ]);
       sliderRef.current.slickGoTo(0);
@@ -160,7 +184,7 @@ export default function DetailSlick(props) {
   }, [props.selected]);
 
   const progress = (_, newIndex: number) => {
-    const calc = (newIndex / (data.length - 1)) * 100;
+    const calc = (newIndex / (data?.length - 1)) * 100;
     setProgressBar(calc);
   };
 
@@ -177,17 +201,25 @@ export default function DetailSlick(props) {
     cssEase: "ease-in-out",
     beforeChange: progress,
     customPaging: (i: string | number) => {
-      return <PaginationImg src={data[i]} />;
-    }
+      return <PaginationImg src={data[i]?.gallery} />;
+    },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false
+        }
+      }
+    ]
   };
 
   return (
     <>
       <StyledSlider {...settings} ref={sliderRef}>
-        {data.map((el, idx) => (
+        {data?.map((el, idx) => (
           <SlideImg
             key={idx}
-            src={el}
+            src={el?.gallery}
             className={
               props.selected?.product !== "" && idx <= 1 ? "resize" : ""
             }

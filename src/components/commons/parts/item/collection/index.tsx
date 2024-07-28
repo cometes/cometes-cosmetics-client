@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { max } from "../../../../../commons/libraries/breakPoints";
+import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,12 +33,19 @@ const ItemTitle = styled.p<{
 `;
 
 export default function CollectionItem(props) {
+  const { onClickMoveToPage } = useMoveToPage();
   return (
     <Wrapper>
-      <ImgBox>
-        <Item src={props.data?.img} />
+      <ImgBox
+        onClick={onClickMoveToPage(
+          `/products/${props.data?.mainCategory?.toLowerCase()}/${props.data?.subCategory?.toLowerCase()}/item/${
+            props.data.id
+          }`
+        )}
+      >
+        <Item src={props.data?.thumbnail} />
       </ImgBox>
-      <ItemTitle highlight={props.highlight}>{props.data?.title}</ItemTitle>
+      <ItemTitle highlight={props.highlight}>{props.data?.name}</ItemTitle>
     </Wrapper>
   );
 }

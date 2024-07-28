@@ -28,12 +28,15 @@ const ItemHeartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 99;
 `;
-const ItemHeartIcon = styled.i`
+const ItemHeartIcon = styled.i<{
+  active: boolean;
+}>`
   display: block;
   font-size: 3rem;
   line-height: 3rem;
-  color: #ccc;
+  color: ${props => (props.active ? "#d86565" : "#ccc")};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
@@ -46,17 +49,14 @@ const ItemContentBox = styled.div`
 `;
 const ItemTagBox = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
   margin-top: 20px;
 `;
 const ItemTag = styled.span`
   display: block;
   color: #a0a0a0;
   font-size: 1.4rem;
-  margin-left: 10px;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
 
   ${max(500)} {
     margin-left: 6px;
@@ -97,25 +97,34 @@ const ItemPrice = styled.p`
 export default function ProductsItemDefault(props) {
   const colorArr = props.data?.color.slice(0, 5);
   const { onClickMoveToPage } = useMoveToPage();
-  const routerStr = props.data?.title.replace(/\s/g, "-");
 
   return (
     <div>
-      <ItemImgBox
-        onClick={onClickMoveToPage(`/products/lip/item/${routerStr}`)}
-      >
-        <ItemImg src={props.data?.img} />
+      <ItemImgBox>
+        <ItemImg
+          src={props.data?.thumbnail}
+          onClick={onClickMoveToPage(
+            `/products/${props.data.mainCategory.toLowerCase()}/${props.data.subCategory.toLowerCase()}/item/${
+              props.data.id
+            }`
+          )}
+        />
         <ItemHeartBox>
-          <ItemHeartIcon className="fi fi-rs-heart" />
+          <ItemHeartIcon
+            className={
+              props.data?.isShopping ? "fi fi-ss-heart" : "fi fi-rs-heart"
+            }
+            active={props.data?.isShopping}
+          />
         </ItemHeartBox>
       </ItemImgBox>
       <ItemContentBox>
         <ItemTagBox>
           {props.data?.tag.map(el => (
-            <ItemTag>#{el}</ItemTag>
+            <ItemTag>#{el.tag}</ItemTag>
           ))}
         </ItemTagBox>
-        <ItemTitle>{props.data?.title}</ItemTitle>
+        <ItemTitle>{props.data?.name}</ItemTitle>
         <ItemColorBox>
           {colorArr.map(el => (
             <ItemColorIcon background={el.code} />
@@ -124,7 +133,7 @@ export default function ProductsItemDefault(props) {
             <ItemColorEllipsis>⋯</ItemColorEllipsis>
           )}
         </ItemColorBox>
-        <ItemPrice>₩ {props.data?.price}</ItemPrice>
+        <ItemPrice>₩ {props.data?.price.toLocaleString()}</ItemPrice>
       </ItemContentBox>
     </div>
   );

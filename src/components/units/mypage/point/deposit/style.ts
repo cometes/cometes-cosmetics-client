@@ -137,6 +137,12 @@ export const InputWrap = styled.div`
 export const InputBox = styled.div`
   margin-top: 8px;
 `;
+export const Error = styled.span`
+  display: block;
+  color: #e31c1c;
+  font-size: 1.4rem;
+  margin-top: 6px;
+`;
 export const ResultPrice = styled.p`
   font-size: 2.8rem;
 `;

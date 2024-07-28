@@ -33,9 +33,14 @@ const selectArr = [
 
 export default function ProductsBannerWrap(props) {
   const router = useRouter();
+  const [currentArr, setCurrentArr] = useState([]);
 
   // 현재 페이지 메뉴 숨김 처리
-  const currentArr = selectArr.filter(el => !el.url.includes(router.asPath));
+  useEffect(() => {
+    setCurrentArr(selectArr.filter(el => !el.url.includes(router.asPath)));
+  }, []);
+
+  // 현재 페이지 명
   const current = router.asPath.split("/")[2];
 
   const [isSelectOn, setIsSelectOn] = useState(false);
@@ -87,7 +92,7 @@ export default function ProductsBannerWrap(props) {
           </S.SelectWrap>
         </S.LeftWrap>
         <S.RightWrap>
-          <ProductSlick />
+          <ProductSlick data={props.bannerData} />
         </S.RightWrap>
       </S.Container>
       <S.BgWrap bg={props.bg} />

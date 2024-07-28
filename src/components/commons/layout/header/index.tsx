@@ -25,6 +25,7 @@ export default function Header(props) {
     headerActive,
     setIsBgOn,
     setIsFullNavOn,
+    setIsSearchOn,
     setishover,
     setMenu
   } = useHeader();
@@ -63,7 +64,7 @@ export default function Header(props) {
         menu={menu}
         fullNavActive={fullNavActive}
       />
-      <SearchBox isSearchOn={isSearchOn} searchActive={searchActive} />
+      <SearchBox isSearchOn={isSearchOn} searchActive={searchActive} setIsSearchOn={setIsSearchOn} onClickSearch={onClickSearch}/>
     </>
   );
 }

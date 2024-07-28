@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 export default function CollectionHoliday(props) {
   return (
     <CollectionWrap data={props.data}>
-      <CollectionItemWrap data={props.data?.main} />
+      <CollectionItemWrap data={props.data?.main} listData={props.listData}/>
       <CollectionVideoWrap data={props.data?.video} margin={"100px 0 0 0"} />
     </CollectionWrap>
   );

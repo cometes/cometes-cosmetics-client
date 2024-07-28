@@ -26,27 +26,32 @@ export const NavNewItem = [
 export const NavProductsItem = [
   {
     title: "립",
-    content: ["전체보기", "립스틱", "리퀴드 립", "립밤"]
+    content: [
+      { title: "전체보기", url: "/products/lip/" },
+      { title: "립스틱", url: "/products/lip/lipstick/" },
+      { title: "리퀴드 립", url: "/products/lip/liquidlip/" },
+      { title: "립밤", url: "/products/lip/lipbalm/" }
+    ]
   },
   {
     title: "아이",
     content: [
-      "전체보기",
-      "싱글섀도우",
-      "아이팔레트",
-      "아이라이너",
-      "아이브로우"
+      { title: "전체보기", url: "/products/eye/" },
+      { title: "싱글섀도우", url: "/products/eye/shadow/" },
+      { title: "아이팔레트", url: "/products/eye/palette/" },
+      { title: "아이라이너", url: "/products/eye/liner/" },
+      { title: "아이브로우", url: "/products/eye/brow/" }
     ]
   },
   {
     title: "페이스",
     content: [
-      "전체보기",
-      "파운데이션·쿠션",
-      "프라이머",
-      "파우더",
-      "블러셔",
-      "하이라이터"
+      { title: "전체보기", url: "/products/face/" },
+      { title: "파운데이션", url: "/products/face/foundation/" },
+      { title: "쿠션", url: "/products/face/cushion/" },
+      { title: "프라이머 · 하이라이터", url: "/products/face/primer/" },
+      { title: "파우더", url: "/products/face/powder/" },
+      { title: "블러셔", url: "/products/face/blush/" }
     ]
   }
 ];
@@ -194,20 +199,20 @@ export const collectionLisa = {
     fullContent: "",
     fullItem: [
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/FACE/%EB%A6%AC%EC%82%AC%20%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%ED%94%BC%EB%8B%88%EC%89%AC.png",
-        title: "엑스트라 디멘션 스킨피니쉬 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/FACE/%EB%A6%AC%EC%82%AC%20%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%ED%94%BC%EB%8B%88%EC%89%AC.png",
+        name: "엑스트라 디멘션 스킨피니쉬 / MAC X L Collection"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%EB%A7%A5%20%EB%B0%94%EC%9D%B4%20%EC%97%98%20%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%AC%ED%80%B4%EB%93%9C.png",
-        title: "파우더 키스 리퀴드 립컬러 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/LIP/%EB%A7%A5%20%EB%B0%94%EC%9D%B4%20%EC%97%98%20%ED%8C%8C%EC%9A%B0%EB%8D%94%ED%82%A4%EC%8A%A4%20%EB%A6%AC%ED%80%B4%EB%93%9C.png",
+        name: "파우더 키스 리퀴드 립컬러 / MAC X L Collection"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
-        title: "맥 바이 엘 아이 섀도우 X 12 / MAC X L COLLECTION"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EC%84%80%EB%8F%84%EC%9A%B0.png",
+        name: "맥 바이 엘 아이 섀도우 X 12 / MAC X L COLLECTION"
       },
       {
-        img: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EB%B8%8C%EB%9F%AC%EC%89%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%ED%81%AC.png",
-        title: "브러시스트로크 24-아워 라이너 / MAC X L Collection"
+        thumbnail: "https://storage.googleapis.com/cometes-storage/thumbnail/EYE/%EB%A6%AC%EC%82%AC%20%EB%B8%8C%EB%9F%AC%EC%89%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%ED%81%AC.png",
+        name: "브러시스트로크 24-아워 라이너 / MAC X L Collection"
       }
     ]
   },

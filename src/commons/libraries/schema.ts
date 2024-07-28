@@ -25,7 +25,7 @@ export const schemaToken = yup.object({
   token: yup
     .string()
     .required("인증번호를 입력해주세요.")
-    .min(5, "5자리 인증번호를 입력해주세요.")
+    .min(4, "4자리 인증번호를 입력해주세요.")
 });
 export const schemaPhone = yup.object({
   phone: yup
@@ -36,4 +36,23 @@ export const schemaPhone = yup.object({
       "올바른 휴대폰 번호를 입력해주세요."
     ),
   token: yup.string()
+});
+export const schemaPointCharge = yup.object({
+  amount: yup.number().required("충전할 금액을 선택해주세요."),
+  payment: yup.string().required("결제 수단을 선택해주세요."),
+  name: yup.string().required("결제 정보를 입력해주세요."),
+  email: yup
+    .string()
+    .email("올바른 이메일을 입력해주세요.")
+    .required("결제 정보를 입력해주세요."),
+  phone: yup
+    .string()
+    .required("결제 정보를 입력해주세요.")
+    .matches(
+      /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/,
+      "올바른 휴대폰 번호를 입력해주세요."
+    ),
+  confirm: yup
+    .boolean()
+    .test("is-true", "결제 진행에 동의해주세요.", value => value === true)
 });

@@ -2,10 +2,13 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../../../commons/stores";
 
 export default function GoogleCallback() {
   const router = useRouter();
   const [appCookies, setAppCookies] = useCookies();
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const date = new Date();
   date.setDate(date.getDate() + 14);
@@ -32,7 +35,7 @@ export default function GoogleCallback() {
           )
           .then(async res => {
             const login = await axios.post(
-              "https://seungwon.shop/login/socialLogin",
+              "https://macproj.shop/login/socialLogin",
               {
                 provider: "google",
                 accessToken: res?.data?.access_token
@@ -49,15 +52,23 @@ export default function GoogleCallback() {
               expires: date
             });
 
+            const storage = globalThis?.sessionStorage;
+
             if (login?.data?.data.includes("@")) {
               // sessionStorage에 저장
-              const storage = globalThis?.sessionStorage;
+
               storage.setItem("email", login?.data?.data);
               storage.setItem("provider", "google");
-
               router.push(`/signup/validation`);
             } else {
-              router.push("/");
+              // 기존 회원인 경우, localStorage에 액세스 토큰 저장
+              setAccessToken(login?.data?.data);
+              localStorage.setItem("accessToken", login?.data?.data ?? "");
+              setAppCookies("accessToken", login?.data?.data ?? "", {
+                path: "/",
+                expires: date
+              });
+              router.push(storage.getItem("prevPath"));
             }
           });
       } catch (error) {

@@ -48,7 +48,7 @@ export const usePhoneCheck = () => {
     setIsTokenButtonActive(true);
     setTime(180);
     try {
-      const result = await axios.post("https://seungwon.shop/user/sendSMS", {
+      const result = await axios.post("https://macproj.shop/user/sendSMS", {
         phone: data.phone
       });
     } catch (error) {
@@ -61,13 +61,10 @@ export const usePhoneCheck = () => {
   // =============== 인증 버튼 클릭 ===============
   const onClickTokenButton = async data => {
     try {
-      const result = await axios.post(
-        "https://seungwon.shop/user/validateSMS",
-        {
-          token: Number(data.token),
-          phone: data.phone
-        }
-      );
+      const result = await axios.post("https://macproj.shop/user/validateSMS", {
+        token: Number(data.token),
+        phone: data.phone
+      });
       if (result?.data?.data) {
         // sessionStorage에 저장
         const storage = globalThis?.sessionStorage;
