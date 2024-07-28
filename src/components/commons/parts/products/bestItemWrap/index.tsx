@@ -1,14 +1,21 @@
 import * as S from "./style";
 import ProductsItemBest from "../../item/products/best";
+import { useEffect, useState } from "react";
 
 export default function ProductsBestItemWrap(props) {
   console.log(props.listData.LIP);
+  const [list, setList] = useState({ LIP: [], EYE: [], FACE: [] });
+
+  useEffect(() => {
+    setList(props.listData);
+  }, [props.listData]);
+
   return (
     <S.ItemContainer>
       <S.ItemSection>
         <S.BestTitle>LIP</S.BestTitle>
         <S.GridWrap>
-          {props.listData.LIP.map((el, num) => (
+          {list?.LIP?.map((el, num) => (
             <ProductsItemBest data={el} idx={num + 1} />
           ))}
         </S.GridWrap>
@@ -16,7 +23,7 @@ export default function ProductsBestItemWrap(props) {
       <S.ItemSection>
         <S.BestTitle>EYE</S.BestTitle>
         <S.GridDefaultWrap>
-          {props.listData.EYE.map((el, num) => (
+          {list?.EYE?.map((el, num) => (
             <ProductsItemBest data={el} idx={num + 1} />
           ))}
         </S.GridDefaultWrap>
@@ -24,7 +31,7 @@ export default function ProductsBestItemWrap(props) {
       <S.ItemSection>
         <S.BestTitle>FACE</S.BestTitle>
         <S.GridDefaultWrap>
-          {props.listData.FACE.map((el, num) => (
+          {list?.FACE?.map((el, num) => (
             <ProductsItemBest data={el} idx={num + 1} />
           ))}
         </S.GridDefaultWrap>
