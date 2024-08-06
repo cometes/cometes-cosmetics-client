@@ -1,4 +1,4 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -48,7 +48,7 @@ export const usePhoneCheck = () => {
     setIsTokenButtonActive(true);
     setTime(180);
     try {
-      const result = await instance.post("https://macproj.shop/user/sendSMS", {
+      const result = await axios.post("https://macproj.shop/user/sendSMS", {
         phone: data.phone
       });
     } catch (error) {
@@ -61,13 +61,10 @@ export const usePhoneCheck = () => {
   // =============== 인증 버튼 클릭 ===============
   const onClickTokenButton = async data => {
     try {
-      const result = await instance.post(
-        "https://macproj.shop/user/validateSMS",
-        {
-          token: Number(data.token),
-          phone: data.phone
-        }
-      );
+      const result = await axios.post("https://macproj.shop/user/validateSMS", {
+        token: Number(data.token),
+        phone: data.phone
+      });
       if (result?.data?.data) {
         // sessionStorage에 저장
         const storage = globalThis?.sessionStorage;

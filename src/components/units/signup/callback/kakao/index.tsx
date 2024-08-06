@@ -1,4 +1,4 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
@@ -17,7 +17,7 @@ export default function KakaoCallback() {
     const code = new URL(window.location.href).searchParams.get("code");
     const getToken = async () => {
       try {
-        const tokens = await instance
+        const tokens = await axios
           .post(
             "https://kauth.kakao.com/oauth/token",
             {
@@ -33,7 +33,7 @@ export default function KakaoCallback() {
             }
           )
           .then(async res => {
-            const login = await instance.post(
+            const login = await axios.post(
               "https://macproj.shop/login/socialLogin",
               {
                 provider: "kakao",

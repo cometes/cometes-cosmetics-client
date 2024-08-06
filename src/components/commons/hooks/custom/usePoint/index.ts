@@ -1,4 +1,4 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 import { useRouter } from "next/router";
 
 declare const window: typeof globalThis & {
@@ -44,7 +44,7 @@ export const usePoint = () => {
 
       if (rsp.success) {
         // 결제 성공
-        const result = await instance.post(
+        const result = await axios.post(
           "https://macproj.shop/payment/createPayment",
           {
             impUid: rsp.imp_uid,
@@ -54,7 +54,8 @@ export const usePoint = () => {
           {
             headers: {
               Authorization: `Bearer ${storage?.getItem("accessToken")}`
-            }
+            },
+            withCredentials: true
           }
         );
         alert("포인트 충전이 완료되었습니다.");

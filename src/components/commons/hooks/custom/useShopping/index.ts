@@ -1,4 +1,4 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 import { SetStateAction, useEffect, useState } from "react";
 import { useFetchGetShopping } from "../../queries/fetchGetShopping";
 import { useRouter } from "next/router";
@@ -107,7 +107,7 @@ export const useShopping = (
       alert("옵션을 선택해주세요.");
     } else {
       try {
-        const result = await instance.post(
+        const result = await axios.post(
           "https://macproj.shop/shopping/add",
           {
             productId,
@@ -116,7 +116,8 @@ export const useShopping = (
           {
             headers: {
               Authorization: `Bearer ${storage?.getItem("accessToken")}`
-            }
+            },
+            withCredentials: true
           }
         );
 
@@ -150,12 +151,13 @@ export const useShopping = (
     setDefaultOption(defaultOption);
     setCurrentId(shoppingId);
     try {
-      const result = await instance.get(
+      const result = await axios.get(
         `https://macproj.shop/shopping/fetchOption?productId=${productId}`,
         {
           headers: {
             Authorization: `Bearer ${storage?.getItem("accessToken")}`
-          }
+          },
+          withCredentials: true
         }
       );
 
@@ -168,7 +170,7 @@ export const useShopping = (
   // 옵션변경 완료
   const onClickOptionChange = async (value: string) => {
     try {
-      const result = await instance.patch(
+      const result = await axios.patch(
         "https://macproj.shop/shopping/updateShopping",
 
         [
@@ -181,7 +183,8 @@ export const useShopping = (
         {
           headers: {
             Authorization: `Bearer ${storage?.getItem("accessToken")}`
-          }
+          },
+          withCredentials: true
         }
       );
       alert("옵션이 정상적으로 변경되었습니다.");
@@ -194,7 +197,7 @@ export const useShopping = (
   // 수량 변경하기
   const onClickChangeCount = async (id: string, count: number) => {
     try {
-      const result = await instance.patch(
+      const result = await axios.patch(
         "https://macproj.shop/shopping/updateShopping",
         [
           {
@@ -205,7 +208,8 @@ export const useShopping = (
         {
           headers: {
             Authorization: `Bearer ${storage?.getItem("accessToken")}`
-          }
+          },
+          withCredentials: true
         }
       );
       alert("수량이 정상적으로 변경되었습니다.");
@@ -219,12 +223,13 @@ export const useShopping = (
   const onClickDelete = (id: any[]) => async e => {
     if (confirm("선택한 상품을 삭제하시겠습니까?")) {
       try {
-        const result = await instance.delete(
+        const result = await axios.delete(
           `https://macproj.shop/shopping/delete/${id}`,
           {
             headers: {
               Authorization: `Bearer ${storage?.getItem("accessToken")}`
-            }
+            },
+            withCredentials: true
           }
         );
         alert("선택한 상품이 장바구니에서 삭제되었습니다.");
@@ -238,13 +243,14 @@ export const useShopping = (
   // 주문 요청
   const onClickOrder = (shoppingList: any[]) => async () => {
     try {
-      const result = await instance.patch(
+      const result = await axios.patch(
         "https://macproj.shop/shopping/updateShopping",
         shoppingList,
         {
           headers: {
             Authorization: `Bearer ${storage?.getItem("accessToken")}`
-          }
+          },
+          withCredentials: true
         }
       );
 
@@ -276,7 +282,7 @@ export const useShopping = (
     }) =>
     async () => {
       try {
-        const result = await instance.post(
+        const result = await axios.post(
           "https://macproj.shop/order/saveOrder",
           {
             address: shoppingData.address,
@@ -288,7 +294,8 @@ export const useShopping = (
           {
             headers: {
               Authorization: `Bearer ${storage?.getItem("accessToken")}`
-            }
+            },
+            withCredentials: true
           }
         );
         // sessionStorage.removeItem("shoppingData");

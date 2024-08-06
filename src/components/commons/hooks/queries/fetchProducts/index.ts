@@ -1,7 +1,7 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 
 export async function useFetchProducts(category: string, page: number) {
-  const request = await instance.get(
+  const request = await axios.get(
     `https://macproj.shop/product/fetchProducts?category=${category}&page=${page}`
   );
   const response = await request.data;
@@ -15,14 +15,15 @@ export async function useFetchProducts(category: string, page: number) {
 export async function useFetchProductsLogin(category: string, page: number) {
   const storage = globalThis?.localStorage;
 
-  const request = await instance
+  const request = await axios
     .get("https://macproj.shop/user/getUserId", {
       headers: {
         Authorization: `Bearer ${storage?.getItem("accessToken")}`
-      }
+      },
+      withCredentials: true
     })
     .then(async res => {
-      const result = await instance.get(
+      const result = await axios.get(
         `https://macproj.shop/product/fetchProducts?id=${res?.data?.data}&category=${category}&page=${page}`
       );
       return result;
@@ -36,7 +37,7 @@ export async function useFetchProductsLogin(category: string, page: number) {
 }
 
 export async function useFetchProductsCount(category: string) {
-  const request = await instance.get(
+  const request = await axios.get(
     `https://macproj.shop/product/fetchProducts?category=${category}&count=true`
   );
   const response = await request.data;
