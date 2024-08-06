@@ -1,7 +1,7 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 
 export async function useFetchDetailProduct(id: string | string[]) {
-  const request = await instance.get(
+  const request = await axios.get(
     `https://macproj.shop/product/fetchDetailProduct?id=${id}`
   );
   const response = await request.data;

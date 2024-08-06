@@ -1,15 +1,16 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 
 export async function useFetchOneOrder(
   accessToken: string,
   id: string | string[]
 ) {
-  const request = await instance.get(
+  const request = await axios.get(
     `https://macproj.shop/order/fetchOneOrder?orderId=${id}`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`
-      }
+      },
+      withCredentials: true
     }
   );
 

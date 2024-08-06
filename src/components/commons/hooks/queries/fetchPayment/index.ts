@@ -1,12 +1,13 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 
 export async function useFetchPayment(path: string, accessToken: string) {
-  const request = await instance.get(
+  const request = await axios.get(
     `https://macproj.shop/payment/getPaymentList/${path}`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`
-      }
+      },
+      withCredentials: true
     }
   );
 

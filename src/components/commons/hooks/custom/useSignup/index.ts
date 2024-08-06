@@ -1,4 +1,4 @@
-import instance from "../../../../../commons/libraries/axios";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -57,7 +57,7 @@ export const useSignup = () => {
   // =============== 추가정보 제출 버튼 클릭 ===============
   const onClickSubmitSignUp = async data => {
     try {
-      const result = await instance
+      const result = await axios
         .post("https://macproj.shop/user/createUser", {
           email: data.email,
           provider: data.provider,
@@ -68,7 +68,7 @@ export const useSignup = () => {
           detailAddress: data.detailAddress
         })
         .then(async res => {
-          const login = await instance.post("https://macproj.shop/login", {
+          const login = await axios.post("https://macproj.shop/login", {
             id: res?.data?.data
           });
 
