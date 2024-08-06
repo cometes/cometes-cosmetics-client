@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useAccessToken } from "../useAccessToken";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -11,10 +12,9 @@ interface IResponseProps {
   paid_amount: number;
 }
 
-const storage = globalThis?.localStorage;
-
 export const usePoint = () => {
   const router = useRouter();
+  const { accessToken } = useAccessToken();
 
   const onClickCharge = async data => {
     const IMP = window.IMP;
@@ -53,7 +53,7 @@ export const usePoint = () => {
           },
           {
             headers: {
-              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+              Authorization: `Bearer ${accessToken}`
             },
             withCredentials: true
           }

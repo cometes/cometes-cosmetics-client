@@ -7,6 +7,7 @@ import { useLogout } from "../../../hooks/custom/useLogout";
 import { useMoveToPage } from "../../../hooks/custom/useMoveToPage";
 import DivideLine from "../../divideLine";
 import * as S from "./style";
+import { useAccessToken } from "../../../hooks/custom/useAccessToken";
 
 export default function HeaderMain(props) {
   const { onClickMoveToPage } = useMoveToPage();
@@ -20,10 +21,10 @@ export default function HeaderMain(props) {
   const scrollHide = props.headerActive;
   const scrollLock = props.isFullNavOn || props.isSearchOn;
   const [isLogin, setIsLogin] = useState(false);
-  const storage = globalThis?.localStorage;
+  const { accessToken } = useAccessToken();
 
   useEffect(() => {
-    setIsLogin(storage?.getItem("accessToken") ? true : false);
+    setIsLogin(accessToken ? true : false);
   }, [isLogin]);
 
   return (

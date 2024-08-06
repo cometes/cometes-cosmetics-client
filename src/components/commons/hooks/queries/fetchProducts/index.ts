@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useAccessToken } from "../../custom/useAccessToken";
 
 export async function useFetchProducts(category: string, page: number) {
   const request = await axios.get(
@@ -13,12 +14,12 @@ export async function useFetchProducts(category: string, page: number) {
 }
 
 export async function useFetchProductsLogin(category: string, page: number) {
-  const storage = globalThis?.localStorage;
+  const { accessToken } = useAccessToken();
 
   const request = await axios
     .get("https://macproj.shop/user/getUserId", {
       headers: {
-        Authorization: `Bearer ${storage?.getItem("accessToken")}`
+        Authorization: `Bearer ${accessToken}`
       },
       withCredentials: true
     })
