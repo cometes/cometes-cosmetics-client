@@ -1,4 +1,4 @@
-import axios from "axios";
+import instance from "../../../../../commons/libraries/axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
@@ -18,7 +18,7 @@ export default function NaverCallback() {
 
     const getToken = async () => {
       try {
-        const tokens = await axios
+        const tokens = await instance
           .post(
             "https://naver-login-980f8cf85293.herokuapp.com/https://nid.naver.com/oauth2.0/token",
             {
@@ -35,7 +35,7 @@ export default function NaverCallback() {
             }
           )
           .then(async res => {
-            const login = await axios.post(
+            const login = await instance.post(
               "https://macproj.shop/login/socialLogin",
               {
                 provider: "naver",
@@ -73,7 +73,7 @@ export default function NaverCallback() {
             }
           });
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) alert(error.message);
       }
     };
     getToken();

@@ -1,4 +1,4 @@
-import axios from "axios";
+import instance from "../../../../../commons/libraries/axios";
 import { useRouter } from "next/router";
 
 export const useLogout = () => {
@@ -7,7 +7,7 @@ export const useLogout = () => {
 
   const onClickLogout = async () => {
     try {
-      const result = await axios.post(
+      const result = await instance.post(
         "https://macproj.shop/login/logout",
         {},
         {

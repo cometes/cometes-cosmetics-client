@@ -3,7 +3,6 @@ import ProductsItemBest from "../../item/products/best";
 import { useEffect, useState } from "react";
 
 export default function ProductsBestItemWrap(props) {
-  console.log(props.listData.LIP);
   const [list, setList] = useState({ LIP: [], EYE: [], FACE: [] });
 
   useEffect(() => {
