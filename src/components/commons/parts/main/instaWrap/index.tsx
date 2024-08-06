@@ -61,7 +61,7 @@ export const InstaBox = styled.img`
   }
 `;
 
-export default function MainInstaWrap() {
+export default function MainInstaWrap(props) {
   return (
     <MainSection>
       <MainContainer>
@@ -76,12 +76,12 @@ export default function MainInstaWrap() {
         </InstaTitleWrap>
       </MainContainer>
       <InstaWrap>
-        <InstaBox />
-        <InstaBox />
-        <InstaBox />
-        <InstaBox />
-        <InstaBox />
-        <InstaBox />
+        <InstaBox src="" />
+        <InstaBox src="" />
+        <InstaBox src="" />
+        <InstaBox src="" />
+        <InstaBox src="" />
+        <InstaBox src="" />
       </InstaWrap>
     </MainSection>
   );

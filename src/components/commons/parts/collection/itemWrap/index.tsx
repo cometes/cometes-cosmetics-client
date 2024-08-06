@@ -3,7 +3,6 @@ import * as S from "./style";
 import * as C from "../style";
 
 export default function CollectionItemWrap(props) {
-  console.log(props.listData);
   return (
     <S.CollectionSection>
       <C.Container>

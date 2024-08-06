@@ -15,8 +15,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
   try {
     const { data: listData } = await useFetchPayment("ALL", accessToken);
 
-    console.log(listData);
-
     return {
       props: {
         listData
