@@ -291,8 +291,6 @@ export const useShopping = (
             }
           }
         );
-
-        console.log(result?.data?.data);
         // sessionStorage.removeItem("shoppingData");
         sessionStorage.setItem(
           "shoppingResult",
