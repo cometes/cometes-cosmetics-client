@@ -4,10 +4,8 @@ import { useRouter } from "next/router";
 export default function NaverLoginComponent(props) {
   const router = useRouter();
 
-  const clientID = "Q4b7VTXKKO_0D2MvJ5pf";
-  const redirect_uri = "http://localhost:3000/signup/callback/naver";
-  const stateString = "jfeC87TSkY";
-  const naverURL = `https://nid.naver.com/oauth2.0/authorize?client_id=${clientID}&response_type=code&redirect_uri=${redirect_uri}&state=${stateString}`;
+  const redirect_uri = "https://cometes-cosmetics.com/signup/callback/naver";
+  const naverURL = `https://nid.naver.com/oauth2.0/authorize?client_id=${process.env.NEXT_PUBLIC_NAVER_API_KEY}&response_type=code&redirect_uri=${redirect_uri}&state=${process.env.NEXT_PUBLIC_NAVER_STATE}`;
 
   const naverLogin = async () => {
     router.push(naverURL);

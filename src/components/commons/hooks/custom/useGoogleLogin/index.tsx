@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 export default function GoogleLoginComponent(props) {
   const router = useRouter();
-  const redirect_uri = "http://localhost:3000/signup/callback/google";
+  const redirect_uri = "https://cometes-cosmetics.com/signup/callback/google";
 
   const googleURL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&response_type=code&redirect_uri=${redirect_uri}&scope=https://www.googleapis.com/auth/userinfo.email`;
 
