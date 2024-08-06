@@ -59,8 +59,8 @@ export default function SignupCreate() {
                 <S.AddressButtonBox>
                   <ButtonHeight40px
                     content="주소검색"
-                    color="#666"
-                    background="#F3F5F7"
+                    color="#fff"
+                    background="#111"
                     onClick={() => {
                       setIsAddressModalOpen(prev => !prev);
                     }}

@@ -8,6 +8,7 @@ import WrapperWidth800px from "../../../commons/parts/wrapper/w800";
 import * as S from "./style";
 import { useFetchPayment } from "../../../commons/hooks/queries/fetchPayment";
 import { useRouter } from "next/router";
+import { useAccessToken } from "../../../commons/hooks/custom/useAccessToken";
 
 export default function Point(props) {
   const { onClickMoveToPage } = useMoveToPage();
@@ -20,8 +21,7 @@ export default function Point(props) {
     사용: "USE"
   };
 
-  const storage = globalThis?.localStorage;
-  const accessToken = storage?.getItem("accessToken");
+  const { accessToken } = useAccessToken();
 
   useEffect(() => {
     setList(props.listData?.list.reverse());

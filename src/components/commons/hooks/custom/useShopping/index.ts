@@ -2,15 +2,14 @@ import axios from "axios";
 import { SetStateAction, useEffect, useState } from "react";
 import { useFetchGetShopping } from "../../queries/fetchGetShopping";
 import { useRouter } from "next/router";
-import { useCookies } from "react-cookie";
+import { useAccessToken } from "../useAccessToken";
 
 export const useShopping = (
   listData?: SetStateAction<{ data: { list: any[] } }>
 ) => {
   const router = useRouter();
-  const storage = globalThis?.localStorage;
   const sessionStorage = globalThis?.sessionStorage;
-  const [appCookies, setAppCookies] = useCookies();
+  const { accessToken } = useAccessToken();
 
   const [data, setData] = useState({ data: { list: [] } });
   const [optionData, setOptionData] = useState([]);
@@ -40,7 +39,7 @@ export const useShopping = (
   // 장바구니 리스트 요청
   const getListData = async () => {
     try {
-      const result = await useFetchGetShopping(appCookies["accessToken"]);
+      const result = await useFetchGetShopping(accessToken);
       setData(result.data);
     } catch (error) {
       setData({ data: { list: [] } });
@@ -115,7 +114,7 @@ export const useShopping = (
           },
           {
             headers: {
-              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+              Authorization: `Bearer ${accessToken}`
             },
             withCredentials: true
           }
@@ -155,7 +154,7 @@ export const useShopping = (
         `https://macproj.shop/shopping/fetchOption?productId=${productId}`,
         {
           headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            Authorization: `Bearer ${accessToken}`
           },
           withCredentials: true
         }
@@ -182,7 +181,7 @@ export const useShopping = (
 
         {
           headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            Authorization: `Bearer ${accessToken}`
           },
           withCredentials: true
         }
@@ -207,7 +206,7 @@ export const useShopping = (
         ],
         {
           headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            Authorization: `Bearer ${accessToken}`
           },
           withCredentials: true
         }
@@ -227,7 +226,7 @@ export const useShopping = (
           `https://macproj.shop/shopping/delete/${id}`,
           {
             headers: {
-              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+              Authorization: `Bearer ${accessToken}`
             },
             withCredentials: true
           }
@@ -248,7 +247,7 @@ export const useShopping = (
         shoppingList,
         {
           headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            Authorization: `Bearer ${accessToken}`
           },
           withCredentials: true
         }
@@ -293,7 +292,7 @@ export const useShopping = (
           },
           {
             headers: {
-              Authorization: `Bearer ${storage?.getItem("accessToken")}`
+              Authorization: `Bearer ${accessToken}`
             },
             withCredentials: true
           }

@@ -48,10 +48,10 @@ export default function SignupValidation() {
               {!isTokenInputActive && (
                 <ButtonHeight40px
                   content="휴대폰 번호 인증하기"
-                  background="#F6F7F9"
-                  border="1px solid #DDDFE3"
-                  color="#BEC3C7"
+                  border={formState.isValid ? "" : "1px solid #DDDFE3"}
                   type="submit"
+                  background={formState.isValid ? "#111" : "#F6F7F9"}
+                  color={formState.isValid ? "#fff" : "#BEC3C7"}
                 />
               )}
               {isTokenInputActive && (

@@ -27,12 +27,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <RecoilRoot>
         <HelmetProvider>
           <CookiesProvider>
-            <LoginSetting>
-              <Global styles={globalStyle} />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </LoginSetting>
+            <Global styles={globalStyle} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </CookiesProvider>
         </HelmetProvider>
       </RecoilRoot>

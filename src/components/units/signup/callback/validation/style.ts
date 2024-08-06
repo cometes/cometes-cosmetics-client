@@ -52,7 +52,7 @@ export const AddressBox = styled.div`
 `;
 export const AddressInputBox = styled.div``;
 export const AddressButtonBox = styled.div`
-  width: 80px;
+  width: 90px;
 `;
 export const Error = styled.span`
   display: block;

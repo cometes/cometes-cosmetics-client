@@ -15,8 +15,6 @@ import { useCookies } from "react-cookie";
 
 export const useSignup = () => {
   const router = useRouter();
-  const [appCookies, setAppCookies] = useCookies();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const date = new Date();
   date.setDate(date.getDate() + 14);
 
@@ -72,12 +70,12 @@ export const useSignup = () => {
             id: res?.data?.data
           });
 
-          setAccessToken(login?.data?.data);
-          localStorage.setItem("accessToken", login?.data?.data ?? "");
-          setAppCookies("accessToken", login?.data?.data ?? "", {
-            path: "/",
-            expires: date
-          });
+          // setAccessToken(login?.data?.data);
+          // localStorage.setItem("accessToken", login?.data?.data ?? "");
+          // setAppCookies("accessToken", login?.data?.data ?? "", {
+          //   path: "/",
+          //   expires: date
+          // });
         });
 
       storage.removeItem("phone");

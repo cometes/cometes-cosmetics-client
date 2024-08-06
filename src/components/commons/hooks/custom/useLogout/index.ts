@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useAccessToken } from "../useAccessToken";
 
 export const useLogout = () => {
   const router = useRouter();
-  const storage = globalThis?.localStorage;
+  const { accessToken } = useAccessToken();
 
   const onClickLogout = async () => {
     try {
@@ -12,14 +13,13 @@ export const useLogout = () => {
         {},
         {
           headers: {
-            Authorization: `Bearer ${storage?.getItem("accessToken")}`
+            Authorization: `Bearer ${accessToken}`
           },
           withCredentials: true
         }
       );
 
       if (result?.data) {
-        storage.removeItem("accessToken");
         alert("정상적으로 로그아웃 되었습니다.");
         router.reload();
       }
