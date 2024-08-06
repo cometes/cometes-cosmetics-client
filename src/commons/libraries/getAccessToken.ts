@@ -8,6 +8,6 @@ export const getAccessToken = async () => {
     const newAccessToken = result.data.data;
     return newAccessToken;
   } catch (error) {
-    if (error instanceof Error) alert(error.message);
+    console.log(error);
   }
 };
