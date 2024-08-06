@@ -19,7 +19,7 @@ export default function Main(props) {
       <MainSloganWrap />
       <MainStoryWrap data={storyData} />
       <MainMoreWrap />
-      <MainInstaWrap data={props.instaData?.data} />
+      <MainInstaWrap />
     </>
   );
 }

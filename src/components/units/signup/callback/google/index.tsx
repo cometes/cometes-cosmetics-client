@@ -1,4 +1,4 @@
-import axios from "axios";
+import instance from "../../../../../commons/libraries/axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
@@ -17,7 +17,7 @@ export default function GoogleCallback() {
     const code = new URL(window.location.href).searchParams.get("code");
     const getToken = async () => {
       try {
-        const tokens = await axios
+        const tokens = await instance
           .post(
             "https://oauth2.googleapis.com/token",
             {
@@ -34,7 +34,7 @@ export default function GoogleCallback() {
             }
           )
           .then(async res => {
-            const login = await axios.post(
+            const login = await instance.post(
               "https://macproj.shop/login/socialLogin",
               {
                 provider: "google",
@@ -72,7 +72,7 @@ export default function GoogleCallback() {
             }
           });
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) alert(error.message);
       }
     };
     getToken();

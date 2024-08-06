@@ -5,6 +5,8 @@ import {
   MainTitle
 } from "../../../../units/main/style";
 import { max } from "../../../../../commons/libraries/breakPoints";
+import { useEffect } from "react";
+import { useFetchInsta } from "../../../hooks/queries/fetchInsta";
 
 export const InstaTitleWrap = styled.div`
   display: flex;
@@ -62,6 +64,10 @@ export const InstaBox = styled.img`
 `;
 
 export default function MainInstaWrap(props) {
+  useEffect(() => {
+    useFetchInsta();
+  }, []);
+
   return (
     <MainSection>
       <MainContainer>

@@ -1,4 +1,4 @@
-import axios from "axios";
+import instance from "../../../../../commons/libraries/axios";
 import { useRouter } from "next/router";
 
 declare const window: typeof globalThis & {
@@ -44,7 +44,7 @@ export const usePoint = () => {
 
       if (rsp.success) {
         // 결제 성공
-        const result = await axios.post(
+        const result = await instance.post(
           "https://macproj.shop/payment/createPayment",
           {
             impUid: rsp.imp_uid,

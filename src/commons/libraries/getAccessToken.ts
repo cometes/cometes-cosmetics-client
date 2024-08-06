@@ -1,13 +1,13 @@
-import axios from "axios";
+import instance from "./axios";
 
 export const getAccessToken = async () => {
   try {
-    const result = await axios.post(
+    const result = await instance.post(
       "https://macproj.shop/login/restoreAccessToken"
     );
     const newAccessToken = result.data.data;
     return newAccessToken;
   } catch (error) {
-    console.log(error);
+    if (error instanceof Error) alert(error.message);
   }
 };

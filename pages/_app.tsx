@@ -8,12 +8,9 @@ import { CookiesProvider } from "react-cookie";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import LoginSetting from "../src/components/commons/login";
-import axios from "axios";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
-
-  axios.defaults.withCredentials = true;
 
   useEffect(() => {
     // 페이지가 변경될 때마다 현재 페이지 주소를 sessionStorage 저장

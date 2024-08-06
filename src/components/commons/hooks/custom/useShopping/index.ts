@@ -1,4 +1,4 @@
-import axios from "axios";
+import instance from "../../../../../commons/libraries/axios";
 import { SetStateAction, useEffect, useState } from "react";
 import { useFetchGetShopping } from "../../queries/fetchGetShopping";
 import { useRouter } from "next/router";
@@ -107,7 +107,7 @@ export const useShopping = (
       alert("옵션을 선택해주세요.");
     } else {
       try {
-        const result = await axios.post(
+        const result = await instance.post(
           "https://macproj.shop/shopping/add",
           {
             productId,
@@ -150,7 +150,7 @@ export const useShopping = (
     setDefaultOption(defaultOption);
     setCurrentId(shoppingId);
     try {
-      const result = await axios.get(
+      const result = await instance.get(
         `https://macproj.shop/shopping/fetchOption?productId=${productId}`,
         {
           headers: {
@@ -161,14 +161,14 @@ export const useShopping = (
 
       setOptionData(result.data?.data);
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) alert(error.message);
     }
   };
 
   // 옵션변경 완료
   const onClickOptionChange = async (value: string) => {
     try {
-      const result = await axios.patch(
+      const result = await instance.patch(
         "https://macproj.shop/shopping/updateShopping",
 
         [
@@ -194,7 +194,7 @@ export const useShopping = (
   // 수량 변경하기
   const onClickChangeCount = async (id: string, count: number) => {
     try {
-      const result = await axios.patch(
+      const result = await instance.patch(
         "https://macproj.shop/shopping/updateShopping",
         [
           {
@@ -219,7 +219,7 @@ export const useShopping = (
   const onClickDelete = (id: any[]) => async e => {
     if (confirm("선택한 상품을 삭제하시겠습니까?")) {
       try {
-        const result = await axios.delete(
+        const result = await instance.delete(
           `https://macproj.shop/shopping/delete/${id}`,
           {
             headers: {
@@ -238,7 +238,7 @@ export const useShopping = (
   // 주문 요청
   const onClickOrder = (shoppingList: any[]) => async () => {
     try {
-      const result = await axios.patch(
+      const result = await instance.patch(
         "https://macproj.shop/shopping/updateShopping",
         shoppingList,
         {
@@ -276,7 +276,7 @@ export const useShopping = (
     }) =>
     async () => {
       try {
-        const result = await axios.post(
+        const result = await instance.post(
           "https://macproj.shop/order/saveOrder",
           {
             address: shoppingData.address,
@@ -298,7 +298,7 @@ export const useShopping = (
         );
         router.push(`/order/complete/${result?.data?.data?.info[0]?.id}`);
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) alert(error.message);
       }
     };
 
