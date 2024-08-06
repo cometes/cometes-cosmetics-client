@@ -5,8 +5,6 @@ import {
   MainTitle
 } from "../../../../units/main/style";
 import { max } from "../../../../../commons/libraries/breakPoints";
-import { useEffect } from "react";
-import { useFetchInsta } from "../../../hooks/queries/fetchInsta";
 
 export const InstaTitleWrap = styled.div`
   display: flex;
@@ -40,11 +38,9 @@ export const InstaWrap = styled.div`
     gap: 8px;
   }
 `;
-export const InstaBox = styled.img`
+export const InstaBox = styled.a`
   display: block;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  background-color: #ccc;
+  cursor: pointer;
 
   ${max(1015)} {
     &:last-of-type {
@@ -62,12 +58,14 @@ export const InstaBox = styled.img`
     }
   }
 `;
+export const InstaImage = styled.img`
+  display: block;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: #ccc;
+`;
 
 export default function MainInstaWrap(props) {
-  useEffect(() => {
-    useFetchInsta();
-  }, []);
-
   return (
     <MainSection>
       <MainContainer>
@@ -82,12 +80,11 @@ export default function MainInstaWrap(props) {
         </InstaTitleWrap>
       </MainContainer>
       <InstaWrap>
-        <InstaBox src="" />
-        <InstaBox src="" />
-        <InstaBox src="" />
-        <InstaBox src="" />
-        <InstaBox src="" />
-        <InstaBox src="" />
+        {props.data?.map(el => (
+          <InstaBox href={el.permalink} target="_blank">
+            <InstaImage src={el.media_url} />
+          </InstaBox>
+        ))}
       </InstaWrap>
     </MainSection>
   );
