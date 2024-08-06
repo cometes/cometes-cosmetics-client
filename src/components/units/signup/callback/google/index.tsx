@@ -25,7 +25,8 @@ export default function GoogleCallback() {
               client_id: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
               client_secret: process.env.NEXT_PUBLIC_GOOGLE_SECRET,
               grant_type: "authorization_code",
-              redirect_uri: "http://localhost:3000/signup/callback/google"
+              redirect_uri:
+                "https://cometes-cosmetics.com/signup/callback/google"
             },
             {
               headers: {
