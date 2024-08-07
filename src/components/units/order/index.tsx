@@ -54,7 +54,6 @@ export default function Order(props: { isComplete: boolean; data: [] }) {
 
     setRecommendList(props.data);
   }, [props.data]);
-  console.log(recommendList);
 
   return (
     <>
@@ -199,7 +198,7 @@ export default function Order(props: { isComplete: boolean; data: [] }) {
                 </S.ContentSubText>
                 <S.SubmitButtonBox>
                   <ButtonHeight50px
-                    content={`${shoppingData?.list.length}개 상품 구매하기`}
+                    content={`${shoppingData?.list?.length}개 상품 구매하기`}
                     color="#fff"
                     background="#111"
                     onClick={onClickPurchase(shoppingData)}
@@ -242,7 +241,7 @@ export default function Order(props: { isComplete: boolean; data: [] }) {
               </S.ContentSubText>
               <S.SubmitButtonBox>
                 <ButtonHeight50px
-                  content={`${shoppingData?.list.length}개 상품 구매하기`}
+                  content={`${shoppingData?.list?.length}개 상품 구매하기`}
                   color="#fff"
                   background="#111"
                   onClick={onClickPurchase(shoppingData)}

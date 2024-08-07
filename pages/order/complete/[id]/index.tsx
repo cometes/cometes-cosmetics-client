@@ -9,7 +9,6 @@ export default function OrderCompletePage({ recommendData }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const { data: recommendData } = await useFetchRecommendProduct();
-    console.log(recommendData);
 
     return {
       props: {
