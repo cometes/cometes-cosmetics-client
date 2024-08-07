@@ -20,12 +20,12 @@ export default function HeaderMain(props) {
 
   const scrollHide = props.headerActive;
   const scrollLock = props.isFullNavOn || props.isSearchOn;
-  // const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const { accessToken } = useAccessToken();
 
-  // useEffect(() => {
-  //   setIsLogin(accessToken ? true : false);
-  // }, [accessToken]);
+  useEffect(() => {
+    setIsLogin(accessToken ? true : false);
+  }, [accessToken]);
 
   return (
     <>
@@ -233,7 +233,7 @@ export default function HeaderMain(props) {
                 </S.Button>
               </S.NavList>
               {/* =====fullpage===== */}
-              {accessToken && (
+              {isLogin && (
                 <S.NavList className="max1000">
                   <S.Button onClick={onClickLogout}>
                     <S.NavIcon
@@ -244,7 +244,7 @@ export default function HeaderMain(props) {
                   </S.Button>
                 </S.NavList>
               )}
-              {!accessToken && (
+              {!isLogin && (
                 <>
                   <S.NavList className="max1000">
                     <S.NavItem
@@ -270,11 +270,11 @@ export default function HeaderMain(props) {
               {/* =====w1000===== */}
               <S.NavList className="min1000">
                 <S.Button
-                  onClick={accessToken ? onClickLogout : props.showModal}
+                  onClick={isLogin ? onClickLogout : props.showModal}
                 >
                   <S.NavIcon
                     className={
-                      accessToken ? "fi fi-rr-sign-out-alt" : "fi fi-rr-user"
+                      isLogin ? "fi fi-rr-sign-out-alt" : "fi fi-rr-user"
                     }
                     active={active ? 1 : 0}
                     isWhite={props.isWhite ? 1 : 0}

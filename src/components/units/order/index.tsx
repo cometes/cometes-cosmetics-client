@@ -32,7 +32,7 @@ export default function Order(props: { isComplete: boolean }) {
     const shoppingId = data.list.map((el: { id: string }) => {
       return el.id;
     });
-    const orderNumber = result.info[0]?.orderNumber;
+    const orderNumber = result?.info[0]?.orderNumber;
 
     setOrderNumber(orderNumber);
 
