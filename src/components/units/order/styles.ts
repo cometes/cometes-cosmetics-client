@@ -408,3 +408,24 @@ export const OptionBtn = styled.button`
     height: 36px;
   }
 `;
+export const GridWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  gap: 80px 10px;
+  margin-top: 40px;
+
+  ${max(506)} {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px 8px;
+  }
+  ${max(1015)} {
+    & > div:last-of-type {
+      display: none;
+    }
+  }
+  ${max(538)} {
+    & > div:last-of-type {
+      display: block;
+    }
+  }
+`;
