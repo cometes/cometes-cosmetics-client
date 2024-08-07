@@ -24,7 +24,7 @@ export default function KakaoCallback() {
               code,
               client_id: process.env.NEXT_PUBLIC_KAKAO_API_KEY,
               grant_type: "authorization_code",
-              redirect_uri: "https://cometes-cosmetics.com/signup/callback/kakao"
+              redirect_uri: "http://localhost:3000/signup/callback/kakao"
             },
             {
               headers: {
