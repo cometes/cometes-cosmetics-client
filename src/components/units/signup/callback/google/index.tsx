@@ -65,10 +65,10 @@ export default function GoogleCallback() {
               // 기존 회원인 경우, localStorage에 액세스 토큰 저장
               // setAccessToken(login?.data?.data);
               // localStorage.setItem("accessToken", login?.data?.data ?? "");
-              // setAppCookies("accessToken", login?.data?.data ?? "", {
-              //   path: "/",
-              //   expires: date
-              // });
+              setAppCookies("accessToken", login?.data?.data ?? "", {
+                path: "/",
+                expires: date
+              });
               router.push(storage.getItem("prevPath"));
             }
           });

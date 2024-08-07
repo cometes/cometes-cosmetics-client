@@ -63,8 +63,8 @@ export default function NaverCallback() {
               router.push(`/signup/validation`);
             } else {
               // 기존 회원인 경우, localStorage에 액세스 토큰 저장
-              setAccessToken(login?.data?.data);
-              localStorage.setItem("accessToken", login?.data?.data ?? "");
+              // setAccessToken(login?.data?.data);
+              // localStorage.setItem("accessToken", login?.data?.data ?? "");
               setAppCookies("accessToken", login?.data?.data ?? "", {
                 path: "/",
                 expires: date
