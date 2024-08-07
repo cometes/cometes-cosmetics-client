@@ -7,8 +7,10 @@ import ButtonHeight40px from "../../commons/parts/buttons/height40px";
 import { useEffect, useState } from "react";
 import { useShopping } from "../../commons/hooks/custom/useShopping";
 import { useMoveToPage } from "../../commons/hooks/custom/useMoveToPage";
+import { useFetchRecommendProduct } from "../../commons/hooks/queries/fetchRecommendProduct";
+import CollectionItem from "../../commons/parts/item/collection";
 
-export default function Order(props: { isComplete: boolean }) {
+export default function Order(props: { isComplete: boolean; data: [] }) {
   const { onClickPurchase } = useShopping();
   const { onClickMoveToPage } = useMoveToPage();
   const [shoppingData, setShoppingData] = useState({
@@ -24,12 +26,13 @@ export default function Order(props: { isComplete: boolean }) {
     sum: 0
   });
   const [orderNumber, setOrderNumber] = useState("");
+  const [recommendList, setRecommendList] = useState([]);
 
   useEffect(() => {
     const sessionStorage = globalThis?.sessionStorage;
     const data = JSON.parse(sessionStorage.getItem("shoppingData"));
     const result = JSON.parse(sessionStorage.getItem("shoppingResult"));
-    const shoppingId = data.list.map((el: { id: string }) => {
+    const shoppingId = data?.list.map((el: { id: string }) => {
       return el.id;
     });
     const orderNumber = result?.info[0]?.orderNumber;
@@ -37,18 +40,20 @@ export default function Order(props: { isComplete: boolean }) {
     setOrderNumber(orderNumber);
 
     setShoppingData({
-      name: data.name,
-      phone: data.phone,
-      address: data.address,
-      detailAddress: data.detailAddress,
-      addressCode: data.addressCode,
-      point: data.point,
-      list: data.list,
+      name: data?.name,
+      phone: data?.phone,
+      address: data?.address,
+      detailAddress: data?.detailAddress,
+      addressCode: data?.addressCode,
+      point: data?.point,
+      list: data?.list,
       shoppingId,
-      priceSum: data.priceSum,
-      sum: data.sum
+      priceSum: data?.priceSum,
+      sum: data?.sum
     });
-  }, []);
+
+    setRecommendList(props.data);
+  }, [props.data]);
 
   return (
     <>
@@ -92,17 +97,16 @@ export default function Order(props: { isComplete: boolean }) {
                   <div>
                     <S.FlexBox>
                       <S.ProductDesc>받는 분</S.ProductDesc>
-                      <p>전혜원</p>
+                      <p>{shoppingData?.name}</p>
                     </S.FlexBox>
                     <S.FlexBox>
                       <S.ProductDesc>연락처</S.ProductDesc>
-                      <p>010 7556 4661</p>
+                      <p>{shoppingData?.phone}</p>
                     </S.FlexBox>
                     <S.FlexBox>
                       <S.ProductDesc>주소</S.ProductDesc>
                       <p>
-                        경기도 수원시 장안구 율전로 73 <br />
-                        어쩌구저쩌구아파트 111 - 1111
+                        {`${shoppingData?.address} ${shoppingData?.detailAddress} (${shoppingData?.addressCode})`}
                       </p>
                     </S.FlexBox>
                   </div>
@@ -118,7 +122,7 @@ export default function Order(props: { isComplete: boolean }) {
                     <S.Tab>수량</S.Tab>
                     <S.Tab>상품금액</S.Tab>
                   </S.TabWrap>
-                  {shoppingData?.list.map(el => (
+                  {shoppingData?.list?.map(el => (
                     <S.RowWrap>
                       <S.RowBox>
                         <S.ItemBox className="info">
@@ -180,7 +184,11 @@ export default function Order(props: { isComplete: boolean }) {
             {props.isComplete && (
               <S.SectionWrap className="full">
                 <S.Subtitle>함께 볼만한 상품을 추천드려요!</S.Subtitle>
-                <ItemWithHeart />
+                <S.GridWrap>
+                  {props.data?.map(el => (
+                    <CollectionItem data={el} />
+                  ))}
+                </S.GridWrap>
               </S.SectionWrap>
             )}
             {!props.isComplete && (
@@ -190,7 +198,7 @@ export default function Order(props: { isComplete: boolean }) {
                 </S.ContentSubText>
                 <S.SubmitButtonBox>
                   <ButtonHeight50px
-                    content={`${shoppingData?.list.length}개 상품 구매하기`}
+                    content={`${shoppingData?.list?.length}개 상품 구매하기`}
                     color="#fff"
                     background="#111"
                     onClick={onClickPurchase(shoppingData)}
@@ -206,7 +214,7 @@ export default function Order(props: { isComplete: boolean }) {
                 <S.AsideBox>
                   <S.AsideTitle>총 상품금액</S.AsideTitle>
                   <S.AsideText>
-                    {shoppingData?.priceSum.toLocaleString()}P
+                    {shoppingData?.priceSum?.toLocaleString()}P
                   </S.AsideText>
                 </S.AsideBox>
                 <S.AsideBox>
@@ -220,7 +228,7 @@ export default function Order(props: { isComplete: boolean }) {
                 <S.AsideBox className="strong">
                   <S.AsideTitle>결제금액</S.AsideTitle>
                   <S.AsideText>
-                    {shoppingData?.sum.toLocaleString()}P
+                    {shoppingData?.sum?.toLocaleString()}P
                   </S.AsideText>
                 </S.AsideBox>
               </S.AsideWrap>
@@ -233,7 +241,7 @@ export default function Order(props: { isComplete: boolean }) {
               </S.ContentSubText>
               <S.SubmitButtonBox>
                 <ButtonHeight50px
-                  content={`${shoppingData?.list.length}개 상품 구매하기`}
+                  content={`${shoppingData?.list?.length}개 상품 구매하기`}
                   color="#fff"
                   background="#111"
                   onClick={onClickPurchase(shoppingData)}
@@ -244,7 +252,11 @@ export default function Order(props: { isComplete: boolean }) {
           {props.isComplete && (
             <S.SectionWrap className="w1000">
               <S.Subtitle>함께 볼만한 상품을 추천드려요!</S.Subtitle>
-              <ItemWithHeart />
+              <S.GridWrap>
+                {props.data?.map(el => (
+                  <CollectionItem data={el} />
+                ))}
+              </S.GridWrap>
             </S.SectionWrap>
           )}
         </S.FlexWrap>
