@@ -83,7 +83,7 @@ export default function ProductsItemWrap(props) {
             defaultValue="인기순"
             style={{ width: 100 }}
             bordered={false}
-            suffixIcon={<FontAwesomeIcon icon={faAngleDown} />}
+            suffixIcon={<S.CategoryIcon className="fi fi-rr-angle-small-down" />}
             options={[
               { value: "최신순", label: "최신순" },
               { value: "인기순", label: "인기순" }

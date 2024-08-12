@@ -3,7 +3,10 @@ import { useAccessToken } from "../../custom/useAccessToken";
 
 export async function useFetchProducts(category: string, page: number) {
   const request = await axios.get(
-    `https://macproj.shop/product/fetchProducts?category=${category}&page=${page}`
+    `https://macproj.shop/product/fetchProducts?category=${category}&page=${page}`,
+    {
+      withCredentials: true
+    }
   );
   const response = await request.data;
   const data = response.data;
