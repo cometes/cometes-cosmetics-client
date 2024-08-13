@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { useRecoilState } from "recoil";
+import { constSelector, useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../../commons/stores";
 
 export default function KakaoCallback() {
@@ -12,13 +12,14 @@ export default function KakaoCallback() {
 
   const date = new Date();
   date.setDate(date.getDate() + 14);
-  const redirect_uri ="https://cometes-cosmetics.com/signup/callback/kakao";
+  const redirect_uri = "https://cometes-cosmetics.com/signup/callback/kakao";
 
   useEffect(() => {
     // 클라이언트 사이드에서만 코드 실행
     if (typeof window !== "undefined") {
-      const code = new URL(window.location.href).searchParams.get("code");
-
+      const code = router.asPath.split("?code=")[1];
+      // const code = new URL(window.location.href).searchParams.get("code");
+      console.log(code);
       const getToken = async () => {
         try {
           const tokens = await axios.post(
