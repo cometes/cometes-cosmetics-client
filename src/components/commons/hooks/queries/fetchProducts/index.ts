@@ -5,7 +5,7 @@ export async function useFetchProducts(category: string, page: number) {
   const request = await axios.get(
     `https://macproj.shop/product/fetchProducts?category=${category}&page=${page}`,
     {
-      withCredentials: true
+      // withCredentials: true
     }
   );
   const response = await request.data;
@@ -24,12 +24,12 @@ export async function useFetchProductsLogin(category: string, page: number) {
       headers: {
         Authorization: `Bearer ${accessToken}`
       },
-      withCredentials: true
+      // withCredentials: true
     })
     .then(async res => {
       const result = await axios.get(
         `https://macproj.shop/product/fetchProducts?id=${res?.data?.data}&category=${category}&page=${page}`,
-        { withCredentials: true }
+        // { withCredentials: true }
       );
       return result;
     });

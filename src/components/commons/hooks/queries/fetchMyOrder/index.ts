@@ -5,7 +5,7 @@ export async function useFetchMyOrder(accessToken: string) {
     headers: {
       Authorization: `Bearer ${accessToken}`
     },
-    withCredentials: true
+    // withCredentials: true
   });
 
   const response = await request.data;

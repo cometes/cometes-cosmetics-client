@@ -116,7 +116,7 @@ export const useShopping = (
             headers: {
               Authorization: `Bearer ${accessToken}`
             },
-            withCredentials: true
+            // withCredentials: true
           }
         );
 
@@ -156,7 +156,7 @@ export const useShopping = (
           headers: {
             Authorization: `Bearer ${accessToken}`
           },
-          withCredentials: true
+          // withCredentials: true
         }
       );
 
@@ -183,7 +183,7 @@ export const useShopping = (
           headers: {
             Authorization: `Bearer ${accessToken}`
           },
-          withCredentials: true
+          // withCredentials: true
         }
       );
       alert("옵션이 정상적으로 변경되었습니다.");
@@ -208,7 +208,7 @@ export const useShopping = (
           headers: {
             Authorization: `Bearer ${accessToken}`
           },
-          withCredentials: true
+          // withCredentials: true
         }
       );
       alert("수량이 정상적으로 변경되었습니다.");
@@ -228,7 +228,7 @@ export const useShopping = (
             headers: {
               Authorization: `Bearer ${accessToken}`
             },
-            withCredentials: true
+            // withCredentials: true
           }
         );
         alert("선택한 상품이 장바구니에서 삭제되었습니다.");
@@ -249,7 +249,7 @@ export const useShopping = (
           headers: {
             Authorization: `Bearer ${accessToken}`
           },
-          withCredentials: true
+          // withCredentials: true
         }
       );
 
@@ -294,7 +294,7 @@ export const useShopping = (
             headers: {
               Authorization: `Bearer ${accessToken}`
             },
-            withCredentials: true
+            // withCredentials: true
           }
         );
         // sessionStorage.removeItem("shoppingData");
