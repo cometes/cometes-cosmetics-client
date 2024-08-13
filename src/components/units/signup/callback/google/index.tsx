@@ -14,11 +14,12 @@ export default function GoogleCallback() {
   date.setDate(date.getDate() + 14);
 
   useEffect(() => {
-    const code = new URL(window.location.href).searchParams.get("code");
-    const getToken = async () => {
-      try {
-        const tokens = await axios
-          .post(
+    if (typeof window !== "undefined") {
+      const code = new URL(window.location.href).searchParams.get("code");
+
+      const getToken = async () => {
+        try {
+          const tokens = await axios.post(
             "https://oauth2.googleapis.com/token",
             {
               code,
@@ -33,50 +34,53 @@ export default function GoogleCallback() {
                 "content-Type": "application/x-www-form-urlencoded"
               }
             }
-          )
-          .then(async res => {
-            const login = await axios.post(
-              "https://macproj.shop/login/socialLogin",
-              {
-                provider: "google",
-                accessToken: res?.data?.access_token
-              }
-            );
+          );
 
-            // 쿠키에 리프레시 토큰 및 마지막 로그인 수단 저장
-            setAppCookies("refresh_token", res?.data?.refresh_token, {
-              path: "/",
-              expires: date
-            });
-            setAppCookies("recentlyLoggedInWith", "google", {
-              path: "/",
-              expires: date
-            });
-
-            const storage = globalThis?.sessionStorage;
-
-            if (login?.data?.data.includes("@")) {
-              // sessionStorage에 저장
-
-              storage.setItem("email", login?.data?.data);
-              storage.setItem("provider", "google");
-              router.push(`/signup/validation`);
-            } else {
-              // 기존 회원인 경우, localStorage에 액세스 토큰 저장
-              // setAccessToken(login?.data?.data);
-              // localStorage.setItem("accessToken", login?.data?.data ?? "");
-              setAppCookies("accessToken", login?.data?.data ?? "", {
-                path: "/",
-                expires: date
-              });
-              router.push(storage.getItem("prevPath"));
+          const login = await axios.post(
+            "https://macproj.shop/login/socialLogin",
+            {
+              provider: "google",
+              accessToken: tokens?.data?.access_token
             }
+          );
+
+          // 쿠키에 리프레시 토큰 및 마지막 로그인 수단 저장
+          setAppCookies("refresh_token", tokens?.data?.refresh_token, {
+            path: "/",
+            expires: date
           });
-      } catch (error) {
-        if (error instanceof Error) alert(error.message);
+          setAppCookies("recentlyLoggedInWith", "google", {
+            path: "/",
+            expires: date
+          });
+
+          const storage = globalThis?.sessionStorage;
+
+          if (login?.data?.data.includes("@")) {
+            // 기존 회원이 아닌 경우, sessionStorage에 저장
+            storage.setItem("email", login?.data?.data);
+            storage.setItem("provider", "google");
+            router.push(`/signup/validation`);
+          } else {
+            // 기존 회원인 경우, 쿠키에 액세스 토큰 저장
+            setAppCookies("accessToken", login?.data?.data ?? "", {
+              path: "/",
+              expires: date
+            });
+            router.push(storage.getItem("prevPath"));
+          }
+        } catch (error) {
+          if (error instanceof Error) {
+            console.error("Error during Google login:", error.message);
+            alert("로그인 중 오류가 발생했습니다. 다시 시도해주세요.");
+          }
+        }
+      };
+
+      if (code) {
+        getToken();
       }
-    };
-    getToken();
+    }
   }, []);
 
   return <></>;
