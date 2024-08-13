@@ -10,7 +10,7 @@ export async function useFetchOneOrder(
       headers: {
         Authorization: `Bearer ${accessToken}`
       },
-      withCredentials: true
+      // withCredentials: true
     }
   );
 

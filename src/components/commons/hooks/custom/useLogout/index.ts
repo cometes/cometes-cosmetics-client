@@ -15,7 +15,7 @@ export const useLogout = () => {
           headers: {
             Authorization: `Bearer ${accessToken}`
           },
-          withCredentials: true
+          // withCredentials: true
         }
       );
 

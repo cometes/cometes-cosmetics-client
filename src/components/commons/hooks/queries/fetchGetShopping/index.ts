@@ -5,7 +5,7 @@ export async function useFetchGetShopping(accessToken) {
     headers: {
       Authorization: `Bearer ${accessToken}`
     },
-    withCredentials: true
+    // withCredentials: true
   });
   const response = await request.data;
   const data = response;

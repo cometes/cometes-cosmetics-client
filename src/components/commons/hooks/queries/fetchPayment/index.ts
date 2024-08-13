@@ -7,7 +7,7 @@ export async function useFetchPayment(path: string, accessToken: string) {
       headers: {
         Authorization: `Bearer ${accessToken}`
       },
-      withCredentials: true
+      // withCredentials: true
     }
   );
 
