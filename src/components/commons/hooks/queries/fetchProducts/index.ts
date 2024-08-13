@@ -28,7 +28,8 @@ export async function useFetchProductsLogin(category: string, page: number) {
     })
     .then(async res => {
       const result = await axios.get(
-        `https://macproj.shop/product/fetchProducts?id=${res?.data?.data}&category=${category}&page=${page}`
+        `https://macproj.shop/product/fetchProducts?id=${res?.data?.data}&category=${category}&page=${page}`,
+        { withCredentials: true }
       );
       return result;
     });
