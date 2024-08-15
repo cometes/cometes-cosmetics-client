@@ -85,19 +85,25 @@
 # 🖥️ 페이지 구성
 
 ## 메인 페이지
-![](https://velog.velcdn.com/images/cometes/post/db2b7894-9e67-4557-9951-dd386de10e8a/image.gif)
+![main](https://github.com/user-attachments/assets/a9ec40c7-6e79-4786-9594-253e218ffedf)
+
 
 ## 상품 목록 페이지
-![](https://velog.velcdn.com/images/cometes/post/f9e3b3d6-b61c-45e9-a925-cb21677e33be/image.gif)
+![list](https://github.com/user-attachments/assets/fe5ac0f1-2bed-4390-b989-2d3a2ad0f224)
+
 
 ## 장바구니 페이지
-![](https://velog.velcdn.com/images/cometes/post/03e291c7-5d02-412c-b220-de4b6ba637a3/image.gif)
+![cart](https://github.com/user-attachments/assets/ad654e89-86a9-40ed-a2d3-84e5fb53fe6e)
+
 
 ## 포인트 충전 페이지
-![](https://velog.velcdn.com/images/cometes/post/d8c6fad3-2e47-4c6c-a4d3-3deefcad667d/image.gif)
+![point](https://github.com/user-attachments/assets/ca5deb53-fadd-4e4f-88e9-23ebdd67fa6f)
+
 
 ## 상품 주문 페이지
-![](https://velog.velcdn.com/images/cometes/post/822678ff-0f35-400f-8f35-9df6db9d2fb3/image.gif)
+![order](https://github.com/user-attachments/assets/f1a09a95-a47b-42e8-af94-0e63ee661a6a)
+
 
 ## 캠페인 페이지
-![](https://velog.velcdn.com/images/cometes/post/a3c2e6d3-e575-4543-a294-2319c263f969/image.gif)
+![viva](https://github.com/user-attachments/assets/a2d3f527-8f3a-4652-9506-d34d7e9091de)
+
